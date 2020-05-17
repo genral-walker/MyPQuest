@@ -1,0 +1,324 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #bbbbbb;
+    font-size: 1.6rem;
+}
+h1 {
+    margin: 2rem;
+    font-family: 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+h2 {
+    margin: 1rem 0;   
+}
+
+p {
+    line-height: 1.4rem;
+}
+
+.body {
+    display: flex;
+    margin: 1.5rem 1.5rem  0;
+}
+
+.left-aside , .right-aside {
+    font-size: 1.3rem;
+    background-color: #004a7c;
+    color: #e8f1f5;
+    border: 10px solid #314a52;
+    padding: 0 1rem 1rem;
+    border-radius: 17px;
+}
+
+.left-aside {
+    height: 35vh;
+    flex: 1;
+    order: 3;
+    margin-left: 2.5rem;
+    padding-top: 4rem;
+}
+
+.left-aside p {
+    text-align: left;
+}
+
+.answer {
+    margin-top: -1.5rem;
+}
+.score {
+    margin-top: 1.5rem;
+}
+
+button {
+    outline: none;
+    cursor: pointer;
+    height: 2rem;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border: none;
+    width: 4.5rem;
+    margin: 1.3rem 15.5rem 0 0;
+    background-color: #f2f4f6;
+    }
+
+    button:hover {
+        background-color: #5ff4ee;
+        transition: 0.7s;
+    }
+    
+    .Next {
+        padding: 1rem;
+    height: 0.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.right-aside {
+    height: 67vh;
+    flex: 1.7;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: minmax(3rem, 10rem);
+    gap: 3rem;
+
+}
+
+.box {
+    background-color: #f2f4f6;
+    color: black;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
+    padding: 0 0 0 1rem;
+}
+.box:hover {
+    background-color: #6af79a;
+    color: white;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+
+.box p {
+    text-align: left;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    pointer-events: none;
+}
+
+.q {
+    grid-column: 1/3;
+    grid-row: 1/2;
+}
+
+.a {
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+.b {
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+.c {
+    grid-column: 1/2;
+    grid-row: 3;
+}
+
+.d {
+    grid-column: 2/3;
+    grid-row: 3;
+}
+
+.options {
+    height: 5rem;
+    display: block;
+    float: left;
+    padding-right: 0.3rem;
+}
+
+footer p {
+    font-size: 1.3rem;
+    margin-top: 2.2rem;
+
+}
+
+/* Dom manipilators */
+
+.wrong {
+    color: ivory;
+    background-color: tomato;
+    transition: 0.4s;
+
+}
+
+.right {
+    background-color: #6af79a;
+    color: white;
+    transition: 0.4s;
+}
+
+.btnHover {
+    background-color: #12e712;
+    transition: 0.7s;
+}
+
+
+/* Media Queries. */
+
+@media screen and (max-width: 967px) {
+    body {
+        font-size: 1.5rem;
+    }
+
+    .q p, .left-aside p {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 938px) {
+    body {
+        font-size: 1.4rem;
+    }
+
+    .box p {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 894px) {
+    body {
+        font-size: 1.3rem;
+    }
+ .body {
+     flex-direction: column;
+ } 
+.right-aside {
+    height: 50vh;
+    flex: unset;
+    gap: 1.5rem;
+}
+
+.left-aside {
+    height: 200px;
+    margin-top: 1rem;
+    padding: 2rem 1rem 0.5rem;
+    margin-left: 0;
+}
+
+.score {
+    margin-top: 0.7rem;
+}
+
+.box p {
+    font-size: 1rem;
+}
+button {
+    margin: 0.6rem 35rem 0 0;
+}
+
+footer p {
+    font-size: 1.1rem;
+    position: relative;
+    bottom: 0.8rem;
+}
+}
+
+@media screen and (max-width: 815px) {
+    body {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    body {
+        font-size: 1.1rem;
+    }
+
+}
+
+@media screen and (max-width: 650px) {
+    h1 {
+        font-size: 1.8rem;
+        margin: 1rem 0;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+        margin-top: 0.5rem;
+    }
+.right-aside {
+    display: flex;
+    flex-direction: column;
+    height: 63vh;
+}
+.right-aside p {
+    margin-bottom: 0.5rem;
+}
+.box {
+    border-radius: 10px;
+    height: 3.5rem;
+    margin-top: 0.5rem;
+}
+.box p {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.left-aside p, footer p {
+    font-size: 1rem;
+}
+}
+
+@media screen and (max-width: 350px) {
+    h1 {
+        font-size: 1.5rem;
+        margin: 0.8rem 0;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    .right-aside {
+        height: 58vh;
+    }
+    .right-aside p {
+        margin-bottom: 0.3rem;
+        font-size: 1rem;
+        line-height: 1.2;
+    }
+    .box {
+        height: 3rem;
+        margin-top: 0.5rem;
+    }
+    .box p {
+        font-size: 0.8rem;
+        margin-top: 0.2rem;
+    }
+    
+    .left-aside p, footer p, .Next {
+        font-size: 0.9rem;
+    }
+
+    button {
+        height: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 290px) {
+    h2 {
+        font-size: 1.1rem;
+    }
+    .right-aside p {
+        font-size: 0.8rem;
+    }
+}
