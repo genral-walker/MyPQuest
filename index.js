@@ -95,10 +95,7 @@ const pages = {
 }; 
 
 
-
-
-
-let clicked = false;
+let isClicked = false;
 let rightAns = 0;
 let wrongAns = 0;
 let score = 0;
@@ -110,8 +107,7 @@ const btnHover = () => {
 
     setTimeout(() => {
         document.querySelector('button').classList.remove('btnHover')
-    }, 2200);
-
+    }, 1900);
 };
 
 
@@ -130,8 +126,20 @@ const processQuestion = () => {
                 document.querySelector(`.${rightOption}`).classList.add('right');
                 wrongAns++;
                 document.querySelector('.wrongAns').textContent = wrongAns;
-            }
-            clicked = true;
+            };
+
+            if (PageNum == 5){
+                setTimeout(()=>{
+                    document.querySelector('.left-aside').style.height = '46vh';
+                    document.querySelectorAll('.hide')[0].classList.remove('invisible');
+                    document.querySelectorAll('.hide')[1].classList.remove('invisible');
+                    document.querySelector('button').remove();
+                    document.querySelector(`#qbox`).style.pointerEvents='none';
+                }, 1400)
+                return;
+            };
+
+            isClicked = true;
             document.querySelector(`#qbox`).style.pointerEvents='none';
             setTimeout(() => { btnHover() }, 900);
         });
@@ -141,21 +149,19 @@ const processQuestion = () => {
 const nextPage = () => {
     processQuestion();
     document.querySelector('button').addEventListener('click', () => {
+        if (isClicked === false) {
+            return;
+        };
+
         setTimeout(() => {
             let container = document.querySelector(`#qbox`);
             container.innerHTML = pages[`page${++PageNum}`];
-
+            isClicked = false;
+            processQuestion();
         }, 300);
-
+        
          document.querySelector(`#qbox`).style.pointerEvents='auto';
     });
 };
 
-
 nextPage();
-
-
-
-
-
-
