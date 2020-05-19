@@ -7,6 +7,7 @@
 }
 
 body {
+    overflow-x: hidden;
     background-color: #bbbbbb;
     font-size: 1.6rem;
 }
@@ -47,6 +48,7 @@ p {
 
 .left-aside p {
     text-align: left;
+    line-height: 1.2;
 }
 
 .answer {
@@ -64,13 +66,8 @@ button {
     border-bottom-right-radius: 30px;
     border: none;
     width: 4.5rem;
-    margin: 1.3rem 15.5rem 0 0;
+    margin: 0 15.5rem 0 0;
     background-color: #f2f4f6;
-    }
-
-    button:hover {
-        background-color: #5ff4ee;
-        transition: 0.7s;
     }
     
     .Next {
@@ -98,13 +95,6 @@ button {
     border-top-left-radius: 20px;
     padding: 0 0 0 1rem;
 }
-.box:hover {
-    background-color: #6af79a;
-    color: white;
-    transition: 0.4s;
-    cursor: pointer;
-}
-
 
 .box p {
     text-align: left;
@@ -152,6 +142,9 @@ footer p {
 }
 
 /* Dom manipilators */
+.invisible {
+    display: none !important;
+}
 
 .wrong {
     color: ivory;
@@ -161,7 +154,7 @@ footer p {
 }
 
 .right {
-    background-color: #6af79a;
+    background-color: #24e564;
     color: white;
     transition: 0.4s;
 }
@@ -194,6 +187,20 @@ footer p {
     }
 }
 
+@media screen and (min-width: 894px) {
+    .box:hover {
+        background-color: #6af79a;
+        color: white;
+        transition: 0.4s;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #5ff4ee;
+        transition: 0.7s;
+    }
+} 
+
 @media screen and (max-width: 894px) {
     body {
         font-size: 1.3rem;
@@ -218,11 +225,19 @@ footer p {
     margin-top: 0.7rem;
 }
 
+.box:hover {
+    cursor: pointer;
+}
+
 .box p {
     font-size: 1rem;
 }
 button {
     margin: 0.6rem 35rem 0 0;
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 footer p {
@@ -268,6 +283,7 @@ footer p {
     height: 3.5rem;
     margin-top: 0.5rem;
 }
+
 .box p {
     font-size: 0.9rem;
     margin-top: 0.5rem;
@@ -280,12 +296,12 @@ footer p {
 
 @media screen and (max-width: 350px) {
     h1 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         margin: 0.8rem 0;
     }
 
     h2 {
-        font-size: 1.4rem;
+        font-size: 1.1rem;
     }
 
     .right-aside {
@@ -316,7 +332,7 @@ footer p {
 
 @media screen and (max-width: 290px) {
     h2 {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
     .right-aside p {
         font-size: 0.8rem;
