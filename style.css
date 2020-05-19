@@ -4,11 +4,11 @@
     font-family: sans-serif;
     text-align: center;
     box-sizing: border-box;
-    outline: none;
+    outline: none !important;
 }
 
 body {
-    overflow-x: hidden;
+    overflow-x: hidden !important;
     background-color: #bbbbbb;
     font-size: 1.6rem;
 }
