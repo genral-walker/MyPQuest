@@ -4,6 +4,7 @@
     font-family: sans-serif;
     text-align: center;
     box-sizing: border-box;
+    outline: none;
 }
 
 body {
