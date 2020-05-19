@@ -208,6 +208,7 @@ footer p {
     }
  .body {
      flex-direction: column;
+     overflow-x: hidden !important;
  } 
 .right-aside {
     height: 50vh;
@@ -228,6 +229,7 @@ footer p {
 
 .box:hover {
     cursor: pointer;
+    outline: none;
 }
 
 .box p {
