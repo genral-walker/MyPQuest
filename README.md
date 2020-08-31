@@ -1,5 +1,5 @@
 # lukman-s.github.io
-A Javacript Quiz Game Challenge by Start.ng internship.
+A Javacript Quiz Game Challenge during Start.ng internship.
 
 Hosted with GitHub pages:
 
