@@ -52,14 +52,18 @@ body {
 
 .main {
   flex: 0 0 90%;
-  color: $color-dark-secondary;
+  color: $color-bg-3;
   padding-left: 5.37rem;
 
   .top {
     font-size: 2rem;
     width: 60vw;
     height: 15.3rem;
-    background: $color-bg-3;
+    background: rgba(transparent, .1);
+    
+  box-shadow: -3px -3px 10px 3px rgba($color-bg-3, 0.1),
+  5px 5px 10px 6px rgba($color-bg-3, 0.1);
+    
     border-radius: 8px;
     &__status {
       border-bottom: $border-secondary;
@@ -121,11 +125,14 @@ body {
     margin-top: 1.5rem;
     &__answer {
       width: 60vw;
-      background: $color-bg-3;
+      background: rgba(transparent, .1);
       border-radius: 5px;
-      color: $bg-shadow;
+      color: $color-bg-3;
     height: 4.5rem;
     font-size: 1.75rem;
+    box-shadow: -1px -1px 3px 2px rgba($color-bg-3, 0.1),
+    1px 1px 3px -4px rgba($color-bg-3, 0.1);
+      
     overflow: hidden;
       @include flex-center;
       justify-content: flex-start;
@@ -140,7 +147,7 @@ body {
       height: 100%;
       flex: 0 0 6%;
       text-align: center;
-      color: $color-white;
+      color: $color-bg-3;
       background-image:  linear-gradient(
         to right bottom,
         $color-bg-1 18%,
