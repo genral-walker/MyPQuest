@@ -1,0 +1,154 @@
+body {
+  height: 100vh;
+  background-image: linear-gradient(
+    to right bottom,
+    $color-bg-1 18%,
+    rgba($color-bg-2, 0.8) 60%
+  );
+  @include flex-center;
+  letter-spacing: 0.2px;
+}
+
+.container {
+  width: 77vw;
+  height: 77vh;
+  color: $color-white;
+  border-radius: 23px;
+  @include flex-center;
+  justify-content: space-between;
+  background: rgba($color-blue, 0.9);
+  box-shadow: -10px -10px 25px -6px rgba($bg-shadow, 0.5),
+    10px 10px 25px -1px rgba($bg-shadow, 0.5);
+  overflow: inherit;
+}
+
+.side {
+  background: $color-bg-3;
+  flex: 0 0 10%;
+  height: 100%;
+  padding: 0 1rem 3rem;
+  @include flex-column;
+  justify-content: space-evenly;
+  color: $color-dark-secondary;
+  &__icon {
+    @include flex-column;
+    justify-content: space-between;
+  }
+  &__icon-image {
+    width: 6rem;
+    margin-bottom: 0.6rem;
+  }
+  &__text {
+    color: rgba($color-blue, 0.8);
+    font-size: 3rem;
+    font-weight: lighter;
+  }
+
+  .btn {
+    color: rgba($color-blue, 0.9);
+    font-size: 1.7rem;
+  }
+}
+
+.main {
+  flex: 0 0 90%;
+  color: $color-dark-secondary;
+  padding-left: 5.37rem;
+
+  .top {
+    font-size: 2rem;
+    width: 60vw;
+    height: 15.3rem;
+    background: $color-bg-3;
+    border-radius: 8px;
+    &__status {
+      border-bottom: $border-secondary;
+        font-size: 1.8rem;
+        font-weight: 400;
+      padding: 1rem 1rem 0.5rem;
+      @include flex-center;
+      justify-content: space-between;
+    }
+    &__status-text {
+      .precentage {
+      }
+    }
+    &__progress-bar {
+      display: inline-block;
+      border: $border-primary;
+      border-radius: 5px;
+      width: 19.5rem;
+      height: 1.5rem;
+      margin: 0.7rem 0 0.3rem 0.3rem;
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: "";
+        position: absolute;
+        background: linear-gradient(
+          to right bottom,
+          $color-bg-1 25%,
+          rgba($color-bg-2, 0.8) 100%
+        );
+        top: 0;
+        left: 0;
+        width: 10%;
+        height: 100%;
+      }
+    }
+    &__score {
+      margin-bottom: 1.1rem;
+      .score {
+        display: inline-block;
+        transform: translateY(1.1px);
+      }
+    }
+
+    &__question {
+      font-size: 1.5rem;
+      padding: 1.5rem 1rem 1rem;
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    &__question-text {
+      font-weight: 400;
+    }
+  }
+
+  .bottom {
+    margin-top: 1.5rem;
+    &__answer {
+      width: 60vw;
+      background: $color-bg-3;
+      border-radius: 5px;
+      color: $bg-shadow;
+    height: 4.5rem;
+    font-size: 1.75rem;
+    overflow: hidden;
+      @include flex-center;
+      justify-content: flex-start;
+      &:not(:last-of-type) {
+          margin-bottom: 1rem;
+      }
+    }
+    &__letter {
+      display: inline-block;
+      font-size: 2rem;
+      padding-top: 1rem;
+      height: 100%;
+      flex: 0 0 6%;
+      text-align: center;
+      color: $color-white;
+      background-image:  linear-gradient(
+        to right bottom,
+        $color-bg-1 18%,
+        rgba($color-bg-2, 0.8) 60%
+      );
+    }
+    &__text {  
+    margin-left: 1rem;
+    }
+  }
+}

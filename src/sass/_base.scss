@@ -1,0 +1,39 @@
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit; }
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth; }
+
+  
+body {
+    font-family: Helvetica, sans-serif;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  
+  a {
+    text-decoration: none;
+    color: currentColor;
+  }
+  
+  li {
+    list-style: none;
+  }
+
+  button {
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+      &:active,
+      &:focus {
+        border: none;
+        outline: none;
+      }
+  }

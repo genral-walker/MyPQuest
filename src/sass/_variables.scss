@@ -1,0 +1,22 @@
+
+////////////
+// COLORS
+///////////
+$color-white: white;
+
+$color-dark-primary: #04050D;
+$color-dark-secondary: #020e1f;
+
+$color-bg-1: #00c6fb;
+$color-bg-2: #005bea;
+$color-bg-3: #d5d7dd;
+$bg-shadow: black;
+
+$color-blue: #0b0b2cfd; 
+
+
+///////////////////////
+//// UTILITIES
+///////////////////////
+$border-primary: 1px solid rgba($color-dark-primary, .5);
+$border-secondary: 3px solid $color-dark-primary;
