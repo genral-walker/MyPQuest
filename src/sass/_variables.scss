@@ -19,4 +19,7 @@ $color-blue: #0b0b2cfd;
 //// UTILITIES
 ///////////////////////
 $border-primary: 1px solid rgba($color-white, .5);
-$border-secondary: 1.7px solid $color-bg-3;
+$border-secondary: 1.7px solid rgba($color-white, .5);
+
+$box-shadow-primary: -1px -1px 5px rgba($color-bg-3, .2),
+7px 7px 6px 2px rgba($color-dark-primary, .3);
