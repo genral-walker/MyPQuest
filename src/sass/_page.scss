@@ -12,7 +12,7 @@ body {
 .container {
   color: $color-bg-3;
   width: 77vw;
-  height: 77vh;
+  height: 85vh;
   border-radius: 23px;
   @include flex-center;
   justify-content: space-between;
@@ -28,17 +28,19 @@ body {
   height: 100%;
   padding: 0 1rem 3rem;
   @include flex-column;
-  justify-content: space-evenly;
+  justify-content: space-around;
   color: $color-dark-secondary;
   &__icon {
     @include flex-column;
     justify-content: space-between;
+    margin-top: 2.5rem;
   }
   &__icon-image {
     width: 6rem;
     margin-bottom: 0.6rem;
   }
   &__text {
+    font-family: "Nova Oval", cursive;
     color: rgba($color-blue, 0.8);
     font-size: 3rem;
     font-weight: lighter;
@@ -48,6 +50,14 @@ body {
     color: rgba($color-blue, 0.9);
     font-size: 1.7rem;
   }
+  .copyright {
+    font-size: 1.15rem;
+    color: rgba($color-blue, 0.73);
+    padding: 0 0.3rem;
+    text-align: center;
+    margin-bottom: -3rem;
+    line-height: 1.5;
+  }
 }
 
 .main {
@@ -55,10 +65,10 @@ body {
   padding-left: 5.37rem;
 
   .top {
+    background: rgba(transparent, 0.1);
     font-size: 2rem;
     width: 60vw;
     height: 14.3rem;
-    background: rgba(transparent, 0.1);
     box-shadow: $box-shadow-primary;
     margin: 2rem 0 3rem;
     border-radius: 8px;
@@ -121,8 +131,8 @@ body {
   .bottom {
     margin-top: 1.5rem;
     &__answer {
-      width: 60vw;
       background: rgba(transparent, 0.1);
+      width: 60vw;
       border-radius: 5px;
       height: 4rem;
       font-size: 1.65rem;
@@ -133,6 +143,14 @@ body {
       justify-content: flex-start;
       &:not(:last-of-type) {
         margin-bottom: 1rem;
+      }
+      cursor: pointer;
+      transition: 0.2s ease;
+      @include responsive(hover) {
+        background: #28a745;
+      }
+      &:active {
+        transform: translateY(1.5px) scale(0.991);
       }
     }
     &__letter {
@@ -150,6 +168,7 @@ body {
       );
     }
     &__text {
+      font-weight: 300;
       margin-left: 1rem;
     }
   }
@@ -165,6 +184,33 @@ body {
       padding: 1rem 2.5rem;
       border-radius: 8px;
       margin: 2rem 0 0 22vw;
+      transition: 0.2s ease;
+      @include responsive(hover) {
+        transform: translateY(-1.13px) scale(1.013);
+      }
+      &:active {
+        transform: translateY(1px) scale(1);
+      }
+      @include responsive(noHover) {
+        &:active {
+          transform: translateY(1.3px) scale(0.991);
+        }
+      }
+    }
+  }
+
+  .form {
+    display: none;
+    font-size: 1.8rem;
+    text-align: justify;
+    letter-spacing: -0.5px;
+    width: 32vw;
+    box-shadow: $box-shadow-primary;
+    border-radius: 8px;
+    padding: 2rem 1.5rem;
+    &__hello {
+    }
+    &__welcome {
     }
   }
 }

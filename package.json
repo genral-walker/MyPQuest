@@ -1,7 +1,7 @@
 {
   "name": "quiz.github.io",
-  "version": "1.0.0",
-  "description": "> A Javacript Quiz Game Challenge during Start.ng internship.",
+  "version": "2.0.0",
+  "description": "> Javacript quiz project during Start.ng internship.",
   "main": "index.js",
   "scripts": {
     "clean": "rm -r dist",
