@@ -1,18 +1,17 @@
-
 ///////////////////////
 ///// MIXINS
 //////////////////////
 
-@mixin flex-center{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @mixin flex-column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /// RESPONSIVENESS ///
@@ -21,64 +20,116 @@
 ////////// MIXINS
 
 @mixin responsive($condition) {
-
-    @if $condition == noHover {
-      @media only screen and (hover: none) { @content };
-    }
-    @if $condition == hover {
-        @media only screen and (hover: hover) { &:hover { @content }; };
-      }
-    @if $condition == 900px {
-        //////// 900px ///////
-        @media only screen and (max-width: 56.25em) { @content };
-      }
-    @if $condition == 700px {
-      //////// 700px ///////
-      @media only screen and (max-width: 43.75em) { @content };
-    }
-    @if $condition == 500px {
-      //////// 500px ///////
-      @media only screen and (max-width: 31.25em) { @content };
-    }
-    @if $condition == 400px {
-      //////// 400px ///////
-      @media only screen and (max-width: 25em) { @content };
-    }
-    @if $condition == 350px {
-      //////// 350px /////// 
-      @media only screen and (max-width: 21.875em) { @content };
-   }
-    @if $condition == 300px {
-      //////// 300px ///////
-      @media only screen and (max-width: 18.75em) { @content };
-    }
-    @if $condition == 260px {
-      //////// 260px /////// 
-    @media only screen and (max-width: 16.25em) { @content };
-    }
-    @if $condition == 250px {
-      //////// 250px ///////
-    @media only screen and (max-width: 15.625em) { @content };
-    }
-    @if $condition == 230px {
-      //////// 230px ///////
-      @media only screen and (max-width: 14.375em) { @content };
-    }
-    @if $condition == 220px {
-      //////// 220px ///////
-      @media only screen and (max-width: 13.75em) { @content };
-    }
-    @if $condition == 210px {
-      //////// 210px ///////
-      @media only screen and (max-width: 13.125em) { @content };
+  @if $condition == noHover {
+    @media only screen and (hover: none) {
+      @content;
     }
   }
+  @if $condition == hover {
+    @media only screen and (hover: hover) {
+      &:hover {
+        @content;
+      }
+    }
+  }
+  @if $condition == 900px {
+    //////// 900px ///////
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    }
+  }
+  @if $condition == 700px {
+    //////// 700px ///////
+    @media only screen and (max-width: 43.75em) {
+      @content;
+    }
+  }
+  @if $condition == 500px {
+    //////// 500px ///////
+    @media only screen and (max-width: 31.25em) {
+      @content;
+    }
+  }
+  @if $condition == 400px {
+    //////// 400px ///////
+    @media only screen and (max-width: 25em) {
+      @content;
+    }
+  }
+  @if $condition == 350px {
+    //////// 350px ///////
+    @media only screen and (max-width: 21.875em) {
+      @content;
+    }
+  }
+  @if $condition == 300px {
+    //////// 300px ///////
+    @media only screen and (max-width: 18.75em) {
+      @content;
+    }
+  }
+  @if $condition == 260px {
+    //////// 260px ///////
+    @media only screen and (max-width: 16.25em) {
+      @content;
+    }
+  }
+  @if $condition == 250px {
+    //////// 250px ///////
+    @media only screen and (max-width: 15.625em) {
+      @content;
+    }
+  }
+  @if $condition == 230px {
+    //////// 230px ///////
+    @media only screen and (max-width: 14.375em) {
+      @content;
+    }
+  }
+  @if $condition == 220px {
+    //////// 220px ///////
+    @media only screen and (max-width: 13.75em) {
+      @content;
+    }
+  }
+  @if $condition == 210px {
+    //////// 210px ///////
+    @media only screen and (max-width: 13.125em) {
+      @content;
+    }
+  }
+}
 
-
-  .correct {
+@mixin btn-submit-set {
+  background-image: linear-gradient(
+    to right bottom,
+    $color-bg-1 18%,
+    rgba($color-bg-2, 0.8) 60%
+  );
+  padding: 1rem 2.5rem;
+  border-radius: 8px;
+  transition: 0.2s ease;
+  @include responsive(hover) {
+    transform: translateY(-1.13px) scale(1.013);
+  }
+  &:active {
+    transform: translateY(1px) scale(1);
+  }
+  @include responsive(noHover) {
+    &:active {
+      transform: translateY(1.3px) scale(0.991);
+    }
+  }
+}
+.correct {
   background-color: #28a745;
 }
 
 .incorrect {
   background-color: #dc3545;
 }
+
+// transition: 1.2s ease-in-out;
+// &:active {
+//   transform: translateX(-93rem);
+// }

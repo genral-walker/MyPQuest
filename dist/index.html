@@ -7,7 +7,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@300;400;700&family=Nova+Oval&display=swap" rel="stylesheet">
 
-    <link rel="shortcut icon" href="/icon-image.c03c246a.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="/icon-image.c01f9e70.svg" type="image/x-icon">
     <link rel="stylesheet" href="/main.07544d9b.css">
   <script src="/main.07544d9b.js"></script></head>
 
@@ -15,16 +15,62 @@
     <div class="container">
       <aside class="side">
         <div class="side__icon">
-          <img src="/icon-image.c03c246a.svg" alt="Quizllo Icon" class="side__icon-image">
+          <img src="/icon-image.c01f9e70.svg" alt="Quizllo Icon" class="side__icon-image">
           <h1 class="side__text">Quizllo</h1>
         </div>
 
-        <button class="btn btn__profile">Profile</button>
+        <div class="btn">
+          <button class="btn__user">Username</button>
 
-        <button class="btn btn__highscores">Highscores</button>
+        </div>
+        <div class="btn">
+          <button class="btn__highscores">Highscores</button>
 
-        <button class="btn btn__exit">Exit Game</button>
-
+          <table class="btn btn__ptable">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Highscores</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  football
+                </td>
+                <td>20</td>
+              </tr>
+              <tr>
+                <td>
+                  football
+                </td>
+                <td>20</td>
+              </tr>
+              <tr>
+                <td>
+                  football
+                </td>
+                <td>20</td>
+              </tr>
+              <tr>
+                <td>
+                  football
+                </td>
+                <td>20</td>
+              </tr>
+              <tr>
+                <td>
+                  football
+                </td>
+                <td>20</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="btn">
+          <button class="btn__exit">Exit Game</button>
+        </div>
+      
         <p class="copyright">
           &copy; genral-walker 2020.<br>
           Powered by
@@ -90,15 +136,57 @@
           <button class="foot__btn">Next question</button>
         </div>
 
-        <form action="" class="form">
-          <h2 class="form__hello">Hello There</h2>
+        <form class="form">
+          <h2 class="form__">Hello There 🤗</h2> 
           <p class="form__welcome">
-            Welcome To Quizllo, a fun and interactive way to test your knowledge
-            <br>
-            Kindly fill in the form below for optimal experience. <br>
-            We promise not to share your details with anyone, this is solely for
-            game.
+            <span class="form__welcome-2">Welcome To Quizllo</span>
+            <span class="form__welcome-3">
+              A fun and 
+              interactive way to test your knowledge  
+            </span>
+            <span class="form__welcome-fill">
+              Kindly fill in the form 
+              below for optimal experience
+            </span>
           </p>
+          
+          <div class="form__name">
+          <label for="name">Username</label>
+          <input required="" type="text" name="name" id="name">
+          </div>
+
+          <div class="form__tel">
+          <label for="mobile">Mobile number</label>
+          <input required="" type="tel" name="mobile" id="mobile">
+          </div>
+
+          <div class="form__category">
+            <label for="category">Category</label>
+            <select required="" name="category" id="category">
+              <option value="hello">Helooo</option>
+              <option value="hiii">Hiii</option>
+              <option value="yeees">Yeeeeess</option>
+              <option value="booooha">Bohaaa</option>
+            </select>
+          </div>
+
+          <div class="form__difficulty">
+            <label for="difficulty">Difficulty</label>
+            <select required="" name="difficulty" id="difficulty">
+              <option value="hello">Helooo</option>
+              <option value="hiii">Hiii</option>
+              <option value="yeees">Yeeeeess</option>
+              <option value="booooha">Bohaaa</option>
+            </select>
+          </div>
+
+
+          <div class="numbers">
+            <label for="numbers">Number of questions</label>
+            <input required="" type="number" name="numbers" id="numbers">
+          </div>
+
+          <button class="form__btn">Proceed</button>
         </form>
       </main>
     </div>

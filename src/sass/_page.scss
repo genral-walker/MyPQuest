@@ -7,6 +7,7 @@ body {
   );
   @include flex-center;
   letter-spacing: 0.2px;
+  
 }
 
 .container {
@@ -22,7 +23,7 @@ body {
   overflow: inherit;
 }
 
-.side {
+.side { 
   background: $color-bg-3;
   flex: 0 0 10%;
   height: 100%;
@@ -30,6 +31,8 @@ body {
   @include flex-column;
   justify-content: space-around;
   color: $color-dark-secondary;
+  position: relative;
+  z-index: 10;
   &__icon {
     @include flex-column;
     justify-content: space-between;
@@ -37,7 +40,7 @@ body {
   }
   &__icon-image {
     width: 6rem;
-    margin-bottom: 0.6rem;
+    margin-bottom: -.17rem;
   }
   &__text {
     font-family: "Nova Oval", cursive;
@@ -48,7 +51,33 @@ body {
 
   .btn {
     color: rgba($color-blue, 0.9);
-    font-size: 1.7rem;
+    button {
+      font-size: 1.6rem;
+      color: inherit;
+    }
+    .btn__user {
+      pointer-events: none;
+    }
+
+    table {
+      position: absolute;
+      font-size: 1.6rem;
+      text-align: center;
+      left: 101%;
+      transform: translateY(-2rem);
+      z-index: 5;
+      background-color: $color-bg-3;
+      box-shadow: $box-shadow-secondary;
+    border-radius: 8px;
+    padding: 1rem 2rem;
+    th {
+      font-size: 1.8rem;
+      padding: .5rem;
+    }
+     td {
+      padding: .3rem;
+    }
+    }
   }
   .copyright {
     font-size: 1.15rem;
@@ -63,8 +92,11 @@ body {
 .main {
   flex: 0 0 90%;
   padding-left: 5.37rem;
-
+  // expriment
+  filter: opacity(.8) blur(3px);
+  pointer-events: none;
   .top {
+    display: none;
     background: rgba(transparent, 0.1);
     font-size: 2rem;
     width: 60vw;
@@ -129,6 +161,7 @@ body {
   }
 
   .bottom {
+    display: none;
     margin-top: 1.5rem;
     &__answer {
       background: rgba(transparent, 0.1);
@@ -172,45 +205,92 @@ body {
       margin-left: 1rem;
     }
   }
+
   .foot {
+    display: none;
     &__btn {
+      @include btn-submit-set;
       color: inherit;
       font-size: 1.9rem;
-      background-image: linear-gradient(
-        to right bottom,
-        $color-bg-1 18%,
-        rgba($color-bg-2, 0.8) 60%
-      );
-      padding: 1rem 2.5rem;
-      border-radius: 8px;
       margin: 2rem 0 0 22vw;
-      transition: 0.2s ease;
-      @include responsive(hover) {
-        transform: translateY(-1.13px) scale(1.013);
-      }
-      &:active {
-        transform: translateY(1px) scale(1);
-      }
-      @include responsive(noHover) {
-        &:active {
-          transform: translateY(1.3px) scale(0.991);
-        }
-      }
     }
   }
 
   .form {
-    display: none;
-    font-size: 1.8rem;
-    text-align: justify;
+    // background: rgba(transparent, 0.1);
+    font-size: 1.6rem;
+    width: 90% !important;
+    height: 73vh;
+    overflow: hidden;
+    background: linear-gradient(108deg,
+    $color-bg-3 0%,
+    $color-bg-3 57%,
+    rgba($color-blue, .5) 57%
+    ), url(../images/female-quizllo.jpg) no-repeat;
+    background-size: 100%, 85%;
+    background-position: center, 21rem 0;
+    color: $color-dark-secondary;
+    text-align: left;
     letter-spacing: -0.5px;
     width: 32vw;
-    box-shadow: $box-shadow-primary;
+    box-shadow: $box-shadow-secondary;
     border-radius: 8px;
-    padding: 2rem 1.5rem;
+    padding: 1rem 2rem;
+      span {
+        display: inline-block;
+      }
     &__hello {
+      font-size: 2.7rem;
     }
     &__welcome {
+      width: 57%;
+    }
+    &__welcome-2 {
+      font-size: 2rem;
+      margin: .7rem 0 -.6rem;
+    }
+    &__welcome-3 {
+      font-size: 1.5rem;
+    }
+    &__welcome-fill {
+      margin: .7rem 0 1.5rem;
+    }
+    label {
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: .3rem;
+    }
+    input {
+      padding-left: .5rem;
+    }
+    input, select {
+      width: 45%;
+      height: 2.5rem;
+      background-color: $color-bg-3;
+      border: 1px solid transparent;
+      box-shadow: -2px -2px 4px -1px darken($color-bg-3, 10),
+      2px 4px 6px -1px darken($color-bg-3, 10);
+      border-radius: 5px;
+      outline: none;
+      transition: transform .3s, .2s;
+      &:active, &:focus {
+        border: 1px solid $color-blue;
+        outline: none;
+        background: rgba($color-blue, .87);
+        color: $color-bg-3;
+        transform: scale(.986);
+      }
+    }
+
+    div {
+      margin-bottom: 1rem;
+    }
+    &__btn {
+      @include btn-submit-set;
+      color: $color-bg-3;
+      font-size: 1.8rem;
+      margin-top: .4rem;
+      padding: .5rem 1.8rem;
     }
   }
 }
