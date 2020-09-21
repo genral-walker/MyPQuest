@@ -7,7 +7,6 @@ body {
   );
   @include flex-center;
   letter-spacing: 0.2px;
-  
 }
 
 .container {
@@ -23,7 +22,7 @@ body {
   overflow: inherit;
 }
 
-.side { 
+.side {
   background: $color-bg-3;
   flex: 0 0 10%;
   height: 100%;
@@ -40,7 +39,7 @@ body {
   }
   &__icon-image {
     width: 6rem;
-    margin-bottom: -.17rem;
+    margin-bottom: -0.17rem;
   }
   &__text {
     font-family: "Nova Oval", cursive;
@@ -51,33 +50,69 @@ body {
 
   .btn {
     color: rgba($color-blue, 0.9);
+    position: relative;
     button {
       font-size: 1.6rem;
       color: inherit;
     }
-    .btn__user {
-      pointer-events: none;
-    }
 
+    &__profile-list {
+      font-size: 1.7rem;
+      width: max-content;
+      position: absolute;
+      top: -170%;
+      left: 175%;
+      color: $color-bg-3;
+      background-color: rgba($color-blue, 0.94);
+      box-shadow: $box-shadow-primary;
+      border-radius: 8px;
+      padding: 1rem 1.5rem;
+      transform: translateX(120%);
+      transition: .6s;
+      button {
+        font-size: 2rem;
+        margin-top: 1rem;
+      }
+    }
     table {
       position: absolute;
       font-size: 1.6rem;
+      width: max-content;
       text-align: center;
-      left: 101%;
-      transform: translateY(-2rem);
-      z-index: 5;
-      background-color: $color-bg-3;
-      box-shadow: $box-shadow-secondary;
-    border-radius: 8px;
-    padding: 1rem 2rem;
-    th {
-      font-size: 1.8rem;
-      padding: .5rem;
+      left: 102%;
+      transform: translateY(-3rem);
+      background-color: rgba($color-blue, 0.94);
+      color: $color-bg-3;
+      box-shadow: $box-shadow-primary;
+      border-radius: 8px;
+      padding: 1rem 2rem;
+      th {
+        font-size: 1.8rem;
+        padding: 0.5rem;
+      }
+      td {
+        padding: 0.3rem;
+      }
     }
-     td {
-      padding: .3rem;
+    &__scores,
+    &__sessions {
+      position: relative;
+      table {
+        left: 116%;
+        transform: translateX(-100%);
+      }
     }
+    &__sessions-table {
+      top: 90%;
+      
     }
+    &__score-table {
+      top: 80%;
+    }
+
+    &__user:active &__profile-list {
+            transform: translateX(0);
+          }
   }
   .copyright {
     font-size: 1.15rem;
@@ -93,7 +128,7 @@ body {
   flex: 0 0 90%;
   padding-left: 5.37rem;
   // expriment
-  filter: opacity(.8) blur(3px);
+  filter: opacity(0.8) blur(3px);
   pointer-events: none;
   .top {
     display: none;
@@ -222,11 +257,13 @@ body {
     width: 90% !important;
     height: 73vh;
     overflow: hidden;
-    background: linear-gradient(108deg,
-    $color-bg-3 0%,
-    $color-bg-3 57%,
-    rgba($color-blue, .5) 57%
-    ), url(../images/female-quizllo.jpg) no-repeat;
+    background: linear-gradient(
+        108deg,
+        $color-bg-3 0%,
+        $color-bg-3 57%,
+        rgba($color-blue, 0.5) 57%
+      ),
+      url(../images/female-quizllo.jpg) no-repeat;
     background-size: 100%, 85%;
     background-position: center, 21rem 0;
     color: $color-dark-secondary;
@@ -236,9 +273,9 @@ body {
     box-shadow: $box-shadow-secondary;
     border-radius: 8px;
     padding: 1rem 2rem;
-      span {
-        display: inline-block;
-      }
+    span {
+      display: inline-block;
+    }
     &__hello {
       font-size: 2.7rem;
     }
@@ -247,38 +284,40 @@ body {
     }
     &__welcome-2 {
       font-size: 2rem;
-      margin: .7rem 0 -.6rem;
+      margin: 0.7rem 0 -0.6rem;
     }
     &__welcome-3 {
       font-size: 1.5rem;
     }
     &__welcome-fill {
-      margin: .7rem 0 1.5rem;
+      margin: 0.7rem 0 1.5rem;
     }
     label {
       display: block;
       font-size: 1.2rem;
-      margin-bottom: .3rem;
+      margin-bottom: 0.3rem;
     }
     input {
-      padding-left: .5rem;
+      padding-left: 0.5rem;
     }
-    input, select {
+    input,
+    select {
       width: 45%;
       height: 2.5rem;
       background-color: $color-bg-3;
       border: 1px solid transparent;
       box-shadow: -2px -2px 4px -1px darken($color-bg-3, 10),
-      2px 4px 6px -1px darken($color-bg-3, 10);
+        2px 4px 6px -1px darken($color-bg-3, 10);
       border-radius: 5px;
       outline: none;
-      transition: transform .3s, .2s;
-      &:active, &:focus {
+      transition: transform 0.3s, 0.2s;
+      &:active,
+      &:focus {
         border: 1px solid $color-blue;
         outline: none;
-        background: rgba($color-blue, .87);
+        background: rgba($color-blue, 0.87);
         color: $color-bg-3;
-        transform: scale(.986);
+        transform: scale(0.986);
       }
     }
 
@@ -289,8 +328,8 @@ body {
       @include btn-submit-set;
       color: $color-bg-3;
       font-size: 1.8rem;
-      margin-top: .4rem;
-      padding: .5rem 1.8rem;
+      margin-top: 0.4rem;
+      padding: 0.5rem 1.8rem;
     }
   }
 }
