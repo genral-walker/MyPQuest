@@ -27,9 +27,9 @@ body {
   flex: 0 0 10%;
   height: 100%;
   padding: 0 1rem 3rem;
+  color: rgba($color-blue, 0.8);
   @include flex-column;
   justify-content: space-around;
-  color: $color-dark-secondary;
   position: relative;
   z-index: 10;
   &__icon {
@@ -43,77 +43,15 @@ body {
   }
   &__text {
     font-family: "Nova Oval", cursive;
-    color: rgba($color-blue, 0.8);
     font-size: 3rem;
     font-weight: lighter;
   }
-
   .btn {
-    color: rgba($color-blue, 0.9);
     position: relative;
-    button {
-      font-size: 1.6rem;
-      color: inherit;
-    }
-
-    &__profile-list {
-      font-size: 1.7rem;
-      width: max-content;
-      position: absolute;
-      top: -170%;
-      left: 175%;
-      color: $color-bg-3;
-      background-color: rgba($color-blue, 0.94);
-      box-shadow: $box-shadow-primary;
-      border-radius: 8px;
-      padding: 1rem 1.5rem;
-      transform: translateX(120%);
-      transition: .6s;
-      button {
-        font-size: 2rem;
-        margin-top: 1rem;
-      }
-    }
-    table {
-      position: absolute;
-      font-size: 1.6rem;
-      width: max-content;
-      text-align: center;
-      left: 102%;
-      transform: translateY(-3rem);
-      background-color: rgba($color-blue, 0.94);
-      color: $color-bg-3;
-      box-shadow: $box-shadow-primary;
-      border-radius: 8px;
-      padding: 1rem 2rem;
-      th {
-        font-size: 1.8rem;
-        padding: 0.5rem;
-      }
-      td {
-        padding: 0.3rem;
-      }
-    }
-    &__scores,
-    &__sessions {
-      position: relative;
-      table {
-        left: 116%;
-        transform: translateX(-100%);
-      }
-    }
-    &__sessions-table {
-      top: 90%;
-      
-    }
-    &__score-table {
-      top: 80%;
-    }
-
-    &__user:active &__profile-list {
-            transform: translateX(0);
-          }
-  }
+    color: $color-dark-secondary;
+    font-size: 1.8rem;
+    color: inherit;
+}
   .copyright {
     font-size: 1.15rem;
     color: rgba($color-blue, 0.73);
@@ -123,6 +61,62 @@ body {
     line-height: 1.5;
   }
 }
+
+.info {
+    font-size: 1.7rem;
+    width: max-content;
+    position: absolute;
+    top: 38%;
+    left: 20.3%;
+    color: $color-bg-3;
+    background-color: rgba($color-blue, 0.94);
+    box-shadow: $box-shadow-primary;
+    border-radius: 8px;
+    z-index: 5;
+    padding: 1rem 1.5rem;
+    transition: .6s;
+    button {
+      font-size: 2rem;
+      margin-top: 1rem;
+    color: inherit;
+    }
+  
+  table {
+    position: absolute;
+    font-size: 1.6rem;
+    width: max-content;
+    text-align: center;
+    left: 102%;
+    transform: translateY(-3rem);
+    background-color: rgba($color-blue, 0.94);
+    color: $color-bg-3;
+    box-shadow: $box-shadow-primary;
+    border-radius: 8px;
+    padding: 1rem 2rem;
+    th {
+      font-size: 1.8rem;
+      padding: 0.5rem;
+    }
+    td {
+      padding: 0.3rem;
+    }
+  }
+  &__scores,
+  &__sessions {
+    position: relative;
+    table {
+      left: 116%;
+      transform: translateX(-200%);
+    }
+  }
+  &__sessions-table {
+    top: 90%;
+    
+  }
+  &__score-table {
+    top: 80%;
+  }
+  }
 
 .main {
   flex: 0 0 90%;
