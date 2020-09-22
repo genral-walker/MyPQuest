@@ -9,11 +9,22 @@ body {
   letter-spacing: 0.2px;
 }
 
+.bg-cover {
+  background: transparent;
+  width: 50vw;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  z-index: 6;
+}
+
 .container {
   color: $color-bg-3;
   width: 77vw;
   height: 85vh;
   border-radius: 23px;
+  position: relative;
+  z-index: 7;
   @include flex-center;
   justify-content: space-between;
   background: rgba($color-blue, 0.9);
@@ -51,7 +62,7 @@ body {
     color: $color-dark-secondary;
     font-size: 1.8rem;
     color: inherit;
-}
+  }
   .copyright {
     font-size: 1.15rem;
     color: rgba($color-blue, 0.73);
@@ -63,24 +74,25 @@ body {
 }
 
 .info {
-    font-size: 1.7rem;
-    width: max-content;
-    position: absolute;
-    top: 38%;
-    left: 20.3%;
-    color: $color-bg-3;
-    background-color: rgba($color-blue, 0.94);
-    box-shadow: $box-shadow-primary;
-    border-radius: 8px;
-    z-index: 5;
-    padding: 1rem 1.5rem;
-    transition: .6s;
-    button {
-      font-size: 2rem;
-      margin-top: 1rem;
+  font-size: 1.7rem;
+  width: max-content;
+  position: absolute;
+  top: 38%;
+  left: 20.3%;
+  color: $color-bg-3;
+  background-color: rgba($color-blue, 0.94);
+  box-shadow: $box-shadow-primary;
+  border-radius: 8px;
+  transform: translateX(-150%);
+  z-index: 5;
+  padding: 1rem 1.5rem;
+  transition: 0.6s;
+  button {
+    font-size: 2rem;
+    margin-top: 1rem;
     color: inherit;
-    }
-  
+  }
+
   table {
     position: absolute;
     font-size: 1.6rem;
@@ -111,12 +123,12 @@ body {
   }
   &__sessions-table {
     top: 90%;
-    
   }
   &__score-table {
     top: 80%;
   }
-  }
+}
+
 
 .main {
   flex: 0 0 90%;
@@ -124,6 +136,7 @@ body {
   // expriment
   filter: opacity(0.8) blur(3px);
   pointer-events: none;
+  ///
   .top {
     display: none;
     background: rgba(transparent, 0.1);

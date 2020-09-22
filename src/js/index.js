@@ -1,3 +1,5 @@
+
+/*
 const pagesAnswer = {
     page1: 'b',
     page2: 'c',
@@ -165,3 +167,12 @@ const nextPage = () => {
 };
 
 nextPage();
+
+*/
+
+document.querySelector('.side')
+.addEventListener('click', e =>{
+    if (e.target.classList.contains('btn__user')) {
+       document.querySelector('.info').classList.toggle('show');
+    }
+});
