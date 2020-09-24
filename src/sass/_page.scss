@@ -271,9 +271,9 @@ body {
         $color-bg-3 0%,
         $color-bg-3 57%,
         rgba($color-blue, 0.5) 57%
-      ), url(../images/female-quizllo.jpg) no-repeat;
-    background-size: 100.1%, contain;
-    background-position: center, 22rem 40%;
+      ), url(../images/female-quizllo.jpg) no-repeat fixed;
+    background-size: 100.1%, 60%;
+    background-position: center, 85%;
     color: $color-dark-secondary;
     text-align: left;
     letter-spacing: -0.5px;
@@ -281,13 +281,28 @@ body {
     box-shadow: $box-shadow-secondary;
     border-radius: 8px;
     padding: .1rem 2rem;
+    @include responsive(1400px) {
+      background-size: 100.1%, 70%;
+      background-position: center, 93%;
+    }
+    @include responsive(1600px) {
+      background-size: 100.1%, 61%;
+      background-position: center, 85%;
+    }
     @include responsive(1280px) {
-      background-attachment: fixed;
-      background-size: 100.1%, 68%;
-      background-position: center, 100%;
+      background-size: 100.1%, 80%;
+      background-position: center, 120%;
+    }
+    @include responsive(1200px) {
+      background-size: 100.1%, 65.2%;
+      background-position: center, 93%;
+    }
+    @include responsive(1024px) {
+      background-size: 100.1%, 82%;
+      background-position: center, 130%;
     }
 
-    // 1367 and 1800
+    // 1367 and 1800 
     span {
       display: inline-block;
     }

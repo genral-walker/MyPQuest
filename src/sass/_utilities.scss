@@ -81,14 +81,10 @@ from 1090 below - no need
     }
   }
   
-  //////// 1366px MY CURRENT PC VIEWPORT
-  @if $condition == 1367px {
-    //////// 1366px * 768px ///////
+  //////// 1366px MY CURRENT PC VIEWPORT SO NOT NEEDED FOR NOW TILL FURTHER
+  //////// 1366px * 768px ///////
     ////// COMMENCE FROM HERE BELOW
-    @media only screen and (min-width: 85.4375em) {
-      @content;
-    }
-  }
+
   @if $condition == 1280px {
     //////// 1280px * 720px || 800px || 950px ///////
     @media only screen and (max-width: 80em) {
