@@ -11,7 +11,6 @@
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
-
   ///// MIN WIDTH RULES GOES IN ASCENDING ORDER //////
   @include responsive(1367px) {
     font-size: 70%
@@ -22,9 +21,24 @@ html {
   @include responsive(1800px) {
     font-size: 93%
   }
-  
+
   //////// MAX-WIDTH RULES -- IN DESCENDING ORDER ////////
   
+    @include responsive(1200px) {
+      font-size: 56.25%;
+    }
+    @include responsive(1024px) {
+      font-size: 53.125%;
+    }
+    @include responsive(900px) {
+      font-size: 50%;
+    }
+    @include responsive(800px) {
+      font-size: 45%;
+    }
+    @include responsive(600px) {
+      font-size: 43.75%;
+    }
  }
   
  

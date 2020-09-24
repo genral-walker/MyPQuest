@@ -110,7 +110,7 @@ from 1090 below - no need
     }
   }
   @if $condition == 800px {
-    //////// 800px ///////
+    //////// 800px * 480px ///////
     @media only screen and (max-width: 50em) {
       @content;
     }
@@ -134,7 +134,7 @@ from 1090 below - no need
     }
   }
   @if $condition == 650px {
-    //////// 650px ///////
+    //////// 650px * 360px || 350px ///////
     @media only screen and (max-width: 40.625em) {
       @content;
     }

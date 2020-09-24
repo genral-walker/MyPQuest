@@ -294,15 +294,40 @@ body {
       background-position: center, 120%;
     }
     @include responsive(1200px) {
-      background-size: 100.1%, 65.2%;
-      background-position: center, 93%;
+      background-size: 100.1%, 75.2%;
+      background-position: center, 123%;
     }
     @include responsive(1024px) {
-      background-size: 100.1%, 82%;
-      background-position: center, 143%;
+      width: 58vw !important;
+      background-size: 100.1%, 70%;
+      background-position: center, 93%;
     }
-
-    // 1367 and 1800 
+    @include responsive(900px) {
+      background-size: 102%, 75%;
+      background-position: center, 110%;
+    }
+    @include responsive(800px) {
+      background: linear-gradient(
+        to right,
+        $color-bg-3 0%,
+        $color-bg-3 57%,
+        rgba($color-blue, 0.5) 57%
+      ), url(../images/female-quizllo.jpg) no-repeat fixed;
+      background-size: 102%, 75%;
+      background-position: center, 107%;
+      width: 88% !important;
+    }
+    @include responsive(768px) {
+      width: 86% !important;
+      background-size: 102%, 85%;
+      background-position: center, 137%;
+    }
+    @include responsive(720px) {
+      width: 85% !important;
+    }
+    @include responsive(650px) {
+      width: 80% !important;
+    }
     span {
       display: inline-block;
     }
@@ -311,6 +336,9 @@ body {
     }
     &__welcome {
       width: 57%;
+      @include responsive(650px) {
+        width: unset;
+      }
     }
     &__welcome-2 {
       font-size: 2rem;
@@ -332,6 +360,7 @@ body {
     }
     input,
     select {
+      font-size: inherit;
       width: 45%;
       height: 2.5rem;
       background-color: $color-bg-3;
