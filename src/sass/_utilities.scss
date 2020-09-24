@@ -19,6 +19,12 @@
 /////////////////////////////////////
 ////////// MIXINS
 
+
+/*
+HEIGHT ADJUSTMENT
+
+from 1090 below - no need
+*/
 @mixin responsive($condition) {
   @if $condition == noHover {
     @media only screen and (hover: none) {
@@ -32,9 +38,96 @@
       }
     }
   }
+  @if $condition == 2000px {
+    //////// 2000px ///////
+    @media only screen and (min-width: 125em) {
+      @content;
+    }
+  }
+  @if $condition == 1920px {
+    //////// 1920px * 1080px ///////
+    @media only screen and (min-width: 120em) {
+      @content;
+    }
+  }
+  @if $condition == 1800px {
+    //////// 1800px ///////
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    }
+  }
+  @if $condition == 1600px {
+    //////// 1600px * 900px ///////
+    @media only screen and (min-width: 100em) {
+      @content;
+    }
+  }
+  @if $condition == 1500px {
+    //////// 1500px ///////
+    @media only screen and (min-width: 93.75em) {
+      @content;
+    }
+  }
+  @if $condition == 1440px {
+    //////// 1440px * 900px ///////
+    @media only screen and (min-width: 90em) {
+      @content;
+    }
+  }
+  @if $condition == 1400px {
+    //////// 1400px * 900px ///////
+    @media only screen and (min-width: 87.5em) {
+      @content;
+    }
+  }
+  
+  //////// 1366px MY CURRENT PC VIEWPORT
+  @if $condition == 1367px {
+    //////// 1366px * 768px ///////
+    ////// COMMENCE FROM HERE BELOW
+    @media only screen and (min-width: 85.4375em) {
+      @content;
+    }
+  }
+  @if $condition == 1280px {
+    //////// 1280px * 720px || 800px || 950px ///////
+    @media only screen and (max-width: 80em) {
+      @content;
+    }
+  }
+  @if $condition == 1200px {
+    //////// 1200px ///////
+    @media only screen and (max-width: 75em) {
+      @content;
+    }
+  }
+  @if $condition == 1024px {
+    //////// 1024px * 768px ///////
+    @media only screen and (max-width: 64em) {
+      @content;
+    }
+  }
   @if $condition == 900px {
     //////// 900px ///////
     @media only screen and (max-width: 56.25em) {
+      @content;
+    }
+  }
+  @if $condition == 800px {
+    //////// 800px ///////
+    @media only screen and (max-width: 50em) {
+      @content;
+    }
+  }
+  @if $condition == 768px {
+    //////// 768px * 1024px ///////
+    @media only screen and (max-width: 48em) {
+      @content;
+    }
+  }
+  @if $condition == 720px {
+    //////// 720px * 1280px ///////
+    @media only screen and (max-width: 45em) {
       @content;
     }
   }
@@ -44,9 +137,39 @@
       @content;
     }
   }
+  @if $condition == 650px {
+    //////// 650px ///////
+    @media only screen and (max-width: 40.625em) {
+      @content;
+    }
+  }
+  @if $condition == 600px {
+    //////// 600px ///////
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    }
+  }
+  @if $condition == 550px {
+    //////// 550px ///////
+    @media only screen and (max-width: 34.375em) {
+      @content;
+    }
+  }
   @if $condition == 500px {
     //////// 500px ///////
     @media only screen and (max-width: 31.25em) {
+      @content;
+    }
+  }
+  @if $condition == 480px {
+    //////// 480px * 800px ///////
+    @media only screen and (max-width: 30em) {
+      @content;
+    }
+  }
+  @if $condition == 425px {
+    //////// 425px ///////
+    @media only screen and (max-width: 26.5625em) {
       @content;
     }
   }
@@ -56,9 +179,27 @@
       @content;
     }
   }
+  @if $condition == 375px {
+    //////// 375px * 667px ///////
+    @media only screen and (max-width: 23.4375em) {
+      @content;
+    }
+  }
+  @if $condition == 360px {
+    //////// 360px * 640px ///////
+    @media only screen and (max-width: 22.5em) {
+      @content;
+    }
+  }
   @if $condition == 350px {
     //////// 350px ///////
     @media only screen and (max-width: 21.875em) {
+      @content;
+    }
+  }
+  @if $condition == 320px {
+    //////// 320px * 568px///////
+    @media only screen and (max-width: 20em) {
       @content;
     }
   }
@@ -95,6 +236,12 @@
   @if $condition == 210px {
     //////// 210px ///////
     @media only screen and (max-width: 13.125em) {
+      @content;
+    }
+  }
+  @if $condition == 200px {
+    //////// 200px ///////
+    @media only screen and (max-width: 12.5em) {
       @content;
     }
   }

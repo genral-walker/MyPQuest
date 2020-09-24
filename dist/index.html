@@ -191,7 +191,8 @@
         </div>
 
         <form class="form">
-          <h2 class="form__user"> <span class="user">Hello There</span> &nbsp; 🤗</h2> 
+          <div class="form__intro">
+          <h2 class="form__user"> <span class="user">Hello There</span> &nbsp;🤗</h2> 
           <p class="form__welcome">
             <span class="form__welcome-2">Welcome To Quizllo</span>
             <span class="form__welcome-3">
@@ -203,7 +204,7 @@
               below for optimal experience
             </span>
           </p>
-          
+          </div>
           <div class="form__name">
           <label for="name">Username</label>
           <input required="" type="text" name="name" id="name">
@@ -234,10 +235,9 @@
             </select>
           </div>
 
-
           <div class="numbers">
             <label for="numbers">Number of questions</label>
-            <input required="" type="number" name="numbers" id="numbers">
+            <input required="" max="50" type="number" name="numbers" id="numbers">
           </div>
 
           <button class="form__btn">Proceed</button>

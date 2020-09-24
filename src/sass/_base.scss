@@ -10,8 +10,24 @@
 
 html {
   font-size: 62.5%;
-  scroll-behavior: smooth; }
+  scroll-behavior: smooth;
+
+  ///// MIN WIDTH RULES GOES IN ASCENDING ORDER //////
+  @include responsive(1367px) {
+    font-size: 70%
+  }
+  @include responsive(1600px) {
+    font-size: 75%
+  }
+  @include responsive(1800px) {
+    font-size: 93%
+  }
   
+  //////// MAX-WIDTH RULES -- IN DESCENDING ORDER ////////
+  
+ }
+  
+ 
 body {
     box-sizing: border-box;
     overflow: hidden;

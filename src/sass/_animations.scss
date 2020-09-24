@@ -1,5 +1,10 @@
 
 
-.show {
+.info.show {
     transform: translateX(200%);
 }
+
+.main.blur {
+    filter: opacity(0.8) blur(3px);
+    pointer-events: none;
+  }

@@ -174,5 +174,6 @@ document.querySelector('.side')
 .addEventListener('click', e =>{
     if (e.target.classList.contains('btn__user')) {
        document.querySelector('.info').classList.toggle('show');
+       document.querySelector('.main').classList.toggle('blur');
     }
 });
