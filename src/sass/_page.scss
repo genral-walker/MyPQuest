@@ -150,11 +150,9 @@ body {
 .main {
   flex: 0 0 90%;
   padding-left: 5.37rem;
-  /*
-  @include responsive(768px) {
-  padding-left: 4rem;
+  @include responsive(480px) {
+    padding: 0;
   }
-  */
   .top {
     display: none;
     background: rgba(transparent, 0.1);
@@ -345,9 +343,19 @@ body {
       background: $color-bg-3;
       padding-left: 3rem;
       padding-right: 3rem;
+      box-shadow: -4px -4px 6px 2px rgba($color-bg-3, .2),
+      4px 4px 6px 2px rgba($color-bg-3, .2);;
     }
     @include responsive(550px) {
       width: 76% !important ;
+    }
+    @include responsive(480px) {
+      height: 65vh;
+      width: 85% !important;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translate(9%, 9%);
     }
     span {
       display: inline-block;
