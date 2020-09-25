@@ -11,7 +11,7 @@ body {
 
 .bg-cover {
   background: transparent;
-  width: 100vw; 
+  width: 100vw;
   height: 100vh;
   position: absolute;
   left: 0;
@@ -31,6 +31,9 @@ body {
   box-shadow: -10px -10px 25px -6px rgba($bg-shadow, 0.5),
     10px 10px 25px -1px rgba($bg-shadow, 0.5);
   overflow: inherit;
+  @include responsive(480px) {
+    flex-direction: column-reverse;
+  }
 }
 
 .side {
@@ -43,10 +46,19 @@ body {
   justify-content: space-around;
   position: relative;
   z-index: 10;
+  @include responsive(480px) {
+    height: 10%;
+    width: 100%;
+    padding-bottom: 0;
+    flex-direction: row;
+  }
   &__icon {
     @include flex-column;
     justify-content: space-between;
     margin-top: 2.5rem;
+    @include responsive(480px) {
+      margin-top: 0;
+    }
   }
   &__icon-image {
     width: 6rem;
@@ -56,6 +68,9 @@ body {
     font-family: "Nova Oval", cursive;
     font-size: 3rem;
     font-weight: lighter;
+    @include responsive(480px) {
+      display: none;
+    }
   }
   .btn {
     position: relative;
@@ -70,6 +85,9 @@ body {
     text-align: center;
     margin-bottom: -3rem;
     line-height: 1.5;
+    @include responsive(480px) {
+      margin-top: -3rem;
+    }
   }
 }
 
@@ -271,8 +289,9 @@ body {
         $color-bg-3 0%,
         $color-bg-3 57%,
         rgba($color-blue, 0.5) 57%
-      ), url(../images/female-quizllo.jpg) no-repeat fixed;
-    background-size: 100.1%, 60%;
+      ),
+      url(../images/female-quizllo.jpg) no-repeat fixed;
+    background-size: 100.1%, 65%;
     background-position: center, 85%;
     color: $color-dark-secondary;
     text-align: left;
@@ -280,7 +299,7 @@ body {
     width: 32vw;
     box-shadow: $box-shadow-secondary;
     border-radius: 8px;
-    padding: .1rem 2rem;
+    padding: 0.1rem 2rem;
     @include responsive(1400px) {
       background-size: 100.1%, 70%;
       background-position: center, 93%;
@@ -289,44 +308,46 @@ body {
       background-size: 100.1%, 61%;
       background-position: center, 85%;
     }
+
     @include responsive(1280px) {
       background-size: 100.1%, 80%;
       background-position: center, 120%;
     }
     @include responsive(1200px) {
-      background-size: 100.1%, 75.2%;
-      background-position: center, 123%;
+      background-size: 100.1%, 90.2%;
+      background-position: center, 173%;
     }
     @include responsive(1024px) {
       width: 58vw !important;
-      background-size: 100.1%, 70%;
-      background-position: center, 93%;
-    }
-    @include responsive(900px) {
-      background-size: 102%, 75%;
-      background-position: center, 110%;
     }
     @include responsive(800px) {
       background: linear-gradient(
-        to right,
-        $color-bg-3 0%,
-        $color-bg-3 57%,
-        rgba($color-blue, 0.5) 57%
-      ), url(../images/female-quizllo.jpg) no-repeat fixed;
+          to right,
+          $color-bg-3 0%,
+          $color-bg-3 57%,
+          rgba($color-blue, 0.5) 57%
+        ),
+        url(../images/female-quizllo.jpg) no-repeat fixed;
       background-size: 102%, 75%;
-      background-position: center, 107%;
+      background-position: center, 106%;
       width: 88% !important;
     }
     @include responsive(768px) {
       width: 86% !important;
-      background-size: 102%, 85%;
-      background-position: center, 137%;
+      background-size: 102%, 90%;
+      background-position: center, 186%;
     }
     @include responsive(720px) {
       width: 85% !important;
     }
     @include responsive(650px) {
       width: 80% !important;
+      background: $color-bg-3;
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+    @include responsive(550px) {
+      width: 76% !important ;
     }
     span {
       display: inline-block;
@@ -348,7 +369,7 @@ body {
       font-size: 1.5rem;
     }
     &__welcome-fill {
-      margin: 0.5rem 0 .2rem;
+      margin: 0.5rem 0 0.2rem;
     }
     label {
       display: block;
@@ -360,7 +381,7 @@ body {
     }
     input,
     select {
-      font-size: inherit;
+      font-size: 1.4rem;
       width: 45%;
       height: 2.5rem;
       background-color: $color-bg-3;
@@ -370,6 +391,9 @@ body {
       border-radius: 5px;
       outline: none;
       transition: transform 0.3s, 0.2s;
+      @include responsive(650px) {
+        width: 95%;
+      }
       &:active,
       &:focus {
         border: 1px solid $color-blue;
@@ -380,9 +404,9 @@ body {
       }
     }
 
-     div {
-       margin-bottom: -1rem;
-     }
+    div {
+      margin-bottom: -1rem;
+    }
     &__btn {
       @include btn-submit-set;
       color: $color-bg-3;
