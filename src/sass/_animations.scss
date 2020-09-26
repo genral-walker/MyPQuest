@@ -2,6 +2,9 @@
 
 .info.show {
     transform: translateX(200%);
+    @include responsive(480px){
+        transform: translateY(-200%);
+      }
 }
 
 .main.blur {
