@@ -5,14 +5,18 @@ body {
     $color-bg-1 18%,
     rgba($color-bg-2, 0.8) 60%
   );
+  overflow-x: hidden;
   @include flex-center;
   letter-spacing: 0.2px;
+  @include responsive(480px){
+    display: block;
+  }
 }
 
 .bg-cover {
   background: transparent;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   position: absolute;
   left: 0;
   z-index: 6;
@@ -33,6 +37,7 @@ body {
   overflow-x: hidden;
   @include responsive(480px) {
     flex-direction: column-reverse;
+    margin: 6% auto;
   }
 }
 

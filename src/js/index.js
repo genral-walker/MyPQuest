@@ -177,3 +177,7 @@ document.querySelector('.side')
        document.querySelector('.main').classList.toggle('blur');
     }
 });
+
+
+///////////
+// WHEN ON MOBILE AND ANY OF THE INPUTS ARE CLICKED, WE WANT THE WHOLE PAGE OVERFLOW TO BE SCROLL
