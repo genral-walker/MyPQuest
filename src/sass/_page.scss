@@ -5,7 +5,7 @@ body {
     $color-bg-1 18%,
     rgba($color-bg-2, 0.8) 60%
   );
-  overflow: hidden;
+  overflow-x: hidden;
   @include flex-center;
   letter-spacing: 0.2px;
   @include responsive(480px){
@@ -25,7 +25,7 @@ body {
 .container {
   color: $color-bg-3;
   width: 77vw;
-  height: 85vh;
+  height: 85%;
   border-radius: 23px;
   position: relative;
   z-index: 7;
@@ -36,6 +36,7 @@ body {
     10px 10px 25px -1px rgba($bg-shadow, 0.5);
   overflow-x: hidden;
   @include responsive(900px) {
+    min-height: 63rem; // THis is used to force the form to stay put, it moves when input is in focus.
     width: 87vw;
   }
   @include responsive(480px) {
@@ -411,7 +412,7 @@ body {
       width: 76% !important ;
     }
     @include responsive(480px) {
-      height: 70vh;
+      height: 91%; //experiment
       width: 85% !important;
       padding-left: 1.5rem;
       padding-right: 1.5rem;
