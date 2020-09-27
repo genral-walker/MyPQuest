@@ -24,21 +24,21 @@ html {
 
   //////// MAX-WIDTH RULES -- IN DESCENDING ORDER ////////
   
-    @include responsive(1200px) {
-      font-size: 56.25%;
-    }
-    @include responsive(1024px) {
-      font-size: 53.125%;
-    }
-    @include responsive(900px) {
-      font-size: 50%;
-    }
-    @include responsive(800px) {
-      font-size: 45%;
-    }
-    @include responsive(600px) {
-      font-size: 43.75%;
-    }
+  @include responsive(950px) {
+    font-size: 60%
+  }
+  @include responsive(480px) {
+    font-size: 55%
+  }
+  @include responsive(320px) {
+    font-size: 52%
+  }
+  @include responsive(260px) {
+    font-size: 50%
+  }
+  @include responsive(220px) {
+    font-size: 48%
+  }
  }
   
  

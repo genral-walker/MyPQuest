@@ -103,6 +103,12 @@ from 1090 below - no need
       @content;
     }
   }
+  @if $condition == 950px {
+    //////// 950px ///////
+    @media only screen and (max-width: 59.375em) {
+      @content;
+    }
+  }
   @if $condition == 900px {
     //////// 900px ///////
     @media only screen and (max-width: 56.25em) {
