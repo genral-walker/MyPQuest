@@ -182,6 +182,8 @@ from 1090 below - no need
     }
   }
   @if $condition == 375px {
+    ///////JUST USE AN HEIGHT 600px
+    ////// DOWNWARDS FROM HERE
     //////// 375px * 667px ///////
     @media only screen and (max-width: 23.4375em) {
       @content;
@@ -270,15 +272,15 @@ from 1090 below - no need
     }
   }
 }
-.correct {
-  background-color: #28a745;
+
+.wrong {
+  color: white;
+  background-color: rgba(235, 68, 39, 0.919);
+  transition: .4s;
 }
 
-.incorrect {
-  background-color: #dc3545;
+.right {
+  background-color: #24e564e5;
+  color: white;
+  transition: .4s;
 }
-
-// transition: 1.2s ease-in-out;
-// &:active {
-//   transform: translateX(-93rem);
-// }

@@ -44,6 +44,9 @@ body {
     flex-direction: column-reverse;
     margin: 5.7% auto auto;
   }
+  @include responsive(480px) {
+    border-radius: 15px;
+  }
   @include responsive(375px) {
     width: 93vw;
   }
@@ -230,6 +233,9 @@ body {
     @include responsive(480px) {
       margin: 10% auto auto;
     }
+    @include responsive(480px) {
+      margin: 10% auto auto;
+    }
     
   }
 
@@ -252,7 +258,21 @@ body {
     }
     @include responsive(480px) {
       height: 20rem;
-      margin: 2rem 0 4rem;
+      margin: 2rem 0 3rem;
+    }
+    
+    @include responsive(425px) {
+      height: 20rem;
+    }
+    
+    @include responsive(375px) {
+      margin: 0 0 2.4rem;
+      
+    }
+    
+    @include responsive(260px) {
+         height: 21rem;
+         margin: 0 0 2.6rem;
     }
     &__status {
       border-bottom: $border-secondary;
@@ -261,11 +281,22 @@ body {
       padding: 1rem 1rem 0.5rem;
       @include flex-center;
       justify-content: space-between;
-      @include responsive(480px) {
-        padding: 2rem 1rem 1.5rem;
-      }
+       @include responsive(480px) {
+         padding: 1.5rem 1rem 1rem;
+       }
     }
     &__status-text {
+      
+      @include responsive(320px){
+        font-size: 1.7rem;
+      }
+      @include responsive(300px){
+        font-size: 1.5rem;
+      }
+      
+      @include responsive(260px){
+        font-size: 1.35rem;
+      }
       .precentage {
       }
     }
@@ -278,7 +309,12 @@ body {
       margin: 0.7rem 0 0.3rem 0.3rem;
       position: relative;
       overflow: hidden;
-
+      @include responsive(425px) {
+        width: 16rem;
+      }
+      @include responsive(300px){
+       width: 15rem;
+      }
       &::before {
         content: "";
         position: absolute;
@@ -295,8 +331,19 @@ body {
     }
     &__score {
       margin-bottom: 1.1rem;
-      @include responsive(480px) {
-        transform: translateY(-.9rem);
+       transform: translateY(-.7rem);
+      font-size: 2.3rem;
+      font-weight: bold;
+      
+      @include responsive(320px){
+        font-size: 2rem;
+      }
+      @include responsive(300px){
+        font-size: 1.7rem;
+        transform: translateY(-.94rem);
+      }
+      @include responsive(260px){
+        font-size: 1.5rem;
       }
       .score {
         display: inline-block;
@@ -309,13 +356,13 @@ body {
       padding: 0.8rem 1rem 0;
       text-align: center;
       line-height: 1.3;
+      @include responsive(425px) {
+        font-size: 1.35rem;
+      }
       @include responsive(350px) {
         font-size: 1.3rem;
       }
-      @include responsive(480px) {
-        padding: 1rem 1rem 0;
-        font-size: 1.5rem;
-      }
+      
     }
 
     &__question-text {
@@ -348,14 +395,11 @@ body {
       @include responsive(768px) {
         height: 5.1rem;
       }
-      
-      @include responsive(480px) {
-        height: 6rem;
-      }
       cursor: pointer;
       transition: 0.2s ease;
       @include responsive(hover) {
-        background: #28a745;
+        color: white;
+        background: #24e564e5;
       }
       &:active {
         transform: translateY(1.5px) scale(0.991);
@@ -401,10 +445,35 @@ body {
       color: inherit;
       font-size: 1.9rem;
       margin: 2rem 0 0 22vw;
-      @include responsive(480px) {
-        font-size: 2.5rem;
-        padding: 1.2rem 3rem;
+      @include responsive(1024px){
+        margin: 2rem 0 1.5rem 33%;
       }
+      @include responsive(720px){
+        margin: 2rem 0 1.5rem 34.5%;
+      }
+      @include responsive(600px){
+        margin: 2rem 0 1.5rem 32%;
+      }
+      @include responsive(480px) {
+        margin: 2rem 0 1.5rem 26%;
+        font-size: 2.2rem;
+        padding: .8rem 2.5rem;
+      }
+      @include responsive(425px){
+        margin: 2rem 0 1.5rem 25%;
+      }
+      
+    @include responsive(375px) {
+      margin: 1.45rem 0 1.5rem 22.5%;
+    }
+    
+    @include responsive(300px){
+      margin: 2rem 0 1.5rem 20%;
+    }
+    
+    @include responsive(260px){
+      margin: 2rem 0 1.5rem 15%;
+    }
     }
   }
 
@@ -491,14 +560,11 @@ body {
       width: 76% !important ;
     }
     @include responsive(480px) {
-      height: 91%; //experiment
+      height: 91%;
       width: 85% !important;
       padding-left: 1.5rem;
       padding-right: 1.5rem;
       margin: 5.5% auto auto;
-    }
-    @include responsive(425px) {
-      margin-top: 7%;
     }
 
     display: none; //experiment
