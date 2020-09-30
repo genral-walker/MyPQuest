@@ -277,6 +277,7 @@ body {
          height: 21rem;
          margin: 0 0 2.6rem;
     }
+    display: none; //experiment
     &__status {
       border-bottom: $border-secondary;
       font-size: 1.8rem;
@@ -407,6 +408,7 @@ body {
       &:active {
         transform: translateY(1.5px) scale(0.991);
       }
+      display: none; //experiment
     }
     &__letter {
       display: inline-block;
@@ -477,6 +479,7 @@ body {
     @include responsive(260px){
       margin: 2rem 0 1.5rem 15%;
     }
+    display: none; //experiment
     }
   }
 
@@ -549,28 +552,34 @@ body {
       width: 86% !important;
     }
     @include responsive(720px) {
-      width: 85% !important;
-    }
-    @include responsive(650px) {
-      width: 80% !important;
-      background: $color-bg-3;
-      padding-left: 2rem;
-      padding-right: 2rem;
-      box-shadow: -4px -4px 6px 2px rgba($color-bg-3, .2),
-      4px 4px 6px 2px rgba($color-bg-3, .2);;
-    }
-    @include responsive(550px) {
-      width: 76% !important ;
-    }
-    @include responsive(480px) {
       height: 91%;
       width: 85% !important;
       padding-left: 1.5rem;
       padding-right: 1.5rem;
       margin: 5.5% auto auto;
+      background-size: 100.18%, 136.5%;
+      background-position: center, 24%;
     }
+    @include responsive(650px) {
+      background: $color-bg-3;
+      box-shadow: -4px -4px 6px 2px rgba($color-bg-3, .2),
+      4px 4px 6px 2px rgba($color-bg-3, .2);;
+    }
+    @include responsive(550px) {
+      margin: 6.5% auto auto;
+    }
+    @include responsive(480px) {
+      margin: -3.5% auto auto;
+    }
+    @include responsive(320px) {
+      margin: -3% auto auto;
+    }
+    @include responsive(260px) {
+      margin: -1% auto auto;
+    }
+    
+    
 
-    display: none; //experiment
     span {
       display: inline-block;
     }
