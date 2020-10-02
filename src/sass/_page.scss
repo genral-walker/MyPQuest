@@ -153,6 +153,7 @@ body {
     padding-left: 3.7rem;
   }
   @include responsive(720px) {
+    position: relative;
     padding: 0;
   }
   .game {
@@ -420,148 +421,119 @@ body {
   .details {
     color: $color-bg-3;
     position: absolute;
-    top: 41.1%;
-    left: 11.35%;
-    @include responsive(1400px) {
-      left: 10.2%;
-    }
-    @include responsive(1600px) {
-      left: 10.5%;
-    }
-    @include responsive(1800px) {
-      left: 12.2%;
-    }
-    @include responsive(1920px) {
-      left: 12.3%;
-    }
-    @include responsive(2000px) {
-      left: 11.7%;
-    }
-    @include responsive(1280px) {
-      left: 12.5%;
-    }
-    @include responsive(1200px) {
-      left: 13.9%;
-    }
-    @include responsive(1024px) {
-      left: 15%;
-    }
-    @include responsive(1024px) {
-      left: 16%;
-    }
-    @include responsive(900px) {
-      left: 14.8%;
-    }
-    @include responsive(800px) {
-      left: 16.4%;
-    }
+    top: 0;
+    left: 2%;
+    width: 100%;
     @include responsive(720px) {
-      left: 25%;
-      bottom: 7.5rem;
+      top: unset;
+        left: 0;
+        bottom: 0;
     }
-    @include responsive(550px) {
-      left: 20%;
-    }
-    @include responsive(425px) {
-      left: 12%;
-    }
-    @include responsive(375px) {
-      left: 8%;
-    }
-    @include responsive(350px) {
-      left: 4%;
-    }
-    @include responsive(210px) {
-      left: 2.5%;
-    }
-    &__overview {
-      width: max-content;
-      font-size: 1.7rem;
+  
+   &__overview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+      width: 100%;
+      font-size: 2.7rem;
       background-color: rgba($color-blue, 0.94);
       box-shadow: $box-shadow-primary;
-      border-radius: 8px;
-      padding: 1rem 1.5rem;
-      position: relative;
-      top: 0;
-      left: 0;
+      padding: 1.5rem 0 1.5rem 6rem;
+      @include flex-center;
+      justify-content: space-around;
+      transform: translateY(-100%);
+      transition: .4s;
+      @include responsive(1024px){
+        padding: 1.5rem 0 1.5rem 8.5rem;
+      }
+      
       @include responsive(720px) {
-        position: absolute;
         top: unset;
-        bottom: -1%;
-
+        bottom: 0;
+        padding: 1.5rem 0 1.5rem 0;
+        transform: unset;
+        transform: translateY(100%);
       }
-      @include responsive(375px){
-        bottom: -3%;
-      }
-      @include responsive(300px){
-        padding: 1rem 1rem;
-        font-size: 1.5rem;
+     
+      @include responsive(480px){
+        justify-content: space-evenly;
+       font-size: 2.2rem;
         }
-        @include responsive(250px){
-          font-size: 1.3rem;
-        }
-      button {
-        font-size: 2rem;
-        margin-top: 1rem;
-        display: block;
-        color: inherit;
-        @include responsive(300px){
-          font-size: 1.8rem;
+        @include responsive(400px){
+         font-size: 1.7rem;
           }
-          @include responsive(250px){
+          @include responsive(300px){
             font-size: 1.5rem;
-          }
+              font-weight: bolder;
+             }
+             @include responsive(250px){
+              font-size: 1.25rem;
+               }
+        
+      button {
+        font-size: 2.7rem;
+        color: inherit;
+        @include responsive(480px){
+          font-size: 2.2rem;
+           }
+           @include responsive(400px){
+            font-size: 1.7rem;
+             }
+             @include responsive(300px){
+              font-size: 1.5rem;
+              font-weight: bolder;
+               }
+               @include responsive(250px){
+                font-size: 1.25rem;
+                 }
       }
     }
     &__table {
-      position: relative;
-      left: 66.4%;
-      bottom: 8.6rem;
-      font-size: 1.6rem;
-      width: max-content;
+      position: absolute;
+      top: 5.5rem;
+      left: 0;
+      font-size: 2.5rem;
+      width: 100%;
       text-align: center;
       background-color: rgba($color-blue, 0.94);
       color: inherit;
       box-shadow: $box-shadow-primary;
-      border-radius: 8px;
-      padding: 1rem 2rem;
-      @include responsive(1600px) {
-        left: 66.5%;
-      }
-      @include responsive(1800px) {
-        left: 67.5%;
-      }
+      padding: 1rem 8rem;
+      transform: translateY(-130%);
+      transition: .8s cubic-bezier(0.9,-0.12, 0, 1.34);
       @include responsive(720px) {
-        position: absolute;
-        left: 13.252rem;
-        bottom: -1%;
+       top: unset;
+       bottom: 5.5rem;
+       padding: 1rem 4rem;
+       transform: unset;
+       transform: translateY(130%);
       }
-      @include responsive(375px){
-        padding: 1rem 1rem;
-        
-        }
-        @include responsive(300px){
-          padding: 1rem .2rem;
-          font-size: 1.5rem;
-          left: 11.22rem;
-          }
-          @include responsive(250px){
-            font-size: 1.3rem;
-            left: 9.8rem;
-          }
-          @include responsive(210px){
-            padding: 1rem 0;
-          }
+      @include responsive(480px) {
+        padding: 1rem 0;
+       }
+      @include responsive(400px) {
+        bottom: 4.5rem;
+       }
+       @include responsive(300px) {
+        font-size: 2rem;
+       }
+       @include responsive(250px) {
+        bottom: 3.5rem;
+       }
+          
       th {
-        font-size: 1.8rem;
+        font-size: 3rem;
         padding: 0.5rem;
-        @include responsive(250px){
-          font-size: 1.5rem;
-        }
+        @include responsive(300px) {
+          font-size: 2.5rem;
+         }
       }
       td {
         padding: 0.3rem;
-        
+        @include responsive(720px){
+          padding: .5rem;
+        }
       }
     }
   }

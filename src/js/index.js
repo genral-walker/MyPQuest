@@ -170,19 +170,23 @@ nextPage();
 
 */
 
-// document.querySelector('.side')
-// .addEventListener('click', e =>{
-//     if (e.target.classList.contains('btn__user')) {
-//        document.querySelector('.details__overview').classList.toggle('show');
-//        document.querySelector('.main').classList.toggle('blur');
-    
+document.querySelector('.btn__user, .btn__user-img')
+.addEventListener('click', () =>{
+   
+       document.querySelector('.details').classList.toggle('details-show');    
+});
+
+document.querySelector('.details__highscores').addEventListener('click', ()=>{
+    document.querySelector('.details__table').classList.toggle('show');
+});
+
+
+// const walker = ()=>{
+//     if ((!document.querySelector('.details').classList.contains('details-show'))) {
+//         document.querySelector('.details__table').classList.remove('show');
 //     }
-// });
-
-// document.querySelector('.details__sessions').addEventListener('click', ()=>{
-//     document.querySelector('.details__table').classList.toggle('show');
-// });
-
+// };
+// walker();
 
 ///////////
 // WHEN ON MOBILE AND ANY OF THE INPUTS ARE CLICKED, WE WANT THE WHOLE PAGE OVERFLOW TO BE SCROLL

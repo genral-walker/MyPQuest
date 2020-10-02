@@ -1,16 +1,17 @@
 
 
-// .details__overview.show {
-//     transform: translateX(0);
-//     z-index: 1;
-// }
-// .details__table.show{
-//   z-index: 1;
-//   opacity: 1;
-//   visibility: visible;
-// }
 
-// .main.blur {
-//     filter: opacity(0.8) blur(3px);
-//     pointer-events: none;
-//   }
+.details-show {
+  height: 100%;
+  backdrop-filter: blur(4px);
+  .details__overview {
+    transform: translateY(0);  }
+}
+
+.details__table.show{
+  transform: translateY(0);
+}
+
+
+
+  
