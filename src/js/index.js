@@ -170,13 +170,18 @@ nextPage();
 
 */
 
-document.querySelector('.side')
-.addEventListener('click', e =>{
-    if (e.target.classList.contains('btn__user')) {
-       document.querySelector('.info').classList.toggle('show');
-       document.querySelector('.main').classList.toggle('blur');
-    }
-});
+// document.querySelector('.side')
+// .addEventListener('click', e =>{
+//     if (e.target.classList.contains('btn__user')) {
+//        document.querySelector('.details__overview').classList.toggle('show');
+//        document.querySelector('.main').classList.toggle('blur');
+    
+//     }
+// });
+
+// document.querySelector('.details__sessions').addEventListener('click', ()=>{
+//     document.querySelector('.details__table').classList.toggle('show');
+// });
 
 
 ///////////
