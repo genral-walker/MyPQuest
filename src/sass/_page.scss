@@ -443,7 +443,7 @@ body {
       @include flex-center;
       justify-content: space-around;
       transform: translateY(-100%);
-      transition: .4s;
+      transition: transform .4s;
       @include responsive(1024px){
         padding: 1.5rem 0 1.5rem 8.5rem;
       }
@@ -501,7 +501,7 @@ body {
       box-shadow: $box-shadow-primary;
       padding: 1rem 8rem;
       transform: translateY(-130%);
-      transition: .8s cubic-bezier(0.9,-0.12, 0, 1.34);
+      transition: transform .8s cubic-bezier(0.9,-0.12, 0, 1.34);
       @include responsive(720px) {
        top: unset;
        bottom: 5.5rem;
