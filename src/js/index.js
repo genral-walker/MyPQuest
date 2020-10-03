@@ -168,27 +168,62 @@ const nextPage = () => {
 
 nextPage();
 
+1. if the overview page is in display and anywhere in the page is clicked, close the overview;
+
 */
 let btn;
- window.matchMedia("(max-width: 480px)").matches ? btn = '.btn-img' : btn = '.btn__user';
+ window.matchMedia("(max-width: 480px)").matches ? btn = 'btn-img' : btn = 'btn__user';
  
-document.querySelector(btn).addEventListener('click', (e) =>{
+ let clicked ;
+ const firstClick = ()=>{
+     
+document.querySelector(`.${btn}`).addEventListener('click', () =>{
+ 
+    document.querySelector('.details').classList.toggle('details-show'); 
+    
+     
+    if (!document.querySelector('.details').classList.contains('details-show')) {
+ 
+     document.querySelector('.details__table').classList.remove('show');
+     document.querySelector('.details__overview').classList.remove('no-shadow');
+ }
+ clicked = true;
+});
+ };
+
+
+const controlTable = ()=>{
+ 
    
-       document.querySelector('.details').classList.toggle('details-show');  
-});
-
-document.querySelector('.details__highscores').addEventListener('click', ()=>{
-    document.querySelector('.details__table').classList.toggle('show');
+     document.querySelector('.details__table').classList.toggle('show');
     document.querySelector('.details__overview').classList.toggle('no-shadow');
-});
+    
+
+};
+
+document.querySelector('.details__highscores').addEventListener('click', controlTable);
 
 
-// const walker = ()=>{
-//     if ((!document.querySelector('.details').classList.contains('details-show'))) {
-//         document.querySelector('.details__table').classList.remove('show');
-//     }
-// };
-// walker();
 
-///////////
-// WHEN ON MOBILE AND ANY OF THE INPUTS ARE CLICKED, WE WANT THE WHOLE PAGE OVERFLOW TO BE SCROLL
+   
+const secondClick = ()=>{
+    document.addEventListener('click', (e)=>{
+        if (clicked && !(e.target.classList.contains(btn))  ) {
+            console.log(e.target.classList.contains('details__highscores'));
+            document.querySelector('.details').classList.remove('details-show'); 
+            document.querySelector('.details__table').classList.remove('show');
+            document.querySelector('.details__overview').classList.remove('no-shadow');
+       
+        }
+       
+    });
+};
+
+
+const control = ()=>{
+    firstClick();
+    // secondClick(); This function has bugs.
+};
+        
+control();
+       

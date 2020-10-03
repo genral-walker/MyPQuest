@@ -504,24 +504,32 @@ body {
       transform: translateY(-130%);
       transition: transform .6s ;
       
+      @include responsive(1400px) {
+top: 6.15rem;
+       }
+       @include responsive(950px) {
+        top: 6.21rem;
+               }
       @include responsive(720px) {
        top: unset;
-       bottom: 5.5rem;
+       bottom: 6.1rem;
        padding: 1rem 4rem;
        transform: unset;
        transform: translateY(130%);
       }
       @include responsive(480px) {
         padding: 1rem 0;
+        bottom: 5.5rem;
        }
       @include responsive(400px) {
-        bottom: 4.5rem;
+        bottom: 4.8rem;
        }
        @include responsive(300px) {
         font-size: 2rem;
+        bottom: 4.7rem;
        }
        @include responsive(250px) {
-        bottom: 3.5rem;
+        bottom: 4.2rem;
        }
           
       th {
