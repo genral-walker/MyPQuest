@@ -1,17 +1,15 @@
-
-
-
 .details-show {
   height: 100%;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(0.6px);
   .details__overview {
-    transform: translateY(0);  }
+    transform: translateY(0);
+  }
 }
 
-.details__table.show{
+.no-shadow {
+  box-shadow: none !important;
+}
+
+.details__table.show {
   transform: translateY(0);
 }
-
-
-
-  

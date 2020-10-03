@@ -172,13 +172,14 @@ nextPage();
 let btn;
  window.matchMedia("(max-width: 480px)").matches ? btn = '.btn-img' : btn = '.btn__user';
  
-document.querySelector(btn).addEventListener('click', () =>{
+document.querySelector(btn).addEventListener('click', (e) =>{
    
        document.querySelector('.details').classList.toggle('details-show');  
 });
 
 document.querySelector('.details__highscores').addEventListener('click', ()=>{
     document.querySelector('.details__table').classList.toggle('show');
+    document.querySelector('.details__overview').classList.toggle('no-shadow');
 });
 
 
