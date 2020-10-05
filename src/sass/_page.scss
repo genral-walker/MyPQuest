@@ -50,6 +50,7 @@ body {
   @include responsive(375px) {
     width: 93vw;
   }
+  
 }
 
 .side {
@@ -70,6 +71,8 @@ body {
   @include responsive(480px) {
     height: 0;
   }
+  
+
   &__icon {
     @include flex-column;
     justify-content: space-between;
@@ -454,7 +457,7 @@ body {
         bottom: 0;
         padding: 1.5rem 0 1.5rem 0;
         transform: unset;
-        transform: translateY(100%);
+        transform: translateY(300%);
       }
      
       @include responsive(480px){
@@ -515,7 +518,7 @@ top: 6.15rem;
        bottom: 6.1rem;
        padding: 1rem 4rem;
        transform: unset;
-       transform: translateY(130%);
+       transform: translateY(200%);
       }
       @include responsive(480px) {
         padding: 1rem 0;
@@ -642,7 +645,6 @@ top: 6.15rem;
     @include responsive(260px) {
       margin: -1% auto auto;
     }
-
     span {
       display: inline-block;
     }
