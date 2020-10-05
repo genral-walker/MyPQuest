@@ -659,10 +659,11 @@ top: 6.15rem;
     }
     &__welcome-2 {
       font-size: 2rem;
-      margin: 0.7rem 0 -0.6rem;
+      margin: 0.7rem 0 -0.4rem;
     }
     &__welcome-3 {
       font-size: 1.5rem;
+      line-height: 1.8rem;
       @include responsive(250px) {
         font-size: 1.5rem;
       }
@@ -672,6 +673,7 @@ top: 6.15rem;
     }
     &__welcome-fill {
       margin: 0.5rem 0 0.2rem;
+      line-height: 1.8rem;
       @include responsive(250px) {
         font-size: 1.5rem;
       }

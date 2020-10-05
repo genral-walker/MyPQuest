@@ -10,7 +10,7 @@ export const domElements = {
     detailsTable: document.querySelector('.details__table'),
     detailsOverview : document.querySelector('.details__overview'),
     detailScore: document.querySelector('.details__highscores'),
-    profileBtn() {
+    get profileBtn() {
         let btn;
         window.matchMedia("(max-width: 30em)").matches ? btn = 'btn-img' : btn = 'btn__user';
         let result = document.querySelector(`.${btn}`);
@@ -23,5 +23,12 @@ export const domClasslists = {
     detailShow: 'details-show',
     tableShow: 'show',
     noShadow :'no-shadow',
+    hasEvent : 'has-event',
 };
 
+///// CLASS ADDED TO  ALL ELEMENT THAT HAS EVENT
+export const addClass = obj =>{
+        for (const key in obj) {
+          obj[key].classList.add(domClasslists.hasEvent)
+          }
+};

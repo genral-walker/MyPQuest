@@ -171,9 +171,8 @@ const nothing = ()=> {
     
     */};
 
-import axios from 'axios';
-import {domElements as dom} from './views/base';
-import {detailShow, controlTable, closeDetails} from './views/detailsVeiw';
+import {domElements as dom, addClass} from './views/base';
+import {detailsToggle, tableToggle, closeDetails} from './views/detailsVeiw';
 
 /** Global state of the app
  * -
@@ -182,8 +181,8 @@ const state = {};
 
 
 //TESTERS
-const hello = () => {
-    console.log('event is working')
+const hello = (e) => {
+    console.log(e.target);
 };
 
  
@@ -192,17 +191,20 @@ const hello = () => {
  * - We also want to make the profile button bring out the overview
  * */  
 
+ 
 
+///// ADDS EVENT CLASS TO ALL ELEMENTS IN DOM OBJ
+addClass(dom);
 
 /*
-******  DETAILSVIEW CONTROLLER *******
+******  DETAILS-VIEW CONTROLLER *******
 */  
 
-//////// SHOW DETAILS SECTION
-dom.profileBtn().addEventListener('click', detailShow);
+//////// TOGGLE DETAILS SECTION
+dom.profileBtn.addEventListener('click', detailsToggle)
 
-//////// SHOW DETAILS TABLE SECTION
-dom.detailScore.addEventListener('click', controlTable);
+//////// TOGGLE DETAILS TABLE SECTION
+dom.detailScore.addEventListener('click', tableToggle)
 
 ///////// CLOSE DETAILS SECTION
 document.addEventListener('click', closeDetails);
