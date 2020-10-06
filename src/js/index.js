@@ -173,6 +173,7 @@ const nothing = ()=> {
 
 import {domElements as dom, addClass} from './views/base';
 import {detailsToggle, tableToggle, closeDetails} from './views/detailsVeiw';
+import {animatePageOnLOad} from './views/gsap';
 
 /** Global state of the app
  * -
@@ -191,22 +192,25 @@ const hello = (e) => {
  * - We also want to make the profile button bring out the overview
  * */  
 
- 
 
-///// ADDS EVENT CLASS TO ALL ELEMENTS IN DOM OBJ
-addClass(dom);
+ //////////GSAP ANIMATION ON PAGELOAD
+animatePageOnLOad();
+
+///// ADDS AN EVENT CLASS TO ALL ELEMENTS IN DOM OBJ. 
+addClass(dom.hasEvent);
 
 /*
 ******  DETAILS-VIEW CONTROLLER *******
 */  
-
 //////// TOGGLE DETAILS SECTION
-dom.profileBtn.addEventListener('click', detailsToggle)
+dom.hasEvent.profileBtn.addEventListener('click', detailsToggle)
 
 //////// TOGGLE DETAILS TABLE SECTION
-dom.detailScore.addEventListener('click', tableToggle)
+dom.hasEvent.detailScore.addEventListener('click', tableToggle)
 
 ///////// CLOSE DETAILS SECTION
 document.addEventListener('click', closeDetails);
+
+
 
 
