@@ -71,8 +71,12 @@ body {
   @include responsive(480px) {
     height: 0;
   }
-  
 
+  transform: translateX(-100%);
+  @include responsive(480px) {
+    transform: translateY(100%);
+  }
+  
   &__icon {
     @include flex-column;
     justify-content: space-between;
@@ -637,6 +641,7 @@ top: 6.15rem;
     @include responsive(550px) {
       margin: 6.5% auto auto;
     }
+    transform: translateX(200%);
     span {
       display: inline-block;
     }
