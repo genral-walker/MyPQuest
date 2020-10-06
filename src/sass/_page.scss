@@ -590,6 +590,7 @@ top: 6.15rem;
       background-position: center, 120%;
     }
     @include responsive(1200px) {
+      padding-top: .5rem;
       width: 89% !important;
       background-size: 100.1%, 90.2%;
       background-position: center, 173%;
