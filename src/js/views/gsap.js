@@ -3,17 +3,16 @@ import gsap from 'gsap';
 import { domElements as dom } from './base';
 
 
-
 // MAKE timeline of animation on page laod.
 let loadTl = gsap.timeline({
-    delay: .3,
+    delay: .2
 });
 
 const directSide = () => {
     if (window.matchMedia('(max-width: 45em)').matches) {
-        loadTl.to(dom.side, { duration: .6, y: '0%' })
+        loadTl.to(dom.side, { duration: .8, y: '0%' })
     } else {
-        loadTl.to(dom.side, { duration: .6, x: '0%' })
+        loadTl.to(dom.side, { duration: .8, x: '0%' })
     }
 };
 
@@ -36,7 +35,7 @@ const animateBtn = (timeline, elemnt) => {
 ///// loadTl complete timeline
 export const animatePageOnLOad = () => {
     directSide()
-    loadTl.to(dom.form, { duration: 1.5, x: '0%' }, '-.2')
+    loadTl.to(dom.hasEvent.form, { duration: 1.5, x: '0%' }, '-.2')
     welcomeShow(dom.formUser)
     welcomeShow(dom.formWelcome)
     loadTl.fromTo(dom.formInputs, { duration: .7, x: '10%', opacity: 0 }, { duration: .7, x: '0%', opacity: 1 })

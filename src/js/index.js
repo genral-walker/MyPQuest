@@ -170,10 +170,11 @@ const nothing = ()=> {
     nextPage();
     
     */};
-
+import axios from 'axios';
 import {domElements as dom, addClass} from './views/base';
 import {detailsToggle, tableToggle, closeDetails} from './views/detailsVeiw';
 import {animatePageOnLOad} from './views/gsap';
+import {getInputs} from './views/formVeiw';
 
 /** Global state of the app
  * -
@@ -188,8 +189,9 @@ const hello = (e) => {
 
  
 /**
- * - WE want to do some animations when page loads
- * - We also want to make the profile button bring out the overview
+ * - 1: WE want to do some animations when page loads //DONE
+ * - 2: We also want to make the profile button bring out the overview //DONE
+ * - 3: receive details inputed from the form
  * */  
 
 
@@ -199,18 +201,42 @@ animatePageOnLOad();
 ///// ADDS AN EVENT CLASS TO ALL ELEMENTS IN DOM OBJ. 
 addClass(dom.hasEvent);
 
+
 /*
 ******  DETAILS-VIEW CONTROLLER *******
 */  
 //////// TOGGLE DETAILS SECTION
 dom.hasEvent.profileBtn.addEventListener('click', detailsToggle)
-
 //////// TOGGLE DETAILS TABLE SECTION
 dom.hasEvent.detailScore.addEventListener('click', tableToggle)
-
 ///////// CLOSE DETAILS SECTION
 document.addEventListener('click', closeDetails);
 
 
+/*
+******  FORM-VIEW CONTROLLER *******
+*/  
+dom.hasEvent.form.addEventListener('submit', getInputs)
 
+const api = async ()=>{
+    try {
+        const res = await axios({
+            method: 'post',
+            url: "https://twilio-sms.p.rapidapi.com/2010-04-01/Accounts/%7BAccountSid%7D/Messages",
+            headers: {
+                "x-rapidapi-host": "twilio-sms.p.rapidapi.com",
+                "x-rapidapi-key": "23ab0120a7msh99366a4689e2f5fp1091a6jsn467adc1b6969",
+                "content-type": "application/x-www-form-urlencoded"
+            },
+            body: {
 
+            }
+          });
+          console.log(res)
+    } catch (error) {
+        console.log(error);
+    }
+   
+};
+
+api();

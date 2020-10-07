@@ -3,7 +3,6 @@ export const domElements = {
     container: document.querySelector('.container'),
     side: document.querySelector('.side'),
     main: document.querySelector('.main'),
-    form: document.querySelector('.form'),
     details: document.querySelector('.details'),
     detailsTable: document.querySelector('.details__table'),
     detailsOverview: document.querySelector('.details__overview'),
@@ -13,8 +12,10 @@ export const domElements = {
     formBtn: document.querySelector('.form__btn'),
     formInputs: document.querySelector('.form__inputs'),
     icon: document.querySelector('.side__icon-image'),
+    formName: document.querySelector('#name'),
     hasEvent: {
         detailScore: document.querySelector('.details__highscores'),
+        form: document.querySelector('.form'),
         get profileBtn() {
             let btn;
             window.matchMedia('(max-width: 30em)').matches ? btn = 'btn-img' : btn = 'btn__user';
