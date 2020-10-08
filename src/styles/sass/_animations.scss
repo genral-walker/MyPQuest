@@ -1,0 +1,49 @@
+///////////////////////////////////////
+///////////// KEYFRAMES /////////////
+///////////////////////////////////////
+
+/////// ASIDE/SIDE SECTION ////////
+@keyframes sideIn {
+    from {
+    transform: translateX(-100%);
+    }
+    to {
+     transform: translateX(0);
+    }
+  }
+  @keyframes sideUp {
+    from {
+    transform: translateY(100%);
+    }
+    to {
+     transform: translateY(0);
+    }
+  }
+  
+  ///////// FORM SECTION /////////
+  @keyframes formIn {
+    from {
+    transform: translateX(200%);
+    }
+    to {
+     transform: translateX(0);
+    }
+  }
+  
+  
+  /////////// JS RELATED ANIMATIONS /////////
+  .details-show {
+    height: 100%;
+    backdrop-filter: blur(0.6px);
+    .details__overview {
+      transform: translateY(0);
+    }
+  }
+  
+  .no-shadow {
+    box-shadow: none !important;
+  }
+  
+  .details__table.show { 
+    transform: translateY(0);      
+  }  

@@ -1,18 +1,20 @@
 
-import {domElements as dom} from './base'
+import axios from 'axios';
+import { domElements as dom } from './base';
 
-export const getInputs =(e)=>{
-    e.preventDefault();
-    console.log(dom.formName.value);
-    console.log(dom.formName.value);
+// collects info from api and uses it to fill select elemenst
+
+
+const inputs = [dom.formName, dom.formMobile, dom.formYear, dom.formCategory, dom.formSubject, dom.formNumbers]
+
+const clearInputs = () => {
+    inputs.forEach(element => element.value = '');
 };
 
+export const getInputs = (e) => {
+    e.preventDefault();
+    inputs.forEach(element => element.value);
+    clearInputs();
+};
 
-/*
-name
-mobile number
-years   exam category
-subjects
- number of questions
-
-*/
+ 

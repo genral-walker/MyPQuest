@@ -12,6 +12,9 @@
     "type": "git",
     "url": "git+https://github.com/genral-walker/quiz.github.io.git"
   },
+  "browserslist": [
+    "since 2017-06"
+  ],
   "author": "@genral-walker",
   "license": "ISC",
   "bugs": {
@@ -29,7 +32,6 @@
     "ax": "^0.2.2",
     "axios": "^0.20.0",
     "gsap": "^3.5.1",
-    "model": "^6.0.1",
-    "sass": "^1.26.10"
+    "model": "^6.0.1"
   }
 }

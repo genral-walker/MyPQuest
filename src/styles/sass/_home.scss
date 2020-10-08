@@ -567,7 +567,7 @@ top: 6.15rem;
         $color-bg-3 57%,
         rgba($color-blue, 0.5) 57%
       ),
-      url(../images/female-quizllo.jpg) no-repeat fixed;
+      url(../../images/female-quizllo.jpg) no-repeat fixed;
     background-size: 100.1%, 65%;
     background-position: center, 85%;
     color: $color-dark-secondary;
@@ -612,7 +612,7 @@ top: 6.15rem;
           $color-bg-3 57%,
           rgba($color-blue, 0.5) 57%
         ),
-        url(../images/female-quizllo.jpg) no-repeat fixed;
+        url(../../images/female-quizllo.jpg) no-repeat fixed;
       background-size: 100.1%, 110%;
       background-position: center, -120%;
       width: 88% !important;
@@ -698,7 +698,7 @@ top: 6.15rem;
       width: 100%;
      }
      label {
-      display: block;
+       display: block;
       font-size: 1.2rem;
       margin-bottom: 0.3rem;
     }
@@ -727,6 +727,24 @@ top: 6.15rem;
         transform: scale(0.986);
       }
     }
+    ///// will be removed when message api works.
+    #mobile::placeholder {
+      font-size: 1.2rem;
+      @include responsive(350px) {
+        font-size: 1rem;
+      }
+      @include responsive(250px) {
+        font-size: .8rem;
+      }
+    }
+    }
+    &__category-and-years {
+      @include flex-center;
+      justify-content: space-between;
+      #year {
+        width: 87%;
+        margin-right: auto;
+      }
     }
     
     
@@ -743,3 +761,4 @@ top: 6.15rem;
     }
   }
 }
+

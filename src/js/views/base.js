@@ -13,6 +13,11 @@ export const domElements = {
     formInputs: document.querySelector('.form__inputs'),
     icon: document.querySelector('.side__icon-image'),
     formName: document.querySelector('#name'),
+    formMobile: document.querySelector('#mobile'),
+    formYear: document.querySelector('#year'),
+    formCategory: document.querySelector('#category'),
+    formSubject: document.querySelector('#subject'),
+    formNumbers: document.querySelector('#numbers'),
     hasEvent: {
         detailScore: document.querySelector('.details__highscores'),
         form: document.querySelector('.form'),
