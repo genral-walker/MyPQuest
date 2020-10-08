@@ -1,5 +1,4 @@
 
-import axios from 'axios';
 import { domElements as dom } from './base';
 
 // collects info from api and uses it to fill select elemenst

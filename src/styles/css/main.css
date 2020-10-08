@@ -145,10 +145,14 @@ body {
           -ms-flex-direction: column-reverse;
               flex-direction: column-reverse;
       margin: 5.7% auto auto; } }
-  @media only screen and (max-width: 30em) {
+  @media only screen and (max-width: 40.625em) {
     .container {
       -webkit-border-radius: 15px;
               border-radius: 15px; } }
+  @media only screen and (max-width: 23.4375em) {
+    .container {
+      -webkit-border-radius: 9px;
+              border-radius: 9px; } }
   @media only screen and (max-width: 23.4375em) {
     .container {
       width: 93vw; } }
@@ -197,7 +201,7 @@ body {
   @media only screen and (max-width: 30em) {
     .side {
       height: 0; } }
-  @media only screen and (max-width: 30em) {
+  @media only screen and (max-width: 45em) {
     .side {
       -webkit-transform: translateY(100%);
           -ms-transform: translateY(100%);
@@ -258,27 +262,33 @@ body {
         .side .buttons img:last-of-type {
           margin-left: 1.5rem; } }
   .side .copyright {
-    font-size: 1.15rem;
+    font-size: 1.14rem;
     color: rgba(12, 13, 44, 0.73);
     padding: 0 0.3rem;
     text-align: center;
-    margin-bottom: -3rem;
-    line-height: 1.5; }
-    .side .copyright a {
-      text-decoration: underline; }
+    margin-bottom: -3rem; }
+    @media only screen and (max-width: 45em) {
+      .side .copyright a {
+        display: inline-block; } }
+    @media only screen and (max-width: 23.4375em) {
+      .side .copyright a {
+        font-size: 1rem; } }
     @media only screen and (max-width: 45em) {
       .side .copyright {
-        margin-bottom: -2.3rem;
         height: 100%;
-        line-height: normal;
-        text-align: justify; } }
+        -webkit-align-self: flex-end;
+            -ms-flex-item-align: end;
+                align-self: flex-end; } }
+    @media only screen and (max-width: 30em) {
+      .side .copyright {
+        width: 10rem;
+        margin-bottom: -2.5rem; } }
     @media only screen and (max-width: 23.4375em) {
       .side .copyright {
-        margin-bottom: -3rem;
-        font-size: 0.8rem; } }
-    @media only screen and (max-width: 23.4375em) {
+        margin-bottom: -2rem; } }
+    @media only screen and (max-width: 20em) {
       .side .copyright {
-        font-size: 0.78rem; } }
+        font-size: .8rem; } }
     @media only screen and (max-width: 16.25em) {
       .side .copyright {
         display: none; } }
@@ -880,23 +890,24 @@ body {
       font-size: 2rem;
       margin: 0.7rem 0 -0.4rem; }
     .main .form__welcome-3 {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       line-height: 1.8rem; }
-      @media only screen and (max-width: 15.625em) {
+      @media only screen and (max-width: 64em) {
         .main .form__welcome-3 {
-          font-size: 1.5rem; } }
-      @media only screen and (max-width: 13.75em) {
+          font-size: 1.25rem; } }
+      @media only screen and (max-width: 21.875em) {
         .main .form__welcome-3 {
-          font-size: 1.4rem; } }
+          font-size: 1.2rem; } }
     .main .form__welcome-fill {
       margin: 0.5rem 0 0.2rem;
-      line-height: 1.8rem; }
-      @media only screen and (max-width: 15.625em) {
+      line-height: 1.8rem;
+      font-size: 1.4rem; }
+      @media only screen and (max-width: 64em) {
         .main .form__welcome-fill {
-          font-size: 1.5rem; } }
-      @media only screen and (max-width: 13.75em) {
+          font-size: 1.3rem; } }
+      @media only screen and (max-width: 21.875em) {
         .main .form__welcome-fill {
-          font-size: 1.4rem; } }
+          font-size: 1.2rem; } }
     .main .form__inputs {
       display: -webkit-box;
       display: -webkit-flex;
@@ -975,7 +986,7 @@ body {
         font-size: 1.2rem; }
       .main .form__inputs #mobile::placeholder {
         font-size: 1.2rem; }
-        @media only screen and (max-width: 21.875em) {
+        @media only screen and (max-width: 64em) {
           .main .form__inputs #mobile::-webkit-input-placeholder {
             font-size: 1rem; }
           .main .form__inputs #mobile:-ms-input-placeholder {

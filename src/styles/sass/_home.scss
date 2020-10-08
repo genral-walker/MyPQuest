@@ -44,8 +44,11 @@ body {
     flex-direction: column-reverse;
     margin: 5.7% auto auto;
   }
-  @include responsive(480px) {
+  @include responsive(650px) {
     border-radius: 15px;
+  }
+  @include responsive(375px) {
+    border-radius: 9px;
   }
   @include responsive(375px) {
     width: 93vw;
@@ -73,7 +76,7 @@ body {
   }
 
   transform: translateX(-100%);
-  @include responsive(480px) {
+  @include responsive(720px) {
     transform: translateY(100%);
   }
   
@@ -125,28 +128,34 @@ body {
     }
   }
   .copyright {
-    font-size: 1.15rem;
+    font-size: 1.14rem;
     color: rgba($color-blue, 0.73);
     padding: 0 0.3rem;
     text-align: center;
     margin-bottom: -3rem;
-    line-height: 1.5;
     a {
-      text-decoration: underline;
+      @include responsive(720px) {
+        display: inline-block;
+      }
+      @include responsive(375px) {
+        font-size: 1rem;
+      }
     }
     @include responsive(720px) {
-      margin-bottom: -2.3rem;
       height: 100%;
-      line-height: normal;
-      text-align: justify;
+      align-self: flex-end;
     }
+    @include responsive(480px) {
+      width: 10rem;
+      margin-bottom: -2.5rem;
+    } 
     @include responsive(375px) {
-      margin-bottom: -3rem;
-      font-size: 0.8rem;
+      margin-bottom: -2rem;
     }
-    @include responsive(375px) {
-      font-size: 0.78rem;
+    @include responsive(320px) {
+      font-size: .8rem;
     }
+     
     @include responsive(260px) {
       display: none;
     }
@@ -657,23 +666,24 @@ top: 6.15rem;
       margin: 0.7rem 0 -0.4rem;
     }
     &__welcome-3 {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       line-height: 1.8rem;
-      @include responsive(250px) {
-        font-size: 1.5rem;
+      @include responsive(1024px) {
+        font-size: 1.25rem;
       }
-      @include responsive(220px) {
-        font-size: 1.4rem;
+      @include responsive(350px) {
+        font-size: 1.2rem;
       }
     }
     &__welcome-fill {
       margin: 0.5rem 0 0.2rem;
       line-height: 1.8rem;
-      @include responsive(250px) {
-        font-size: 1.5rem;
+      font-size: 1.4rem;
+      @include responsive(1024px) {
+        font-size: 1.3rem;
       }
-      @include responsive(220px) {
-        font-size: 1.4rem;
+      @include responsive(350px) {
+        font-size: 1.2rem;
       }
     }
     &__inputs {
@@ -730,7 +740,7 @@ top: 6.15rem;
     ///// will be removed when message api works.
     #mobile::placeholder {
       font-size: 1.2rem;
-      @include responsive(350px) {
+      @include responsive(1024px) {
         font-size: 1rem;
       }
       @include responsive(250px) {
