@@ -1,41 +1,15 @@
-///////////////////////////////////////
-///////////// KEYFRAMES /////////////
-///////////////////////////////////////
 
-/////// ASIDE/SIDE SECTION ////////
-@keyframes sideIn {
-    from {
-    transform: translateX(-100%);
-    }
-    to {
-     transform: translateX(0);
-    }
-  }
-  @keyframes sideUp {
-    from {
-    transform: translateY(100%);
-    }
-    to {
-     transform: translateY(0);
-    }
-  }
   
-  ///////// FORM SECTION /////////
-  @keyframes formIn {
-    from {
-    transform: translateX(200%);
-    }
-    to {
-     transform: translateX(0);
-    }
-  }
-  
-  
+  ////////////////////////////
   /////////// JS RELATED ANIMATIONS /////////
+  /////////////////////////////////
+
+  //Animation related to the details section
   .details-show {
     height: 100%;
     backdrop-filter: blur(0.6px);
     .details__overview {
+      visibility: visible;
       transform: translateY(0);
     }
   }
@@ -45,5 +19,12 @@
   }
   
   .details__table.show { 
+    visibility: visible;
     transform: translateY(0);      
   }  
+
+//Animation related to the form validation
+.validator__text.slide-up {
+  opacity: 1;
+  transform: translateY(0);
+}

@@ -44,7 +44,7 @@ const animateBtn = (timeline, elemnt) => {
 ///// loadTl complete timeline
 export const animatePageOnLOad = () => {
     directSide()
-    loadTl.to(dom.hasEvent.form, { duration: 1.5, x: '0%' }, '-.2')
+    loadTl.to(dom.form, { duration: 1.5, x: '0%' }, '-.2')
     welcomeShow(dom.formUser)
     welcomeShow(dom.formWelcome)
     slideForm()

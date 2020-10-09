@@ -53,7 +53,6 @@ body {
   @include responsive(375px) {
     width: 93vw;
   }
-  
 }
 
 .side {
@@ -74,12 +73,14 @@ body {
   @include responsive(480px) {
     height: 0;
   }
-
+/*
   transform: translateX(-100%);
   @include responsive(720px) {
     transform: translateY(100%);
   }
-  
+  experiment
+  */
+
   &__icon {
     @include flex-column;
     justify-content: space-between;
@@ -148,14 +149,14 @@ body {
     @include responsive(480px) {
       width: 10rem;
       margin-bottom: -2.5rem;
-    } 
+    }
     @include responsive(375px) {
       margin-bottom: -2rem;
     }
     @include responsive(320px) {
-      font-size: .8rem;
+      font-size: 0.8rem;
     }
-     
+
     @include responsive(260px) {
       display: none;
     }
@@ -440,16 +441,16 @@ body {
     z-index: 1;
     @include responsive(720px) {
       top: unset;
-        left: 0;
-        bottom: 0;
+      left: 0;
+      bottom: 0;
     }
-  
+
     // @include flex-column; experiment stage
-   &__overview {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
+    &__overview {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
       width: 100%;
       font-size: 2.7rem;
       background-color: rgba($color-blue, 0.94);
@@ -457,51 +458,52 @@ body {
       padding: 1.5rem 0 1.5rem 6rem;
       @include flex-center;
       justify-content: space-around;
+      visibility: hidden;
       transform: translateY(-100%);
-      transition: transform .4s;
-      @include responsive(1024px){
+      transition: .4s;
+      @include responsive(1024px) {
         padding: 1.5rem 0 1.5rem 8.5rem;
       }
-      
+
       @include responsive(720px) {
         top: unset;
         bottom: 0;
         padding: 1.5rem 0 1.5rem 0;
         transform: unset;
-        transform: translateY(300%);
+        transform: translateY(100%);
       }
-     
-      @include responsive(480px){
+
+      @include responsive(480px) {
         justify-content: space-evenly;
-       font-size: 2.2rem;
-        }
-        @include responsive(400px){
-         font-size: 1.7rem;
-          }
-          @include responsive(300px){
-            font-size: 1.5rem;
-              font-weight: bolder;
-             }
-             @include responsive(250px){
-              font-size: 1.25rem;
-               }
-        
+        font-size: 2.2rem;
+      }
+      @include responsive(400px) {
+        font-size: 1.7rem;
+      }
+      @include responsive(300px) {
+        font-size: 1.5rem;
+        font-weight: bolder;
+      }
+      @include responsive(250px) {
+        font-size: 1.25rem;
+      }
+
       button {
         font-size: 2.7rem;
         color: inherit;
-        @include responsive(480px){
+        @include responsive(480px) {
           font-size: 2.2rem;
-           }
-           @include responsive(400px){
-            font-size: 1.7rem;
-             }
-             @include responsive(300px){
-              font-size: 1.5rem;
-              font-weight: bolder;
-               }
-               @include responsive(250px){
-                font-size: 1.25rem;
-                 }
+        }
+        @include responsive(400px) {
+          font-size: 1.7rem;
+        }
+        @include responsive(300px) {
+          font-size: 1.5rem;
+          font-weight: bolder;
+        }
+        @include responsive(250px) {
+          font-size: 1.25rem;
+        }
       }
     }
     &__table {
@@ -515,48 +517,48 @@ body {
       color: inherit;
       box-shadow: $box-shadow-primary;
       padding: 1rem 8rem;
+      visibility: hidden;
       transform: translateY(-130%);
-      transition: transform .6s ;
-      
+      transition: .6s;
       @include responsive(1400px) {
-top: 6.15rem;
-       }
-       @include responsive(950px) {
+        top: 6.15rem;
+      }
+      @include responsive(950px) {
         top: 6.21rem;
-               }
+      }
       @include responsive(720px) {
-       top: unset;
-       bottom: 6.1rem;
-       padding: 1rem 4rem;
-       transform: unset;
-       transform: translateY(200%);
+        top: unset;
+        bottom: 6.1rem;
+        padding: 1rem 4rem;
+        transform: unset;
+        transform: translateY(130%);
       }
       @include responsive(480px) {
         padding: 1rem 0;
         bottom: 5.5rem;
-       }
+      }
       @include responsive(400px) {
         bottom: 4.8rem;
-       }
-       @include responsive(300px) {
+      }
+      @include responsive(300px) {
         font-size: 2rem;
         bottom: 4.7rem;
-       }
-       @include responsive(250px) {
+      }
+      @include responsive(250px) {
         bottom: 4.2rem;
-       }
-          
+      }
+
       th {
         font-size: 3rem;
         padding: 0.5rem;
         @include responsive(300px) {
           font-size: 2.5rem;
-         }
+        }
       }
       td {
         padding: 0.3rem;
-        @include responsive(720px){
-          padding: .5rem;
+        @include responsive(720px) {
+          padding: 0.5rem;
         }
       }
     }
@@ -585,7 +587,7 @@ top: 6.15rem;
     width: 32vw;
     box-shadow: $box-shadow-secondary;
     border-radius: 8px;
-    padding: 0 2rem .6rem;
+    padding: 0 2rem 0.6rem;
     @include responsive(1400px) {
       background-size: 100.1%, 70%;
       background-position: center, 93%;
@@ -601,7 +603,7 @@ top: 6.15rem;
       background-position: center, 120%;
     }
     @include responsive(1200px) {
-      padding-top: .5rem;
+      padding-top: 0.5rem;
       width: 89% !important;
       background-size: 100.1%, 90.2%;
       background-position: center, 173%;
@@ -627,8 +629,8 @@ top: 6.15rem;
       width: 88% !important;
     }
     @include responsive(768px) {
-      background-size: 100.1%, 125.5%;
-      background-position: center, -20%;
+      background-size: 100.6%, 162.5%;
+      background-position: center, 23%;
       width: 86% !important;
     }
     @include responsive(720px) {
@@ -648,7 +650,7 @@ top: 6.15rem;
     @include responsive(550px) {
       margin: 6.5% auto auto;
     }
-    transform: translateX(200%);
+    // transform: translateX(200%); experiment
     span {
       display: inline-block;
     }
@@ -704,49 +706,55 @@ top: 6.15rem;
       @include responsive(650px) {
         width: 96%;
       }
-     div {
-      width: 100%;
-     }
-     label {
-       display: block;
-      font-size: 1.2rem;
-      margin-bottom: 0.3rem;
-    }
-    input {
-      padding-left: 0.5rem;
-    }
-    input,
-    select {
-      font-size: 1.4rem;
-      width: 100%;
-      height: 2.5rem;
-      background-color: $color-bg-3;
-      border: 1px solid transparent;
-      box-shadow: -2px -2px 4px -1px darken($color-bg-3, 10),
-        2px 4px 6px -1px darken($color-bg-3, 10);
-      border-radius: 5px;
-      outline: none;
-      transition: transform 0.3s, 0.2s;
-      
-      &:active,
-      &:focus {
-        border: 1px solid $color-blue;
+      div {
+        width: 100%;
+      }
+      label, .validator {
+        display: inline-block;
+        font-size: 1.2rem;
+        margin-bottom: 0.3rem;
+      }
+      .validator__text {
+        transform: translateY(2.3rem);
+        opacity: 0;
+        transition: .4s;}
+
+      input {
+        padding-left: 0.5rem;
+      }
+      input,
+      select {
+        font-size: 1.4rem;
+        width: 100%;
+        height: 2.5rem;
+        background-color: $color-bg-3;
+        border: 1px solid transparent;
+        box-shadow: -2px -2px 4px -1px darken($color-bg-3, 10),
+          2px 4px 6px -1px darken($color-bg-3, 10);
+        border-radius: 5px;
         outline: none;
-        background: rgba($color-blue, 0.87);
-        color: $color-bg-3;
-        transform: scale(0.986);
+        transition: transform 0.3s, 0.2s;
+
+        &:active,
+        &:focus {
+          border: 1px solid $color-blue;
+          outline: none;
+          background: rgba($color-blue, 0.87);
+          color: $color-bg-3;
+          transform: scale(0.986);
+        }
       }
-    }
-    ///// will be removed when message api works.
-    #mobile::placeholder {
-      font-size: 1.2rem;
-      @include responsive(1024px) {
-        font-size: 1rem;
+      ///// #mobile will be removed when message api works.
+      #mobile::placeholder,
+      #numbers::placeholder {
+        font-size: 1.2rem;
+        @include responsive(1024px) {
+          font-size: 1rem;
+        }
+        @include responsive(250px) {
+          font-size: 0.8rem;
+        }
       }
-      @include responsive(250px) {
-        font-size: .8rem;
-      }
-    }
     }
     &__category-and-years {
       @include flex-center;
@@ -756,11 +764,7 @@ top: 6.15rem;
         margin-right: auto;
       }
     }
-    
-    
-    
 
-  
     &__btn {
       @include btn-submit-set;
       color: $color-bg-3;
@@ -771,4 +775,3 @@ top: 6.15rem;
     }
   }
 }
-

@@ -1,5 +1,5 @@
 ///// THE OLD CODE
-const nothing = ()=> {
+const nothing = () => {
     /*
     const pagesAnswer = {
         page1: 'b',
@@ -171,17 +171,18 @@ const nothing = ()=> {
     
     */};
 
-import axios from 'axios';
-import {domElements as dom, addClass} from './views/base';
-import {detailsToggle, tableToggle, closeDetails} from './views/detailsVeiw';
-import {animatePageOnLOad} from './views/gsap';
-import {getInputs} from './views/formVeiw';
+import Form from './models/Form';
+import { domElements as dom, addClass } from './views/base';
+import { detailsToggle, tableToggle, closeDetails } from './views/detailsVeiw';
+import { animatePageOnLOad } from './views/gsap';
+import { getInputs, validateForm } from './views/formVeiw';
+
 
 /** Global state of the app
  * -
  */
-const state = {};
 
+let state = {};
 
 //TESTERS
 const hello = (e) => {
@@ -189,25 +190,25 @@ const hello = (e) => {
 };
 
 
- 
+
 /**   //MYPQUEST LOGIC
  * - Do some animations when page loads //DONE
  * - Make the profile button bring out the overview //DONE
  * - receive details inputed from the form //Done
  * - Use details from form to start gameplay
  * - ADD checks for when number is below 0
- * */  
+ * */
 
 
- //////////GSAP ANIMATION ON PAGELOAD
-animatePageOnLOad();
+//////////GSAP ANIMATION ON PAGELOAD
+// window.addEventListener('load', animatePageOnLOad);
 
 ///// ADDS AN EVENT CLASS TO ALL ELEMENTS IN DOM OBJ. 
 addClass(dom.hasEvent);
 
 /*
 ******  DETAILS-VIEW CONTROLLER *******
-*/  
+*/
 //////// TOGGLE DETAILS SECTION
 dom.hasEvent.profileBtn.addEventListener('click', detailsToggle)
 //////// TOGGLE DETAILS TABLE SECTION
@@ -218,9 +219,24 @@ document.addEventListener('click', closeDetails);
 
 /*
 ******  FORM-VIEW CONTROLLER *******
-*/  
+*/
+// [dom.formName, dom.formMobile].forEach(e=> e.addEventListener('input', validateForm));
 
 
-dom.hasEvent.form.addEventListener('submit', getInputs);
+const submitData = async () => {
+    let query;
+    query = getInputs();
+    state.form = new Form(query);
+    try {
+        let res =
+            await state.form.submitQuery();
+        console.log(res);
+    } catch (error) {
+        console.log(error)
+    }
+};
+
+
+dom.btnForm.addEventListener('click', submitData);
 
 
