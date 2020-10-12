@@ -7,21 +7,15 @@ export default class Form {
         this.values = values;
     }
 
-    /**
-     * - If any of the query isn't avialabe:
-     *      give the user the most popular query in descending order
-     *      Tell the user to try again
-     * */
     async submitQuery() {
         try {
-            const res = await axios(`${cors}https://questions.aloc.ng/api/q/${this.values[5]}?subject=${this.values[4]}&year=${this.values[2]}&type=${this.values[3]}`);
-            res.message ? console.log(res.message) : console.log(res.data);
+            this.results = await axios(`${cors}https://questions.aloc.ng/api/q/${this.values[5]}?subject=${this.values[4]}&year=${this.values[2]}&type=${this.values[3]}`);
+            return this.results.data.data;
         } catch (error) {
             console.log(error);
         }
     }
 };
-
 /*
 
 */

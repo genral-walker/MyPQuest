@@ -6,8 +6,7 @@
 
   //Animation related to the details section
   .details-show {
-    height: 100%;
-    backdrop-filter: blur(0.6px);
+    height: 100%;    
     .details__overview {
       visibility: visible;
       transform: translateY(0);

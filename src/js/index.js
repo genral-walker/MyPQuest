@@ -228,15 +228,13 @@ const submitData = async () => {
     query = getInputs();
     state.form = new Form(query);
     try {
-        let res =
-            await state.form.submitQuery();
+        let res = await state.form.submitQuery();
         console.log(res);
+       
     } catch (error) {
         console.log(error)
     }
 };
 
-
 dom.btnForm.addEventListener('click', submitData);
-
 

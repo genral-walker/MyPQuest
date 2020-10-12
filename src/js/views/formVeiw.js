@@ -36,9 +36,7 @@ const clearInputs = () => {
 
 export const getInputs = () => {
     let values = []; // 0= name, 1 = mobile, 2 = year, 3 = category, 4 = subject, 5 = numbers;
-     inputs.forEach(e => {
-    values.push(e.value);
-   });
+     inputs.forEach(e => values.push(e.value));
    clearInputs();
    return values;
 };

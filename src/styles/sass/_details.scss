@@ -1,0 +1,132 @@
+
+.details {
+    color: $color-bg-3;
+    position: absolute;
+    top: 0;
+    left: 2%;
+    width: 100%;
+    z-index: 1;
+    @include responsive(720px) {
+      top: unset;
+      left: 0;
+      bottom: 0;
+    }
+
+    // @include flex-column; experiment stage
+    &__overview {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+      font-size: 2.7rem;
+      background-color: rgba($color-blue, 0.94);
+      box-shadow: $box-shadow-primary;
+      padding: 1.5rem 0 1.5rem 6rem;
+      @include flex-center;
+      justify-content: space-around;
+      visibility: hidden;
+      transform: translateY(-100%);
+      transition: .4s;
+      @include responsive(1024px) {
+        padding: 1.5rem 0 1.5rem 8.5rem;
+      }
+
+      @include responsive(720px) {
+        top: unset;
+        bottom: 0;
+        padding: 1.5rem 0 1.5rem 0;
+        transform: unset;
+        transform: translateY(100%);
+      }
+
+      @include responsive(480px) {
+        justify-content: space-evenly;
+        font-size: 2.2rem;
+      }
+      @include responsive(400px) {
+        font-size: 1.7rem;
+      }
+      @include responsive(300px) {
+        font-size: 1.5rem;
+        font-weight: bolder;
+      }
+      @include responsive(250px) {
+        font-size: 1.25rem;
+      }
+
+      button {
+        font-size: 2.7rem;
+        color: inherit;
+        @include responsive(480px) {
+          font-size: 2.2rem;
+        }
+        @include responsive(400px) {
+          font-size: 1.7rem;
+        }
+        @include responsive(300px) {
+          font-size: 1.5rem;
+          font-weight: bolder;
+        }
+        @include responsive(250px) {
+          font-size: 1.25rem;
+        }
+      }
+    }
+    &__table {
+      position: absolute;
+      top: 6.26rem;
+      left: 0;
+      font-size: 2.5rem;
+      width: 100%;
+      text-align: center;
+      background-color: rgba($color-blue, 0.94);
+      color: inherit;
+      box-shadow: $box-shadow-primary;
+      padding: 1rem 8rem;
+      visibility: hidden;
+      transform: translateY(-130%);
+      transition: .6s;
+      @include responsive(1400px) {
+        top: 6.15rem;
+      }
+      @include responsive(950px) {
+        top: 6.21rem;
+      }
+      @include responsive(720px) {
+        top: unset;
+        bottom: 6.1rem;
+        padding: 1rem 4rem;
+        transform: unset;
+        transform: translateY(130%);
+      }
+      @include responsive(480px) {
+        padding: 1rem 0;
+        bottom: 5.5rem;
+      }
+      @include responsive(400px) {
+        bottom: 4.8rem;
+      }
+      @include responsive(300px) {
+        font-size: 2rem;
+        bottom: 4.7rem;
+      }
+      @include responsive(250px) {
+        bottom: 4.2rem;
+      }
+
+      th {
+        font-size: 3rem;
+        padding: 0.5rem;
+        @include responsive(300px) {
+          font-size: 2.5rem;
+        }
+      }
+      td {
+        padding: 0.3rem;
+        @include responsive(720px) {
+          padding: 0.5rem;
+        }
+      }
+    }
+  }

@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import { domElements as dom } from './base';
 
 
-// MAKE timeline of animation on page laod.
+// Animation on page laod.
 let loadTl = gsap.timeline({
     delay: .2
 });
@@ -52,4 +52,14 @@ export const animatePageOnLOad = () => {
     iconBounce()
 };
 
+/// ANIMATION AFTER FORM FILLED
 
+// const startGame = gsap.timeline();
+
+// startGame.to(dom.form, {display: 'none', x:'200%'})
+// .to(dom.gameSection, {display: 'inherit', x:'0'})
+
+
+// const AnimateStart =()=>{
+
+// };

@@ -1,0 +1,115 @@
+.side {
+    background: $color-bg-3;
+    flex: 0 0 10%;
+    align-self: stretch;
+    padding: 0 1rem 3rem;
+    color: rgba($color-blue, 0.8);
+    @include flex-column;
+    justify-content: space-around;
+    position: relative;
+    z-index: 10;
+    @include responsive(720px) {
+      flex-direction: row;
+      height: 12%;
+      padding-bottom: 0;
+    }
+    @include responsive(480px) {
+      height: 0;
+    }
+  /*
+    transform: translateX(-100%);
+    @include responsive(720px) {
+      transform: translateY(100%);
+    }
+    experiment
+    */
+  
+    &__icon {
+      @include flex-column;
+      justify-content: space-between;
+      margin-top: 2.5rem;
+      text-align: center;
+      @include responsive(480px) {
+        margin-top: 0;
+      }
+    }
+    &__icon-image {
+      width: 6rem;
+      margin-bottom: -0.17rem;
+      @include responsive(720px) {
+        margin-bottom: 2.5rem;
+      }
+      @include responsive(480px) {
+        width: 5.3rem; 
+        margin-bottom: 0.1rem;
+      }
+    }
+    &__text {               
+      font-size: 2.9rem;
+      font-weight: lighter;
+      
+      @include responsive(720px) {
+        display: none;
+      }
+      span {
+        display: block;
+      margin-bottom: -.6rem;
+      &:first-of-type {
+        font-size: 2.7rem;
+      }
+      }
+    }
+    .btn {
+      position: relative;
+      color: $color-dark-secondary;
+      font-size: 1.8rem;
+      color: inherit;
+  
+      @include responsive(480px) {
+        display: none !important;
+      }
+    }
+    .buttons img {
+      display: none;
+      @include responsive(480px) {
+        width: 3.5rem;
+        display: block;
+        &:last-of-type {
+          margin-left: 1.5rem;
+        }
+      }
+    }
+    .copyright {
+      font-size: 1.14rem;
+      color: rgba($color-blue, 0.73);
+      padding: 0 0.3rem;
+      text-align: center;
+      margin-bottom: -3rem;
+      a {
+        @include responsive(720px) {
+          display: inline-block;
+        }
+        @include responsive(375px) {
+          font-size: 1rem;
+        }
+      }
+      @include responsive(720px) {
+        height: 100%;
+        align-self: flex-end;
+      }
+      @include responsive(480px) {
+        width: 10rem;
+        margin-bottom: -2.5rem;
+      }
+      @include responsive(375px) {
+        margin-bottom: -2rem;
+      }
+      @include responsive(320px) {
+        font-size: 0.8rem;
+      }
+  
+      @include responsive(260px) {
+        display: none;
+      }
+    }
+  }
