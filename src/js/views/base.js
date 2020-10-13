@@ -20,6 +20,16 @@ export const domElements = {
     btnForm: document.querySelector('.form__btn'),
     validateName: document.querySelector('.validator__text--name'),
     validateMobile: document.querySelector('.validator__text--mobile'),
+    gameTop: document.querySelector('.top'),
+    gameAnswers: document.querySelector('.bottom'),
+    gameBtn: document.querySelector('.foot__btn'),
+    loader: document.querySelector('.loader'),
+    question: document.querySelector('.top__question-text'),
+    optionBox: document.querySelectorAll('.bottom__answer'),
+    optionA: document.querySelector('.bottom__text--a'),
+    optionB: document.querySelector('.bottom__text--b'),
+    optionC: document.querySelector('.bottom__text--c'),
+    optionD: document.querySelector('.bottom__text--d'),
     hasEvent: {
         //  ELEMENTS THAT HAVE EVENTS LISTENERS AND ARE OUTSIDE THE MAIN ELEMENT/CONTAINER
         detailsOverview: document.querySelector('.details__overview'),
@@ -30,14 +40,14 @@ export const domElements = {
             window.matchMedia('(max-width: 30em)').matches ? btn = 'btn-img' : btn = 'btn__user';
             let result = document.querySelector(`.${btn}`);
             return result;
+        },
+        get btnExit() {
+            let btn;
+            window.matchMedia('(max-width: 30em)').matches ? btn = 'btn-img__2' : btn = 'btn__exit';
+            let result = document.querySelector(`.${btn}`);
+            return result;
         }
     },
-    childNodes: {
-        // ELEMENTS THAT HAVE FULL BODY ANIMATIONS IN THE MAIN ELEMENT/CONTAINER  console.log(e.target.childNodes);
-        overviewChildren: document.querySelector('.details__overview').childNodes,
-        tableChildren: document.querySelector('.details__table').childNodes,
-    }
-
 };
 
 ///// CLASSSES USED FOR MANIPULATING
@@ -46,6 +56,7 @@ export const domClasslists = {
     tableShow: 'show',
     noShadow: 'no-shadow',
     slideValidator: 'slide-up',
+    loading: 'loading',
     hasEvent: 'has-event',
 };
 
@@ -54,4 +65,9 @@ export const addClass = obj => {
     for (const key in obj) {
         obj[key].classList.add(domClasslists.hasEvent);
     }
+};
+
+
+export const handleLoader = ()=>{
+    domElements.loader.classList.toggle(domClasslists.loading);  
 };

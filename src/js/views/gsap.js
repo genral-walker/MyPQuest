@@ -16,8 +16,8 @@ const directSide = () => {
     }
 };
 
-const welcomeShow = (elem, delay = .2) => {
-    loadTl.fromTo(elem, { y: '70%', opacity: 0 }, { duration: .3, y: '0%', opacity: 1, delay: delay })
+const welcomeShow = (elem, timeline ,delay = .2) => {
+    timeline.fromTo(elem, { y: '70%', opacity: 0 }, { duration: .3, y: '0%', opacity: 1, delay: delay })
 };
 
 const iconBounce = () => {
@@ -38,28 +38,44 @@ const slideForm =()=> {
 };
 
 const animateBtn = (timeline, elemnt) => {
-    timeline.fromTo(elemnt, { opacity: 0, scale: .7, repeat: 1 }, { opacity: 1, scale: 1, repeat: 1 })
+    timeline.fromTo(elemnt, { opacity: 0, y: '-60%' }, {duration: .2, opacity: 1, y: 0 })
 };
 
 ///// loadTl complete timeline
-export const animatePageOnLOad = () => {
+export const animatePageOnLoad = () => {
     directSide()
-    loadTl.to(dom.form, { duration: 1.5, x: '0%' }, '-.2')
-    welcomeShow(dom.formUser)
-    welcomeShow(dom.formWelcome)
+    loadTl.to(dom.form, { duration: 1.5, x: '0%', ease: 'power1.out' }, '-.15')
+    welcomeShow(dom.formUser, loadTl)
+    welcomeShow(dom.formWelcome, loadTl)
     slideForm()
     animateBtn(loadTl, dom.formBtn)
     iconBounce()
 };
 
+
+
+/////////////////
 /// ANIMATION AFTER FORM FILLED
+////////////////
+let gameStarted;
+const startGame = gsap.timeline();
+export const animateStart =()=>{
+    if (gameStarted === false) {
+        startGame.play();  
+        gameStarted = true; 
+    } else {
+    startGame.to(dom.form, {duration: 1.4, x:'200%', display: 'none'})
+    .to(dom.gameSection, { delay: -.5, duration: 0, display: 'block'})
+    welcomeShow(dom.gameTop, startGame, 0)
+    welcomeShow(dom.gameAnswers, startGame , .4)
+    startGame.fromTo(dom.gameBtn, {opacity: 0, y: '35%'}, {delay: .3,duration:1, y:0, opacity: 1})
+    gameStarted = true;}
+    
+};
 
-// const startGame = gsap.timeline();
-
-// startGame.to(dom.form, {display: 'none', x:'200%'})
-// .to(dom.gameSection, {display: 'inherit', x:'0'})
-
-
-// const AnimateStart =()=>{
-
-// };
+export const reverseStartAnimation =()=> {
+   if (gameStarted) {
+    startGame.reverse();
+    gameStarted = false;
+   }
+  }

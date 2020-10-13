@@ -31,10 +31,20 @@
   <script src="/main.5115e0dc.js"></script></head>
 
   <body>
+    <div class="loader">
+      <div class="sk-chase">
+          <div class="sk-chase-dot"></div>
+          <div class="sk-chase-dot"></div>
+          <div class="sk-chase-dot"></div>
+          <div class="sk-chase-dot"></div>
+          <div class="sk-chase-dot"></div>
+          <div class="sk-chase-dot"></div>
+        </div>
+  </div>
     <div class="bg-cover"></div>
     <div class="container">
       <aside class="side">
-        <div class="side__icon">
+        <div class="side__icon">      
           <img src="/icon-image.c01f9e70.svg" alt="MyPQuest Icon" class="side__icon-image">
           <h1 class="side__text"><span>My</span><span>PQuest</span></h1>
         </div>
@@ -45,7 +55,7 @@
         </div>
 
         <div class="buttons">
-          <img src="/exit.7241abda.svg" alt="exit">
+          <img src="/exit.7241abda.svg" alt="exit" class="btn-img__2">
           <button class="btn btn__exit">Exit Game</button>
         </div>
 
@@ -86,25 +96,25 @@
           <div class="bottom">
             <div class="bottom__answer">
               <span class="bottom__letter">A</span>
-              <p class="bottom__text">
+              <p class="bottom__text bottom__text--a">
                 This is the result of answer to the precise question called
               </p>
             </div>
             <div class="bottom__answer">
               <span class="bottom__letter">B</span>
-              <p class="bottom__text">
+              <p class="bottom__text bottom__text--b">
                 This is the result of answer to the precise question called
               </p>
             </div>
             <div class="bottom__answer">
               <span class="bottom__letter">C</span>
-              <p class="bottom__text">
+              <p class="bottom__text bottom__text--c">
                 This is the result of answer to the precise question called
               </p>
             </div>
             <div class="bottom__answer">
               <span class="bottom__letter">D</span>
-              <p class="bottom__text">
+              <p class="bottom__text bottom__text--d">
                 This is the result of answer to the precise question called
               </p>
             </div>
@@ -188,7 +198,7 @@
             <div class="form__category-and-years">
               <div class="form__year">
                 <label for="year"> Exam Year</label>
-                <select name="year" id="year">
+                <select required="" name="year" id="year">
                   <option value="2001">2001</option>
                   <option value="2002">2002</option>
                   <option value="2003">2003</option>
@@ -216,7 +226,7 @@
 
             <div class="form__subject">
               <label for="subject">Subject</label>
-              <select name="subject" id="subject">
+              <select required="" name="subject" id="subject">
                 <option value="english">English</option>
                 <option value="mathematics">Mathematics</option>
                 <option value="commerce">Commerce</option>

@@ -1,9 +1,33 @@
 
+ ////////////////////////////
+  /////////// KAYFRAMES /////////
+  /////////////////////////////////
+
+  @keyframes sk-chase {
+    100% { transform: rotate(360deg); } 
+  }
   
-  ////////////////////////////
+  @keyframes sk-chase-dot {
+    80%, 100% { transform: rotate(360deg); } 
+  }
+  
+  @keyframes sk-chase-dot-before {
+    50% {
+      transform: scale(0.4); 
+    } 100%, 0% {
+      transform: scale(1.0); 
+    } 
+  }
+  
+  ////////////////////////////    
   /////////// JS RELATED ANIMATIONS /////////
   /////////////////////////////////
 
+  //Animation related to the form validation
+  .loader.loading {
+    backdrop-filter: brightness(0.8);   
+   visibility: visible; 
+  }
   //Animation related to the details section
   .details-show {
     height: 100%;    

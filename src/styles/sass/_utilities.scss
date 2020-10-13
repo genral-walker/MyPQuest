@@ -261,14 +261,14 @@
     border-radius: 8px;
     transition: 0.2s ease;
     @include responsive(hover) {
-      transform: translateY(-1.13px) scale(1.013);
+      transform: translateY(-1.13px) scale(1.013) !important;
     }
     &:active {
-      transform: translateY(1px) scale(1);
+      transform: translateY(1px) scale(1) !important;
     }
     @include responsive(noHover) {
       &:active {
-        transform: translateY(1.3px) scale(0.991);
+        transform: translateY(1.3px) scale(0.991) !important;
       }
     }
   }
@@ -280,7 +280,8 @@
   }
   
   .right {
-    background-color: #24e564e5;
+    // background-color: #24e564e5;
+    background-color: rgba(36, 232, 101, 0.871);
     color: white;
     transition: .4s;
   }

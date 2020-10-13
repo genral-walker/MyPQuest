@@ -172,10 +172,11 @@ const nothing = () => {
     */};
 
 import Form from './models/Form';
-import { domElements as dom, addClass } from './views/base';
+import Questions from './models/Questions';
+import { domElements as dom, addClass, handleLoader } from './views/base';
 import { detailsToggle, tableToggle, closeDetails } from './views/detailsVeiw';
-import { animatePageOnLOad } from './views/gsap';
-import { getInputs, validateForm } from './views/formVeiw';
+import { animatePageOnLoad, animateStart, reverseStartAnimation } from './views/gsap';
+import { getInputs, clearInputs} from './views/formVeiw';
 
 
 /** Global state of the app
@@ -195,13 +196,14 @@ const hello = (e) => {
  * - Do some animations when page loads //DONE
  * - Make the profile button bring out the overview //DONE
  * - receive details inputed from the form //Done
+ * - validate the inputs from the form before game starts // Partilly Done
  * - Use details from form to start gameplay
  * - ADD checks for when number is below 0
  * */
 
 
 //////////GSAP ANIMATION ON PAGELOAD
-// window.addEventListener('load', animatePageOnLOad);
+window.addEventListener('load', animatePageOnLoad);
 
 ///// ADDS AN EVENT CLASS TO ALL ELEMENTS IN DOM OBJ. 
 addClass(dom.hasEvent);
@@ -228,13 +230,44 @@ const submitData = async () => {
     query = getInputs();
     state.form = new Form(query);
     try {
+        clearInputs();
+        handleLoader();
+
         let res = await state.form.submitQuery();
-        console.log(res);
-       
+
+        state.questions = new Questions(res);
+        let questions = state.questions;
+        if (questions) {
+            let only1 = state.questions.loadQuestions();
+            console.log(only1);
+            handleLoader();
+            setTimeout(() => {
+                animateStart();
+            }, 250);
+        }
+
     } catch (error) {
         console.log(error)
+        //// WE STILL HAVE TO WORK ON ERROR HANDLING TO DISPLAY FOR THE USER.
     }
 };
 
-dom.btnForm.addEventListener('click', submitData);
+
+
+// GAME START AFTER SEARCH
+dom.form.addEventListener('submit', (e) => {
+    e.preventDefault();
+   submitData();
+});
+
+
+/////LOAD NEXT QUESTION ON EVERY ANSWERED QUESTION
+
+
+
+///// EXITING THE GAME
+const exitGame = ()=>{
+reverseStartAnimation();
+};
+dom.hasEvent.btnExit.addEventListener('click', exitGame)
 

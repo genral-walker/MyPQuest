@@ -16,13 +16,13 @@
     @include responsive(480px) {
       height: 0;
     }
-  /*
+
+    
     transform: translateX(-100%);
     @include responsive(720px) {
       transform: translateY(100%);
     }
-    experiment
-    */
+    
   
     &__icon {
       @include flex-column;
@@ -56,6 +56,7 @@
       margin-bottom: -.6rem;
       &:first-of-type {
         font-size: 2.7rem;
+        margin-top: .4rem;
       }
       }
     }
