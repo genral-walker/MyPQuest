@@ -1,118 +1,11 @@
 ///// THE OLD CODE
 const nothing = () => {
-    /*
-    const pagesAnswer = {
-        page1: 'b',
-        page2: 'c',
-        page3: 'c',
-        page4: 'a',
-        page5: 'c'
-    };
-    
-    
-    const pages = {
-        page2: `<div class="q">
-            <h2>Question Two: <br></h2>
-        <p>		
-            Durand Cup is associated with the game of...</p>
-        </div>
-        
-            <div class="box a">
-                <p>	<span class="options">A :</span> Hockey </p>
-            </div>
-        
-            <div class="box b">
-                <p> <span class="options">B :</span> Basket ball</p>
-            </div>
-        
-            <div class="box c">
-                <p><span class="options">C :</span> Football</p>
-            </div>
-        
-            <div class="box d">
-                <p><span class="options">D :</span> None of the above</p>
-            </div>`,
-    
-        page3: `<div class="q">
-            <h2>Question Three: <br></h2>
-        <p>Epsom (England) is the place associated with...</p>
-        </div>
-        
-            <div class="box a">
-                <p>	<span class="options">A :</span> Football</p>
-            </div>
-        
-            <div class="box b">
-                <p> <span class="options">B :</span> Sorcery</p>
-            </div>
-        
-            <div class="box c">
-                <p><span class="options">C :</span> Horse Racing</p>
-            </div>
-        
-            <div class="box d">
-                <p><span class="options">D :</span> None of the above</p>
-            </div>`,
-    
-        page4: `<div class="q">
-            <h2>Question Four: <br></h2>
-        <p> The fastest shorthand writer was...</p>
-        </div>
-        
-            <div class="box a">
-                <p>	<span class="options">A :</span> Dr. G. D. Bisht</p>
-            </div>
-        
-            <div class="box b">
-                <p> <span class="options">B :</span> J.M. Tagore</p>
-            </div>
-        
-            <div class="box c">
-                <p><span class="options">C :</span> J.R.D. Tata</p>
-            </div>
-        
-            <div class="box d">
-                <p><span class="options">D :</span> Khudada Khan</p>
-            </div>`,
-    
-        page5: `<div class="q">
-            <h2>Question Five: <br></h2>
-        <p> The first China War was fought between...</p>
-        </div>
-        
-            <div class="box a">
-                <p>	<span class="options">A :</span> China and Egypt</p>
-            </div>
-        
-            <div class="box b">
-                <p> <span class="options">B :</span> China and France</p>
-            </div>
-        
-            <div class="box c">
-                <p><span class="options">C :</span> China and Britain</p>
-            </div>
-        
-            <div class="box d">
-                <p><span class="options">D :</span> China and Greek</p>
-            </div>`,
-    }; 
-    
-    
+    /*  
     let isClicked = false;
     let rightAns = 0;
     let wrongAns = 0;
     let score = 0;
     let PageNum = 1;
-    
-    
-    const btnHover = () => {
-        document.querySelector('button').classList.add('btnHover');
-    
-        setTimeout(() => {
-            document.querySelector('button').classList.remove('btnHover')
-        }, 1900);
-    };
-    
     
     const processQuestion = () => {
         let rightOption = pagesAnswer[`page${PageNum}`];
@@ -176,7 +69,7 @@ import Questions from './models/Questions';
 import { domElements as dom, addClass, handleLoader } from './views/base';
 import { detailsToggle, tableToggle, closeDetails } from './views/detailsVeiw';
 import { animatePageOnLoad, animateStart, reverseStartAnimation } from './views/gsap';
-import { getInputs, clearInputs} from './views/formVeiw';
+import { getInputs, clearInputs } from './views/formVeiw';
 
 
 /** Global state of the app
@@ -205,8 +98,11 @@ const hello = (e) => {
 //////////GSAP ANIMATION ON PAGELOAD
 window.addEventListener('load', animatePageOnLoad);
 
-///// ADDS AN EVENT CLASS TO ALL ELEMENTS IN DOM OBJ. 
+
+///// ADDS AN EVENT CLASS TO ALL ELEMENTS IN DOMCLASSLIST USED TO NULIFY DETAILS SLIDE EVENT. 
 addClass(dom.hasEvent);
+
+
 
 /*
 ******  DETAILS-VIEW CONTROLLER *******
@@ -219,12 +115,7 @@ dom.hasEvent.detailScore.addEventListener('click', tableToggle)
 document.addEventListener('click', closeDetails);
 
 
-/*
-******  FORM-VIEW CONTROLLER *******
-*/
-// [dom.formName, dom.formMobile].forEach(e=> e.addEventListener('input', validateForm));
-
-
+//// GET INPUTS FROM FORM 
 const submitData = async () => {
     let query;
     query = getInputs();
@@ -247,27 +138,32 @@ const submitData = async () => {
         }
 
     } catch (error) {
-        console.log(error)
-        //// WE STILL HAVE TO WORK ON ERROR HANDLING TO DISPLAY FOR THE USER.
+        handleLoader();
+        alert('Uh Uh Something Went Wrong, It May Be Poor Connection or Delay In Response. please try again. 😢');
     }
 };
 
 
 
-// GAME START AFTER SEARCH
+//////// UPDATE PROFILE NAME
+const updateName = () => {
+    dom.userAll.forEach(user => user.textContent = dom.formName.value)
+};
+dom.formName.addEventListener('input', updateName);
+
+
+//////// GAME START AFTER INPUTS RECEIVED SUCCESFULLY
 dom.form.addEventListener('submit', (e) => {
     e.preventDefault();
-   submitData();
+    submitData();
 });
 
 
-/////LOAD NEXT QUESTION ON EVERY ANSWERED QUESTION
+/////LOAD NEXT QUESTION AFTER EVERY ANSWERED QUESTION
 
 
 
 ///// EXITING THE GAME
-const exitGame = ()=>{
-reverseStartAnimation();
-};
-dom.hasEvent.btnExit.addEventListener('click', exitGame)
+const exitGame = () => reverseStartAnimation();
+dom.hasEvent.btnExit.addEventListener('click', exitGame);
 

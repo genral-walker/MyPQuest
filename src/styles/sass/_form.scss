@@ -114,6 +114,9 @@
       @include responsive(650px) {
         width: unset;
       }
+      #welcome-back {
+        display: none;
+      }
     }
     &__welcome-2 {
       font-size: 2rem;

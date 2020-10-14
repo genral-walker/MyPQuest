@@ -486,6 +486,14 @@ body {
       @media only screen and (max-width: 15.625em) {
         .details__overview button {
           font-size: 1.25rem; } }
+  .details__hello {
+    font-size: 1.8rem; }
+    @media only screen and (max-width: 50em) {
+      .details__hello {
+        font-size: 1.5rem; } }
+    @media only screen and (max-width: 34.375em) {
+      .details__hello {
+        display: none; } }
   .details__table {
     position: absolute;
     top: 6.26rem;
@@ -1021,6 +1029,8 @@ body {
     @media only screen and (max-width: 40.625em) {
       .form__welcome {
         width: unset; } }
+    .form__welcome #welcome-back {
+      display: none; }
   .form__welcome-2 {
     font-size: 2rem;
     margin: 0.7rem 0 -0.4rem; }

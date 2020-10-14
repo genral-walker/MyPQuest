@@ -30,6 +30,7 @@ export const domElements = {
     optionB: document.querySelector('.bottom__text--b'),
     optionC: document.querySelector('.bottom__text--c'),
     optionD: document.querySelector('.bottom__text--d'),
+    userAll: document.querySelectorAll('.user'),
     hasEvent: {
         //  ELEMENTS THAT HAVE EVENTS LISTENERS AND ARE OUTSIDE THE MAIN ELEMENT/CONTAINER
         detailsOverview: document.querySelector('.details__overview'),

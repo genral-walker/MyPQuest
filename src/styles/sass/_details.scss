@@ -73,6 +73,15 @@
         }
       }
     }
+    &__hello {
+      font-size: 1.8rem;
+      @include responsive(800px) {
+        font-size: 1.5rem;
+      }
+      @include responsive(550px) {
+        display: none;
+      }
+    }
     &__table {
       position: absolute;
       top: 6.26rem;
