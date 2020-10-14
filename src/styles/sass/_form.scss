@@ -79,30 +79,21 @@
       width: 85% !important;
       padding-left: 1.5rem;
       padding-right: 1.5rem;
-      margin: auto auto;
       background-size: 100.18%, 136.5%;
       background-position: center, 24%;
+      margin-top: 1.7rem;
     }
     @include responsive(650px) {
       background: $color-bg-3;
       box-shadow: -4px -4px 6px 2px rgba($color-bg-3, 0.2),
         4px 4px 6px 2px rgba($color-bg-3, 0.2);
     }
-    @include responsive(550px) {
-        position: relative;
-        bottom: .5rem;
+    @include responsive(650px) {
+      margin-top: 1rem;
     }
     @include responsive(480px) {
-        bottom: -.6rem;
+      margin-top: 0;
     }
-    @include responsive(375px) {
-        bottom: -1.1rem;
-    }
-    @include responsive(300px) {
-        bottom: -1.5rem;
-    }
-    
-     
     span {
       display: inline-block;
     }

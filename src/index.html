@@ -52,18 +52,21 @@
   <body>
     <div class="loader">
       <div class="sk-chase">
-          <div class="sk-chase-dot"></div>
-          <div class="sk-chase-dot"></div>
-          <div class="sk-chase-dot"></div>
-          <div class="sk-chase-dot"></div>
-          <div class="sk-chase-dot"></div>
-          <div class="sk-chase-dot"></div>
-        </div>
-  </div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+      </div>
+    </div>
+
     <div class="bg-cover"></div>
-    <div class="container">
+
+<div class="container">
+    <div id="content">
       <aside class="side">
-        <div class="side__icon">      
+        <div class="side__icon">
           <img
             src="./images/icon-image.svg"
             alt="MyPQuest Icon"
@@ -78,8 +81,8 @@
         </div>
 
         <div class="buttons">
-          <img src="./images/exit.svg" alt="exit" class="btn-img__2"  />
-          <button class="btn btn__exit">Exit Game</button>
+          <img src="./images/exit.svg" alt="exit" class="btn-img__2" />
+          <button class="btn btn__exit">Restart</button>
         </div>
 
         <p class="copyright">
@@ -189,10 +192,12 @@
         <form class="form">
           <div class="form__intro">
             <h2 class="form__user">
-              Hello  <span class="user">There</span> &nbsp;😊
+              Hello <span class="user">There</span> &nbsp;😊
             </h2>
             <p class="form__welcome">
-              <span class="form__welcome-2">Welcome <span id="welcome-back">back</span> To MyPQuest</span>
+              <span class="form__welcome-2"
+                >Welcome <span id="welcome-back">back</span> To MyPQuest</span
+              >
               <span class="form__welcome-3">
                 Practice past questions to help improve your knowledge
               </span>
@@ -204,7 +209,8 @@
           <div class="form__inputs">
             <div class="form__name">
               <label for="name">Username</label>
-              <span class="validator">&nbsp;&nbsp;&nbsp;
+              <span class="validator"
+                >&nbsp;&nbsp;&nbsp;
                 <span class="validator__text val validator__text--name">:</span>
               </span>
               <input required type="text" name="name" id="name" />
@@ -212,10 +218,18 @@
 
             <div class="form__tel">
               <label for="mobile">Mobile Number</label>
-              <span class="validator">&nbsp;&nbsp;&nbsp;
+              <span class="validator"
+                >&nbsp;&nbsp;&nbsp;
                 <span class="validator__text validator__text--mobile"></span>
               </span>
-              <input required type="tel" name="mobile" id="mobile" disabled placeholder="unavailable right now, proceed to next field."/>
+              <input
+                required
+                type="tel"
+                name="mobile"
+                id="mobile"
+                disabled
+                placeholder="unavailable right now, proceed to next field."
+              />
             </div>
 
             <div class="form__category-and-years">
@@ -288,6 +302,8 @@
         </form>
       </main>
     </div>
+</div>
+
     <script src="./js/index.js"></script>
   </body>
 </html>

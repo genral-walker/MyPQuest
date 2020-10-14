@@ -1,294 +1,288 @@
-
- 
-  .game {
-    width: 93%;
-    @include responsive(1200px) {
-      margin-left: -1rem;
-      width: 90%;
-    }
-    @include responsive(1024px) {       
-      width: 87%;
-    }
-    @include responsive(768px) {
-      width: 86%;
-    }
-    @include responsive(720px) {
-      width: 94%;
-      color: rgba($color-bg-3, .9);
-      margin: 6% auto auto;
-    }
-    @include responsive(480px) {
-      margin: 10% auto auto;
-    }
-    @include responsive(480px) {
-      margin: 10% auto auto;
-    }
-    display: none;
+.game {
+  width: 93%;
+  @include responsive(1200px) {
+    margin-left: -1rem;
+    width: 90%;
   }
+  @include responsive(1024px) {
+    width: 87%;
+  }
+  @include responsive(768px) {
+    width: 86%;
+  }
+  @include responsive(720px) {
+    width: 94%;
+    color: rgba($color-bg-3, 0.9);
+    margin: 6% auto auto;
+  }
+  @include responsive(480px) {
+    margin: 10% auto auto;
+  }
+  @include responsive(480px) {
+    margin: 10% auto auto;
+  }
+  display: none;
+}
 
-  .top {
-    background: rgba($color-bg-3, .04);
-    height: 17rem;
-    width: 100%;
-    box-shadow: $box-shadow-game;
-    margin: 1rem 0 3rem;
-    border-radius: 8px;
- 
-    @include responsive(720px) {
-      background: rgba($color-bg-3, .090);
-    }
-    @include responsive(550px) {
-      height: 18rem;
-      margin: 4rem 0 3rem;
-    }
+.top {
+  background: rgba($color-bg-3, 0.04);
+  height: 17rem;
+  width: 100%;
+  box-shadow: $box-shadow-game;
+  margin: 1rem 0 3rem;
+  border-radius: 8px;
+
+  @include responsive(720px) {
+    background: rgba($color-bg-3, 0.09);
+  }
+  @include responsive(550px) {
+    height: 18rem;
+    margin: 4rem 0 3rem;
+  }
+  @include responsive(480px) {
+    margin: -2.5rem 0 2.1rem;
+  }
+  @include responsive(375px) {
+    height: 21rem;
+    margin: -2rem 0 2rem;
+  }
+  &__status {
+    border-bottom: $border-secondary;
+    font-size: 1.8rem;
+    font-weight: 400;
+    padding: 1rem 1rem 0.5rem;
+    @include flex-center;
+    justify-content: space-between;
     @include responsive(480px) {
-      margin: -2.5rem 0 2.1rem;
+      padding: 1.5rem 1rem 1rem;
     }
     @include responsive(375px) {
-      height: 21rem;
-      margin: -2rem 0 2rem;
+      padding: 1.5rem 1rem 0.1rem;
     }
-    &__status {
-      border-bottom: $border-secondary;
-      font-size: 1.8rem;
-      font-weight: 400;
-      padding: 1rem 1rem 0.5rem;
-      @include flex-center;
-      justify-content: space-between;
-      @include responsive(480px) {
-        padding: 1.5rem 1rem 1rem;
-      }
-      @include responsive(375px) {
-        padding: 1.5rem 1rem .1rem;
-      }
+  }
+  &__status-text {
+    @include responsive(320px) {
+      font-size: 1.7rem;
     }
-    &__status-text {
-      @include responsive(320px) {
-        font-size: 1.7rem;
-      }
-      @include responsive(300px) {
-        font-size: 1.5rem;
-      }
+    @include responsive(300px) {
+      font-size: 1.5rem;
+    }
 
-      @include responsive(260px) {
-        font-size: 1.35rem;
-      }
+    @include responsive(260px) {
+      font-size: 1.35rem;
     }
-    &__progress-bar {
+  }
+  &__progress-bar {
+    display: inline-block;
+    border: $border-primary;
+    border-radius: 5px;
+    width: 19.5rem;
+    height: 1.5rem;
+    margin: 0.7rem 0 0.3rem 0.3rem;
+    position: relative;
+    overflow: hidden;
+    @include responsive(425px) {
+      width: 16rem;
+    }
+    @include responsive(300px) {
+      width: 15rem;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      background: linear-gradient(
+        to right bottom,
+        $color-bg-1 25%,
+        rgba($color-bg-2, 0.8) 100%
+      );
+      top: 0;
+      left: 0;
+      width: 10%;
+      height: 100%;
+    }
+  }
+  &__score {
+    margin-bottom: 1.1rem;
+    transform: translateY(-0.7rem);
+    font-size: 2.3rem;
+    font-weight: bold;
+
+    @include responsive(320px) {
+      font-size: 2rem;
+    }
+    @include responsive(300px) {
+      font-size: 1.7rem;
+      transform: translateY(-0.94rem);
+    }
+    @include responsive(260px) {
+      font-size: 1.5rem;
+    }
+    .score {
       display: inline-block;
-      border: $border-primary;
-      border-radius: 5px;
-      width: 19.5rem;
-      height: 1.5rem;
-      margin: 0.7rem 0 0.3rem 0.3rem;
-      position: relative;
-      overflow: hidden;
-      @include responsive(425px) {
-        width: 16rem;
-      }
-      @include responsive(300px) {
-        width: 15rem;
-      }
-      &::before {
-        content: "";
-        position: absolute;
-        background: linear-gradient(
-          to right bottom,
-          $color-bg-1 25%,
-          rgba($color-bg-2, 0.8) 100%
-        );
-        top: 0;
-        left: 0;
-        width: 10%;
-        height: 100%;
-      }
-    }
-    &__score {
-      margin-bottom: 1.1rem;
-      transform: translateY(-0.7rem);
-      font-size: 2.3rem;
-      font-weight: bold;
-
-      @include responsive(320px) {
-        font-size: 2rem;
-      }
-      @include responsive(300px) {
-        font-size: 1.7rem;
-        transform: translateY(-0.94rem);
-      }
-      @include responsive(260px) {
-        font-size: 1.5rem;
-      }
-      .score {
-        display: inline-block;
-        transform: translateY(1.1px);
-      }
-    }
-
-    &__question {
-      padding: 0.8rem 1rem 0;
-      text-align: center;    
-      overflow-y: auto;
-      @include responsive(425px) {
-        font-size: 1.35rem;
-      }
-      @include responsive(350px) {
-        font-size: 1.3rem;
-        padding-top: 1.1rem;
-      }
-    }
-
-    &__question-text {
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      font-weight: lighter;
-      letter-spacing: .05rem;
-      line-height: 1.25;
-      font-size: 1.8rem;  
-      @include responsive(480px) {
-        font-size: 1.7rem;
-        font-weight: normal;
-      }
-      @include responsive(375px) {
-        font-size: 1.85rem;
-      }
+      transform: translateY(1.1px);
     }
   }
 
-  .bottom {
-    margin-top: 1.5rem;
-    &__answer {
-      background: rgba($color-bg-3, .04);
-      width: 100%;
-      border-radius: 5px;
-      overflow-y: auto;
-      height: 4.8rem;
-      font-size: 1.65rem;
-      box-shadow: $box-shadow-primary;
+  &__question {
+    padding: 0.8rem 1rem 0;
+    text-align: center;
+    overflow-y: auto;
+    @include responsive(425px) {
+      font-size: 1.35rem;
+    }
+    @include responsive(350px) {
+      font-size: 1.3rem;
+      padding-top: 1.1rem;
+    }
+  }
 
-      overflow-x: hidden;
-      @include flex-center;
-      justify-content: flex-start;
+  &__question-text {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: lighter;
+    letter-spacing: 0.05rem;
+    line-height: 1.25;
+    font-size: 1.8rem;
+    @include responsive(480px) {
+      font-size: 1.7rem;
+      font-weight: normal;
+    }
+    @include responsive(375px) {
+      font-size: 1.85rem;
+    }
+  }
+}
+
+.bottom {
+  margin-top: 1.5rem;
+  &__answer {
+    background: rgba($color-bg-3, 0.04);
+    width: 100%;
+    border-radius: 5px;
+    overflow-y: auto;
+    height: 4.8rem;
+    font-size: 1.65rem;
+    box-shadow: $box-shadow-primary;
+    overflow-x: hidden;
+    @include flex-center;
+    justify-content: flex-start;
+    &:not(:last-of-type) {
+      margin-bottom: 1.2rem;
+    }
+    @include responsive(1024px) {
+      height: 6rem;
       &:not(:last-of-type) {
-        margin-bottom: 1.2rem;
+        margin-bottom: 1.3rem;
       }
-      @include responsive(1024px) {
-        height: 6rem;
-        &:not(:last-of-type) {
-          margin-bottom: 1.3rem;
-        }
-      }
-       @include responsive(720px){
-      background: rgba($color-bg-3, .090);
+    }
+    @include responsive(720px) {
+      background: rgba($color-bg-3, 0.09);
     }
     @include responsive(480px) {
-      
       &:not(:last-of-type) {
-        margin-bottom: 1.1rem;  
+        margin-bottom: 1.1rem;
       }
     }
-    @include responsive(375px){
-     height: 5.7rem;  
-     &:not(:last-of-type) {
-      margin-bottom: 1.1rem;  
-    }
-    }
-      cursor: pointer;
-      transition: 0.2s ease;
-      @include responsive(hover) {
-        color: white;
-        background: #24e564e5;
-      }
-      &:active {
-        transform: translateY(1.5px) scale(0.991);
+    @include responsive(375px) {
+      height: 5.7rem;
+      &:not(:last-of-type) {
+        margin-bottom: 1.1rem;
       }
     }
-    &__letter {
-      display: inline-block;
-      font-size: 2.4rem;
-      padding-top: 0.9rem;
-      align-self: stretch;
-      overflow: hidden;
-      flex: 0 0 6%;
-      text-align: center;
-      color: $color-bg-3;
-      background-image: linear-gradient(
-        to right bottom,
-        $color-bg-1 18%,
-        rgba($color-bg-2, 0.8) 60%
-      );
-      @include responsive(1200px) {
-        flex: 0 0 8%;
-        font-size: 2.7rem;
-      }
-      @include responsive(768px) {
-        flex: 0 0 9.5%;
-      }
-      @include responsive(425px) {
-        flex: 0 0 12%;
-        padding-top: 1.1rem;
-      }
-      @include responsive(375px) {
-        flex: 0 0 13%;
-      }
+    cursor: pointer;
+    transition: 0.2s ease;
+    @include responsive(hover) {
+      color: white !important;
+      background: #24e564e5 !important;
     }
-    &__text {
-      font-family: 'Arial Narrow Bold', sans-serif;
-      font-weight: lighter;
-      letter-spacing: .13rem;
-      margin-left: 1rem;
-      line-height: 2.2rem; 
-      @include responsive(480px) {
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        letter-spacing: .05rem;
-        margin-left: .7rem;
-        font-weight: normal;
-       
-      }
+    &:active {
+      transform: translateY(1.5px) scale(0.991) !important;
     }
   }
-
-  .foot {
-    &__btn {
-      @include btn-submit-set;
-      color: inherit;
-      font-size: 1.9rem;
-      margin: 2rem 0 0 24vw;
-      text-transform: to-upper-case;
-      @include responsive(1200px) {
-        margin: 2rem 0 0 41%;
-      }
-      @include responsive(1024px) {
-        margin: 2rem 0 1.5rem 38%;
-      }
-      @include responsive(800px) {
-        
-        margin: 2rem 0 1.5rem 35%;
-      }
-      @include responsive(720px) {
-        margin: 2rem 0 1.5rem 34.5%;
-      }           
-      @include responsive(600px) {
-        margin: 2rem 0 1.5rem 32%;
-      }
-      @include responsive(480px) {
-        margin: 2rem 0 1.5rem 26%;
-        font-size: 2.2rem;
-        padding: 0.8rem 2.5rem;
-      }
-      @include responsive(425px) {
-        margin: 2rem 0 1.5rem 25%;
-      }
-
-      @include responsive(375px) {
-        margin: 1.45rem 0 0 22.5%;
-      }
-
-      @include responsive(300px) {
-        margin: 2rem 0 .7rem 20%;
-      }
-
-      @include responsive(260px) {
-        margin: 2rem 0 .7rem 15%;
-      }
+  &__letter {
+    display: inline-block;
+    font-size: 2.4rem;
+    padding-top: 0.9rem;
+    align-self: stretch;
+    overflow: hidden;
+    flex: 0 0 6%;
+    text-align: center;
+    color: $color-bg-3;
+    background-image: linear-gradient(
+      to right bottom,
+      $color-bg-1 18%,
+      rgba($color-bg-2, 0.8) 60%
+    );
+    @include responsive(1200px) {
+      flex: 0 0 8%;
+      font-size: 2.7rem;
+    }
+    @include responsive(768px) {
+      flex: 0 0 9.5%;
+    }
+    @include responsive(425px) {
+      flex: 0 0 12%;
+      padding-top: 1.1rem;
+    }
+    @include responsive(375px) {
+      flex: 0 0 13%;
     }
   }
+  &__text {
+    font-family: "Arial Narrow Bold", sans-serif;
+    font-weight: lighter;
+    letter-spacing: 0.13rem;
+    margin-left: 1rem;
+    line-height: 2.2rem;
+    @include responsive(480px) {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      letter-spacing: 0.05rem;
+      margin-left: 0.7rem;
+      font-weight: normal;
+    }
+  }
+}
+
+.foot {
+  &__btn {
+    @include btn-submit-set;
+    color: inherit;
+    font-size: 1.9rem;
+    margin: 2rem 0 0 24vw;
+    text-transform: to-upper-case;
+    @include responsive(1200px) {
+      margin: 2rem 0 0 41%;
+    }
+    @include responsive(1024px) {
+      margin: 2rem 0 1.5rem 38%;
+    }
+    @include responsive(800px) {
+      margin: 2rem 0 1.5rem 35%;
+    }
+    @include responsive(720px) {
+      margin: 2rem 0 1.5rem 34.5%;
+    }
+    @include responsive(600px) {
+      margin: 2rem 0 1.5rem 32%;
+    }
+    @include responsive(480px) {
+      margin: 2rem 0 1.5rem 26%;
+      font-size: 2.2rem;
+      padding: 0.8rem 2.5rem;
+    }
+    @include responsive(425px) {
+      margin: 2rem 0 1.5rem 25%;
+    }
+
+    @include responsive(375px) {
+      margin: 1.45rem 0 0 22.5%;
+    }
+
+    @include responsive(300px) {
+      margin: 2rem 0 0.7rem 20%;
+    }
+
+    @include responsive(260px) {
+      margin: 2rem 0 0.7rem 15%;
+    }
+  }
+}

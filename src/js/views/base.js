@@ -21,7 +21,6 @@ export const domElements = {
     validateName: document.querySelector('.validator__text--name'),
     validateMobile: document.querySelector('.validator__text--mobile'),
     gameTop: document.querySelector('.top'),
-    gameAnswers: document.querySelector('.bottom'),
     gameBtn: document.querySelector('.foot__btn'),
     loader: document.querySelector('.loader'),
     question: document.querySelector('.top__question-text'),

@@ -274,14 +274,13 @@
   }
   
   .wrong {
-    color: white;
-    background-color: rgba(235, 68, 39, 0.919);
+    color: white !important;
+    background-color: rgba(235, 68, 39, 0.919) !important;
     transition: .4s;
   }
   
   .right {
-    // background-color: #24e564e5;
-    background-color: rgba(36, 232, 101, 0.871);
-    color: white;
+    background-color: rgba(36, 232, 101, 0.871) !important;
+    color: white !important;
     transition: .4s;
   }
