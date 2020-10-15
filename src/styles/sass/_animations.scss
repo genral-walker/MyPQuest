@@ -51,3 +51,16 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+//ANIMATION FOR RIGHT AND WRONG
+.wrong {
+  color: white !important;
+  background-color: rgba(235, 68, 39, 0.919) !important;
+  transition: .4s;
+}
+
+.right {
+  background-color: rgba(36, 232, 101, 0.871) !important;
+  color: white !important;
+  transition: .4s;
+}

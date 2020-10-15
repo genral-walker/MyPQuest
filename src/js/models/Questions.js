@@ -4,9 +4,17 @@ export default class Questions {
         this.questions = questions;
     }
 
-    loadQuestions() {
+    loadQuestion() {
         let accumulator = 0;
         console.log(accumulator);
-        return this.questions[++accumulator];   
+        this.oneQuestion = this.questions[++accumulator]; 
+        return this.oneQuestion;
+    }
+
+    get correctAnswer() {
+        if (this.oneQuestion) {
+            console.log(this.oneQuestion.answer);
+            return this.oneQuestion.answer;
+        }
     }
 }

@@ -57,6 +57,8 @@ export const domClasslists = {
     noShadow: 'no-shadow',
     slideValidator: 'slide-up',
     loading: 'loading',
+    corerct: 'right',
+    wrong: 'wrong',
     hasEvent: 'has-event',
 };
 

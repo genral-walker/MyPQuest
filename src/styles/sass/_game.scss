@@ -124,7 +124,7 @@
   }
 
   &__question {
-    padding: 0.8rem 1rem 0;
+    padding: 1rem 1rem 0;
     text-align: center;
     overflow-y: auto;
     @include responsive(425px) {
@@ -141,13 +141,16 @@
     font-weight: lighter;
     letter-spacing: 0.05rem;
     line-height: 1.25;
-    font-size: 1.8rem;
-    @include responsive(480px) {
-      font-size: 1.7rem;
+    font-size: 1.9rem;
+    @include responsive(1024px) {
+      font-size: 1.8rem;
       font-weight: normal;
     }
+    @include responsive(480px) {
+      font-size: 1.7rem;
+    }
     @include responsive(375px) {
-      font-size: 1.85rem;
+     
     }
   }
 }

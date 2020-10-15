@@ -66,10 +66,11 @@ const nothing = () => {
 
 import Form from './models/Form';
 import Questions from './models/Questions';
-import { domElements as dom, addClass, handleLoader } from './views/base';
+import { domElements as dom, domClasslists, addClass, handleLoader } from './views/base';
 import { detailsToggle, tableToggle, closeDetails } from './views/detailsVeiw';
 import { animatePageOnLoad, animateStart, reverseStartAnimation } from './views/gsap';
 import { getInputs, clearInputs } from './views/formVeiw';
+import {renderQuestionsAndAnswers as renderQuestion} from './views/questionsView';
 
 
 /** Global state of the app
@@ -129,10 +130,18 @@ const submitData = async () => {
         state.questions = new Questions(res);
         let questions = state.questions;
         if (questions) {
-            let only1 = state.questions.loadQuestions();
-            console.log(only1);
+            let oneQuestion = state.questions.loadQuestion();
+
             handleLoader();
+            
+            console.log(oneQuestion);
             setTimeout(() => {
+                renderQuestion(oneQuestion);
+
+                // THIS INITIALIZES THE CORRECT ANSWER FUNCTION OUTSIDE OF THIS FUNCTION
+                state.questions.correctAnswer;
+
+
                 animateStart();
             }, 250);
         }
@@ -159,11 +168,36 @@ dom.form.addEventListener('submit', (e) => {
 });
 
 
+/////  VALIDATE CURRENT ANSWER
+const validateAnswer = (box, ev)=> {
+    let reightOption = state.questions.correctAnswer;
+    if (reightOption) {
+        if (box.lastElementChild.classList.contains(`bottom__text--${reightOption}`)) {
+            box.classList.add(domClasslists.corerct);
+        } else {
+            ev.target.classList.add(domClasslists.wrong);
+            document.querySelector(`.bottom__answer--${reightOption}`).classList.add(domClasslists.corerct);
+        }
+    }
+
+    box.style.pointerEvents ='none';
+
+};
+
+dom.optionBox.forEach(box => {
+    box.addEventListener('click', (ev)=>{
+        validateAnswer(box, ev);
+    });
+});
+ 
 /////LOAD NEXT QUESTION AFTER EVERY ANSWERED QUESTION
 
-
+dom.gameBtn.addEventListener('click', hello);
 
 ///// EXITING THE GAME
-const exitGame = () => reverseStartAnimation();
+const exitGame = () => {
+    reverseStartAnimation();
+    state.questions = null;
+};
 dom.hasEvent.btnExit.addEventListener('click', exitGame);
 
