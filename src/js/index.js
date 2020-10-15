@@ -139,7 +139,7 @@ const submitData = async () => {
 
     } catch (error) {
         handleLoader();
-        alert('Uh Uh Something Went Wrong, It May Be Poor Connection or Delay In Response. please try again. 😢');
+        alert('Uh Uh Something Went Wrong, It May Be Poor Connection or Delay In Response.       please try again. 😢');
     }
 };
 

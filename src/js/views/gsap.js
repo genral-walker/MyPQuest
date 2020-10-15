@@ -15,26 +15,30 @@ const directSide = () => {
         loadTl.to(dom.side, { duration: .8, x: '0%' })
     }
 };
-const welcomeShow = (elem, timeline ,delay = .2) => {
-    timeline.fromTo(elem, {opacity: 0,  y: '70%' }, { duration: .3, delay: delay, y: '0%', opacity: 1 })
+
+const welcomeShow = (elem, timeline, delay = .2) => {
+    timeline.fromTo(elem, { opacity: 0, y: '70%' }, { duration: .3, delay: delay, y: '0%', opacity: 1 })
 };
+
 const iconBounce = () => {
     if (window.matchMedia('(max-width: 45em)').matches) {
-        loadTl.fromTo(dom.icon, { y: '-50%', opacity: 0 }, {delay: .17, duration: .9, y: '0%', opacity: 1, ease: 'bounce.out' })
+        loadTl.fromTo(dom.icon, { y: '-50%', opacity: 0 }, { delay: .17, duration: .9, y: '0%', opacity: 1, ease: 'bounce.out' })
     } else {
-        loadTl.fromTo(dom.icon, { y: '-80%', opacity: 0 }, {delay: .17, duration: .9, y: '0%', opacity: 1, ease: 'bounce.out' })
+        loadTl.fromTo(dom.icon, { y: '-80%', opacity: 0 }, { delay: .17, duration: .9, y: '0%', opacity: 1, ease: 'bounce.out' })
     }
 };
-const slideForm =()=> {
+
+const slideForm = () => {
     if (window.matchMedia('(max-width: 1200px)').matches) {
         loadTl.fromTo(dom.formInputs, { duration: .9, x: '13%', opacity: 0 }, { duration: .7, x: '0%', opacity: 1 })
     } else {
         loadTl.fromTo(dom.formInputs, { duration: .9, x: '19%', opacity: 0 }, { duration: .7, x: '0%', opacity: 1 })
     }
-    
+
 };
+
 const animateBtn = (timeline, elemnt) => {
-    timeline.fromTo(elemnt, { opacity: 0, y: '-60%' }, {duration: .2, opacity: 1, y: 0 })
+    timeline.fromTo(elemnt, { opacity: 0, y: '-60%' }, { duration: .2, opacity: 1, y: 0 })
 };
 
 ///// loadTl complete timeline
@@ -55,27 +59,31 @@ export const animatePageOnLoad = () => {
 ////////////////
 let gameStarted;
 const startGame = gsap.timeline();
-const slideAnswers =()=>{
+const slideAnswers = () => {
     dom.optionBox.forEach(box => welcomeShow(box, startGame, 0));
 };
 
-export const animateStart =()=>{
+export const animateStart = () => {
     if (gameStarted === false) {
-        startGame.play();  
-        gameStarted = true; 
+        startGame.play();
+        gameStarted = true;
     } else {
-    startGame.to(dom.form, {duration: 1.4, x:'200%', display: 'none'})
-    .to(dom.gameSection, { delay: -.5, duration: 0, display: 'block'})
-    welcomeShow(dom.gameTop, startGame, 0)
-    slideAnswers()
-    startGame.fromTo(dom.gameBtn, {opacity: 0, y: '35%'}, {delay: .3,duration:1, y:0, opacity: 1})
-    gameStarted = true;}
-    
+        startGame.to(dom.form, { duration: 1.4, x: '200%', display: 'none' })
+            .to(dom.gameSection, { delay: -.5, duration: 0, display: 'block' })
+        welcomeShow(dom.gameTop, startGame, 0)
+        slideAnswers()
+        startGame.fromTo(dom.gameBtn, { opacity: 0, y: '35%' }, { delay: .3, duration: 1, y: 0, opacity: 1 })
+        gameStarted = true;
+    }
+
 };
 
-export const reverseStartAnimation =()=> {
-   if (gameStarted) {
-    startGame.reverse();
-    gameStarted = false;
-   }
-  }
+export const reverseStartAnimation = () => {
+    if (gameStarted) {
+        let comfirmed = confirm('Restarting Will Erase Your Progress, Do You Really Want To Restart?');
+        if (comfirmed) {
+            startGame.reverse();
+            gameStarted = false;
+        }
+    }
+}
