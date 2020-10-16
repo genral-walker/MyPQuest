@@ -1,76 +1,11 @@
-///// THE OLD CODE
-const nothing = () => {
-    /*  
-    let isClicked = false;
-    let rightAns = 0;
-    let wrongAns = 0;
-    let score = 0;
-    let PageNum = 1;
-    
-    const processQuestion = () => {
-        let rightOption = pagesAnswer[`page${PageNum}`];
-        for (let i = 0; i < 4; i++) {
-            document.querySelectorAll('.box')[i].addEventListener('click', (e) => {
-                if (e.target.classList.contains(rightOption)) {
-                    e.target.classList.add('right');
-                    score++;
-                    rightAns++;
-                    document.querySelector('.rightAns').textContent = rightAns;
-                    document.querySelector('.point').textContent = score;
-                } else {
-                    e.target.classList.add('wrong');
-                    document.querySelector(`.${rightOption}`).classList.add('right');
-                    wrongAns++;
-                    document.querySelector('.wrongAns').textContent = wrongAns;
-                };
-    
-                if (PageNum == 5){
-                    setTimeout(()=>{
-                        document.querySelector('.left-aside').style.height = '46vh';
-                        document.querySelectorAll('.hide')[0].classList.remove('invisible');
-                        document.querySelectorAll('.hide')[1].classList.remove('invisible');
-                        document.querySelector('button').remove();
-                        document.querySelector(`#qbox`).style.pointerEvents='none';
-                    }, 1400)
-                    return;
-                };
-    
-                isClicked = true;
-                document.querySelector(`#qbox`).style.pointerEvents='none';
-                setTimeout(() => { btnHover() }, 900);
-            });
-        };            
-    };
-    
-    const nextPage = () => {
-        processQuestion();
-        document.querySelector('button').addEventListener('click', () => {
-            if (isClicked === false) {
-                return;
-            };
-    
-            setTimeout(() => {
-                let container = document.querySelector(`#qbox`);
-                container.innerHTML = pages[`page${++PageNum}`];
-                isClicked = false;
-                processQuestion();
-            }, 300);
-            
-             document.querySelector(`#qbox`).style.pointerEvents='auto';
-        });
-    };
-    
-    nextPage();
-    
-    */};
 
 import Form from './models/Form';
 import Questions from './models/Questions';
 import { domElements as dom, domClasslists, addClass, handleLoader } from './views/base';
 import { detailsToggle, tableToggle, closeDetails } from './views/detailsVeiw';
 import { animatePageOnLoad, animateStart, reverseStartAnimation } from './views/gsap';
-import { getInputs, clearInputs } from './views/formVeiw';
-import {renderQuestionsAndAnswers as renderQuestion} from './views/questionsView';
+import { getInputs, clearInputs, updateName} from './views/formVeiw';
+import { renderQuestionsAndAnswers as renderQuestion, clearColors, isCorrect, addHover } from './views/questionsView';
 
 
 /** Global state of the app
@@ -117,7 +52,7 @@ document.addEventListener('click', closeDetails);
 
 
 //// GET INPUTS FROM FORM 
-const submitData = async () => {
+const processDataToStart = async () => {
     let query;
     query = getInputs();
     state.form = new Form(query);
@@ -133,17 +68,15 @@ const submitData = async () => {
             let oneQuestion = state.questions.loadQuestion();
 
             handleLoader();
-            
-            console.log(oneQuestion);
+
             setTimeout(() => {
                 renderQuestion(oneQuestion);
 
-                // THIS INITIALIZES THE CORRECT ANSWER FUNCTION OUTSIDE OF THIS FUNCTION
+                // THIS INITIALIZES THE CORRECT THESE FUNCTIONS OUTSIDE OF THIS SCOPE
                 state.questions.correctAnswer;
 
-
                 animateStart();
-            }, 250);
+            }, 270);
         }
 
     } catch (error) {
@@ -152,52 +85,42 @@ const submitData = async () => {
     }
 };
 
-
-
 //////// UPDATE PROFILE NAME
-const updateName = () => {
-    dom.userAll.forEach(user => user.textContent = dom.formName.value)
-};
 dom.formName.addEventListener('input', updateName);
 
 
 //////// GAME START AFTER INPUTS RECEIVED SUCCESFULLY
 dom.form.addEventListener('submit', (e) => {
     e.preventDefault();
-    submitData();
+    processDataToStart();
 });
 
 
 /////  VALIDATE CURRENT ANSWER
-const validateAnswer = (box, ev)=> {
-    let reightOption = state.questions.correctAnswer;
-    if (reightOption) {
-        if (box.lastElementChild.classList.contains(`bottom__text--${reightOption}`)) {
-            box.classList.add(domClasslists.corerct);
-        } else {
-            ev.target.classList.add(domClasslists.wrong);
-            document.querySelector(`.bottom__answer--${reightOption}`).classList.add(domClasslists.corerct);
-        }
-    }
-
-    box.style.pointerEvents ='none';
-
+const validateAnswer = () => {
+        dom.optionBox.forEach(box => {
+            box.addEventListener('click', (ev) => {
+                isCorrect(state.questions.correctAnswer, box, ev);
+            });
+        });
 };
+validateAnswer();
 
-dom.optionBox.forEach(box => {
-    box.addEventListener('click', (ev)=>{
-        validateAnswer(box, ev);
-    });
-});
- 
-/////LOAD NEXT QUESTION AFTER EVERY ANSWERED QUESTION
+///// LOAD NEXT QUESTION AFTER EVERY ANSWERED QUESTION
+const nextQuestion =()=>{
+    clearColors();
+    addHover();
+    let newQuestion = state.questions.loadQuestion();
+    renderQuestion(newQuestion);
+};
+dom.gameBtn.addEventListener('click', nextQuestion);
 
-dom.gameBtn.addEventListener('click', hello);
 
-///// EXITING THE GAME
+
+
+//////// EXITING THE GAME
 const exitGame = () => {
     reverseStartAnimation();
-    state.questions = null;
 };
 dom.hasEvent.btnExit.addEventListener('click', exitGame);
 

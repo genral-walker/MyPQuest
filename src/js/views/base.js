@@ -24,6 +24,7 @@ export const domElements = {
     gameBtn: document.querySelector('.foot__btn'),
     loader: document.querySelector('.loader'),
     question: document.querySelector('.top__question-text'),
+    Gamebottom: document.querySelector('.bottom'),
     optionBox: document.querySelectorAll('.bottom__answer'),
     optionA: document.querySelector('.bottom__text--a'),
     optionB: document.querySelector('.bottom__text--b'),
@@ -57,8 +58,10 @@ export const domClasslists = {
     noShadow: 'no-shadow',
     slideValidator: 'slide-up',
     loading: 'loading',
+    answerHover : 'hover',
     corerct: 'right',
     wrong: 'wrong',
+    hover: 'hover',
     hasEvent: 'has-event',
 };
 

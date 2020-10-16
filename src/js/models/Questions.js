@@ -2,12 +2,13 @@
 export default class Questions {
     constructor (questions) {
         this.questions = questions;
+        this.accumulator = 0;
     }
 
     loadQuestion() {
-        let accumulator = 0;
-        console.log(accumulator);
-        this.oneQuestion = this.questions[++accumulator]; 
+        console.log(this.accumulator);
+        this.oneQuestion = this.questions[++this.accumulator]; 
+        console.log(this.oneQuestion);
         return this.oneQuestion;
     }
 

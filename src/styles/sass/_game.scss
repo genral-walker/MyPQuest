@@ -150,7 +150,7 @@
       font-size: 1.7rem;
     }
     @include responsive(375px) {
-     
+      font-size: 1.77rem;
     }
   }
 }
@@ -191,12 +191,7 @@
         margin-bottom: 1.1rem;
       }
     }
-    cursor: pointer;
     transition: 0.2s ease;
-    @include responsive(hover) {
-      color: white !important;
-      background: #24e564e5 !important;
-    }
     &:active {
       transform: translateY(1.5px) scale(0.991) !important;
     }
@@ -209,6 +204,7 @@
     overflow: hidden;
     flex: 0 0 6%;
     text-align: center;
+    pointer-events: none;
     color: $color-bg-3;
     background-image: linear-gradient(
       to right bottom,
@@ -236,6 +232,7 @@
     letter-spacing: 0.13rem;
     margin-left: 1rem;
     line-height: 2.2rem;
+    pointer-events: none;
     @include responsive(480px) {
       font-family: Verdana, Geneva, Tahoma, sans-serif;
       letter-spacing: 0.05rem;

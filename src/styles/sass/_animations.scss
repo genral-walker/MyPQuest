@@ -56,11 +56,24 @@
 .wrong {
   color: white !important;
   background-color: rgba(235, 68, 39, 0.919) !important;
-  transition: .4s;
+  transition: .2s;
 }
 
 .right {
   background-color: rgba(36, 232, 101, 0.871) !important;
   color: white !important;
-  transition: .4s;
+  transition: .2s;
+}
+
+.bottom__answer.hover {
+  @include responsive(hover) {
+    cursor: pointer !important;
+    color: white !important;
+    background: #24e564e5 !important;
+  }
+}
+
+.next-question {
+  opacity: 0;
+  transition: .5s;
 }

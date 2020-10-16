@@ -27,7 +27,7 @@
       justify-content: space-around;
       visibility: hidden;
       transform: translateY(-100%);
-      transition: .4s;
+      transition: .6s;
       @include responsive(1024px) {
         padding: 1.5rem 0 1.5rem 8.5rem;
       }
@@ -95,7 +95,7 @@
       padding: 1rem 8rem;
       visibility: hidden;
       transform: translateY(-130%);
-      transition: .6s;
+      transition: .8s;
       @include responsive(1400px) {
         top: 6.15rem;
       }
