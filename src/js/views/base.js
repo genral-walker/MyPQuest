@@ -26,10 +26,10 @@ export const domElements = {
     question: document.querySelector('.top__question-text'),
     Gamebottom: document.querySelector('.bottom'),
     optionBox: document.querySelectorAll('.bottom__answer'),
-    optionA: document.querySelector('.bottom__text--a'),
-    optionB: document.querySelector('.bottom__text--b'),
-    optionC: document.querySelector('.bottom__text--c'),
-    optionD: document.querySelector('.bottom__text--d'),
+    optionA: document.querySelector('.option-text--a'),
+    optionB: document.querySelector('.option-text--b'),
+    optionC: document.querySelector('.option-text--c'),
+    optionD: document.querySelector('.option-text--d'),
     userAll: document.querySelectorAll('.user'),
     hasEvent: {
         //  ELEMENTS THAT HAVE EVENTS LISTENERS AND ARE OUTSIDE THE MAIN ELEMENT/CONTAINER

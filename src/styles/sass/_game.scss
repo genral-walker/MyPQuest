@@ -126,13 +126,26 @@
   &__question {
     padding: 1rem 1rem 0;
     text-align: center;
+    height: 59%;
     overflow-y: auto;
+    @include responsive(550px) {
+      height: 61%;
+    }
+    @include responsive(480px) {
+      height: 55%;
+    }
     @include responsive(425px) {
       font-size: 1.35rem;
+    }
+    @include responsive(375px) {
+      height: 66.5%;
     }
     @include responsive(350px) {
       font-size: 1.3rem;
       padding-top: 1.1rem;
+    }
+    @include responsive(300px) {
+      height: 68.5%;
     }
   }
 
@@ -161,7 +174,6 @@
     background: rgba($color-bg-3, 0.04);
     width: 100%;
     border-radius: 5px;
-    overflow-y: auto;
     height: 4.8rem;
     font-size: 1.65rem;
     box-shadow: $box-shadow-primary;
@@ -195,6 +207,7 @@
     &:active {
       transform: translateY(1.5px) scale(0.991) !important;
     }
+    
   }
   &__letter {
     display: inline-block;
@@ -229,15 +242,23 @@
   &__text {
     font-family: "Arial Narrow Bold", sans-serif;
     font-weight: lighter;
+    height: 100%;
+    width: 100%;
     letter-spacing: 0.13rem;
     margin-left: 1rem;
     line-height: 2.2rem;
+    display: inline-flex;
+    align-items: center;
     pointer-events: none;
     @include responsive(480px) {
       font-family: Verdana, Geneva, Tahoma, sans-serif;
       letter-spacing: 0.05rem;
       margin-left: 0.7rem;
       font-weight: normal;
+    }
+    .option-text {
+      display: inline-block;
+      overflow-y: auto;
     }
   }
 }

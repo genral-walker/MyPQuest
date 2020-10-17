@@ -90,6 +90,7 @@
     }
     @include responsive(650px) {
       margin-top: 1rem;
+      margin-left: .2rem;
     }
     @include responsive(480px) {
       margin-top: 0;

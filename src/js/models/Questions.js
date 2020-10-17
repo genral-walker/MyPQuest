@@ -7,8 +7,9 @@ export default class Questions {
 
     loadQuestion() {
         console.log(this.accumulator);
-        this.oneQuestion = this.questions[++this.accumulator]; 
+        this.oneQuestion = this.questions[this.accumulator++]; 
         console.log(this.oneQuestion);
+        console.log(this.accumulator);
         return this.oneQuestion;
     }
 

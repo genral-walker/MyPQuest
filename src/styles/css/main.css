@@ -65,77 +65,6 @@ body {
   overflow-x: hidden;
   letter-spacing: 0.2px; }
 
-.loader {
-  position: absolute;
-  top: 0;
-  width: 100vw;
-  height: 100%;
-  z-index: 10;
-  display: -ms-grid;
-  display: grid;
-  place-items: center;
-  visibility: hidden; }
-  .loader .sk-chase {
-    width: 8rem;
-    height: 8rem;
-    position: relative;
-    -webkit-animation: sk-chase 2.5s infinite linear both;
-            animation: sk-chase 2.5s infinite linear both; }
-  .loader .sk-chase-dot {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    -webkit-animation: sk-chase-dot 2.0s infinite ease-in-out both;
-            animation: sk-chase-dot 2.0s infinite ease-in-out both; }
-  .loader .sk-chase-dot:before {
-    content: '';
-    display: block;
-    width: 25%;
-    height: 25%;
-    background-color: #0c0d52;
-    -webkit-border-radius: 100%;
-            border-radius: 100%;
-    -webkit-animation: sk-chase-dot-before 2.0s infinite ease-in-out both;
-            animation: sk-chase-dot-before 2.0s infinite ease-in-out both; }
-  .loader .sk-chase-dot:nth-child(1) {
-    -webkit-animation-delay: -1.1s;
-            animation-delay: -1.1s; }
-  .loader .sk-chase-dot:nth-child(2) {
-    -webkit-animation-delay: -1.0s;
-            animation-delay: -1.0s; }
-  .loader .sk-chase-dot:nth-child(3) {
-    -webkit-animation-delay: -0.9s;
-            animation-delay: -0.9s; }
-  .loader .sk-chase-dot:nth-child(4) {
-    -webkit-animation-delay: -0.8s;
-            animation-delay: -0.8s; }
-  .loader .sk-chase-dot:nth-child(5) {
-    -webkit-animation-delay: -0.7s;
-            animation-delay: -0.7s; }
-  .loader .sk-chase-dot:nth-child(6) {
-    -webkit-animation-delay: -0.6s;
-            animation-delay: -0.6s; }
-  .loader .sk-chase-dot:nth-child(1):before {
-    -webkit-animation-delay: -1.1s;
-            animation-delay: -1.1s; }
-  .loader .sk-chase-dot:nth-child(2):before {
-    -webkit-animation-delay: -1.0s;
-            animation-delay: -1.0s; }
-  .loader .sk-chase-dot:nth-child(3):before {
-    -webkit-animation-delay: -0.9s;
-            animation-delay: -0.9s; }
-  .loader .sk-chase-dot:nth-child(4):before {
-    -webkit-animation-delay: -0.8s;
-            animation-delay: -0.8s; }
-  .loader .sk-chase-dot:nth-child(5):before {
-    -webkit-animation-delay: -0.7s;
-            animation-delay: -0.7s; }
-  .loader .sk-chase-dot:nth-child(6):before {
-    -webkit-animation-delay: -0.6s;
-            animation-delay: -0.6s; }
-
 .bg-cover {
   width: 100vw;
   height: 100%;
@@ -157,6 +86,76 @@ body {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center; }
+  .container .loader {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100%;
+    z-index: 10;
+    display: -ms-grid;
+    display: grid;
+    place-items: center;
+    visibility: hidden; }
+    .container .loader .sk-chase {
+      width: 8rem;
+      height: 8rem;
+      position: relative;
+      -webkit-animation: sk-chase 2.5s infinite linear both;
+              animation: sk-chase 2.5s infinite linear both; }
+    .container .loader .sk-chase-dot {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      -webkit-animation: sk-chase-dot 2.0s infinite ease-in-out both;
+              animation: sk-chase-dot 2.0s infinite ease-in-out both; }
+    .container .loader .sk-chase-dot:before {
+      content: '';
+      display: block;
+      width: 25%;
+      height: 25%;
+      background-color: #0c0d52;
+      -webkit-border-radius: 100%;
+              border-radius: 100%;
+      -webkit-animation: sk-chase-dot-before 2.0s infinite ease-in-out both;
+              animation: sk-chase-dot-before 2.0s infinite ease-in-out both; }
+    .container .loader .sk-chase-dot:nth-child(1) {
+      -webkit-animation-delay: -1.1s;
+              animation-delay: -1.1s; }
+    .container .loader .sk-chase-dot:nth-child(2) {
+      -webkit-animation-delay: -1.0s;
+              animation-delay: -1.0s; }
+    .container .loader .sk-chase-dot:nth-child(3) {
+      -webkit-animation-delay: -0.9s;
+              animation-delay: -0.9s; }
+    .container .loader .sk-chase-dot:nth-child(4) {
+      -webkit-animation-delay: -0.8s;
+              animation-delay: -0.8s; }
+    .container .loader .sk-chase-dot:nth-child(5) {
+      -webkit-animation-delay: -0.7s;
+              animation-delay: -0.7s; }
+    .container .loader .sk-chase-dot:nth-child(6) {
+      -webkit-animation-delay: -0.6s;
+              animation-delay: -0.6s; }
+    .container .loader .sk-chase-dot:nth-child(1):before {
+      -webkit-animation-delay: -1.1s;
+              animation-delay: -1.1s; }
+    .container .loader .sk-chase-dot:nth-child(2):before {
+      -webkit-animation-delay: -1.0s;
+              animation-delay: -1.0s; }
+    .container .loader .sk-chase-dot:nth-child(3):before {
+      -webkit-animation-delay: -0.9s;
+              animation-delay: -0.9s; }
+    .container .loader .sk-chase-dot:nth-child(4):before {
+      -webkit-animation-delay: -0.8s;
+              animation-delay: -0.8s; }
+    .container .loader .sk-chase-dot:nth-child(5):before {
+      -webkit-animation-delay: -0.7s;
+              animation-delay: -0.7s; }
+    .container .loader .sk-chase-dot:nth-child(6):before {
+      -webkit-animation-delay: -0.6s;
+              animation-delay: -0.6s; }
 
 #content {
   color: #D5D7DD;
@@ -687,14 +686,27 @@ body {
   .top__question {
     padding: 1rem 1rem 0;
     text-align: center;
+    height: 59%;
     overflow-y: auto; }
+    @media only screen and (max-width: 34.375em) {
+      .top__question {
+        height: 61%; } }
+    @media only screen and (max-width: 30em) {
+      .top__question {
+        height: 55%; } }
     @media only screen and (max-width: 26.5625em) {
       .top__question {
         font-size: 1.35rem; } }
+    @media only screen and (max-width: 23.4375em) {
+      .top__question {
+        height: 66.5%; } }
     @media only screen and (max-width: 21.875em) {
       .top__question {
         font-size: 1.3rem;
         padding-top: 1.1rem; } }
+    @media only screen and (max-width: 18.75em) {
+      .top__question {
+        height: 68.5%; } }
   .top__question-text {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: lighter;
@@ -719,7 +731,6 @@ body {
     width: 100%;
     -webkit-border-radius: 5px;
             border-radius: 5px;
-    overflow-y: auto;
     height: 4.8rem;
     font-size: 1.65rem;
     -webkit-box-shadow: -1px -1px 5px rgba(213, 215, 221, 0.2), 7px 7px 6px 2px rgba(4, 5, 13, 0.3);
@@ -815,9 +826,19 @@ body {
   .bottom__text {
     font-family: "Arial Narrow Bold", sans-serif;
     font-weight: lighter;
+    height: 100%;
+    width: 100%;
     letter-spacing: 0.13rem;
     margin-left: 1rem;
     line-height: 2.2rem;
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
     pointer-events: none; }
     @media only screen and (max-width: 30em) {
       .bottom__text {
@@ -825,6 +846,9 @@ body {
         letter-spacing: 0.05rem;
         margin-left: 0.7rem;
         font-weight: normal; } }
+    .bottom__text .option-text {
+      display: inline-block;
+      overflow-y: auto; }
 
 .foot__btn {
   background-image: -webkit-gradient(linear, left top, right bottom, color-stop(18%, #00C6FB), color-stop(60%, rgba(9, 100, 245, 0.8)));
@@ -1002,7 +1026,8 @@ body {
               box-shadow: -4px -4px 6px 2px rgba(213, 215, 221, 0.2), 4px 4px 6px 2px rgba(213, 215, 221, 0.2); } }
   @media only screen and (max-width: 40.625em) {
     .form {
-      margin-top: 1rem; } }
+      margin-top: 1rem;
+      margin-left: .2rem; } }
   @media only screen and (max-width: 30em) {
     .form {
       margin-top: 0; } }
@@ -1273,17 +1298,11 @@ body {
 
 .wrong {
   color: white !important;
-  background-color: rgba(235, 68, 39, 0.919) !important;
-  -webkit-transition: .2s;
-  -o-transition: .2s;
-  transition: .2s; }
+  background-color: rgba(235, 68, 39, 0.919) !important; }
 
 .right {
   background-color: rgba(36, 232, 101, 0.871) !important;
-  color: white !important;
-  -webkit-transition: .2s;
-  -o-transition: .2s;
-  transition: .2s; }
+  color: white !important; }
 
 @media only screen and (hover: hover) {
   .bottom__answer.hover:hover {
