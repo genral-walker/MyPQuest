@@ -26,11 +26,14 @@ export const domElements = {
     question: document.querySelector('.top__question-text'),
     Gamebottom: document.querySelector('.bottom'),
     optionBox: document.querySelectorAll('.bottom__answer'),
-    optionA: document.querySelector('.option-text--a'),
-    optionB: document.querySelector('.option-text--b'),
-    optionC: document.querySelector('.option-text--c'),
-    optionD: document.querySelector('.option-text--d'),
+    optionA: document.querySelector('.bottom__text--a'),
+    optionB: document.querySelector('.bottom__text--b'),
+    optionC: document.querySelector('.bottom__text--c'),
+    optionD: document.querySelector('.bottom__text--d'),
     userAll: document.querySelectorAll('.user'),
+    gamePercent: document.querySelector('.percentage'),
+    progressBar: document.querySelector('.progress-bar'),
+    gameScore: document.querySelector('.score'),
     hasEvent: {
         //  ELEMENTS THAT HAVE EVENTS LISTENERS AND ARE OUTSIDE THE MAIN ELEMENT/CONTAINER
         detailsOverview: document.querySelector('.details__overview'),
@@ -57,6 +60,7 @@ export const domClasslists = {
     tableShow: 'show',
     noShadow: 'no-shadow',
     slideValidator: 'slide-up',
+    dimContainer :'dim',
     loading: 'loading',
     answerHover : 'hover',
     corerct: 'right',
@@ -74,5 +78,6 @@ export const addClass = obj => {
 
 
 export const handleLoader = ()=>{
+    domElements.container.classList.toggle(domClasslists.dimContainer);
     domElements.loader.classList.toggle(domClasslists.loading);  
 };

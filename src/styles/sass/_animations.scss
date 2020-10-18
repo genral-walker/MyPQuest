@@ -24,10 +24,13 @@
   /////////////////////////////////
 
   //Animation related to the form validation
-  .loader.loading {
-    backdrop-filter: brightness(0.8);   
+  .container.dim {
+    filter: brightness(0.8);
+  }
+  .loader.loading {  
    visibility: visible; 
   }
+
   //Animation related to the details section
   .details-show {
     height: 100%;    

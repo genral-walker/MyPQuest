@@ -50,34 +50,31 @@
     border-bottom: $border-secondary;
     font-size: 1.8rem;
     font-weight: 400;
-    padding: 1rem 1rem 0.5rem;
+    padding: 1rem 1rem 0;
     @include flex-center;
     justify-content: space-between;
     @include responsive(480px) {
-      padding: 1.5rem 1rem 1rem;
+      padding: 1.5rem 1rem 0;
     }
     @include responsive(375px) {
-      padding: 1.5rem 1rem 0.1rem;
+      padding: 1.5rem 1rem 0;
     }
   }
   &__status-text {
     @include responsive(320px) {
       font-size: 1.7rem;
     }
-    @include responsive(300px) {
-      font-size: 1.5rem;
-    }
 
     @include responsive(260px) {
-      font-size: 1.35rem;
+      font-size: 1.45rem;
     }
   }
   &__progress-bar {
     display: inline-block;
     border: $border-primary;
     border-radius: 5px;
-    width: 19.5rem;
-    height: 1.5rem;
+    width: 25rem;
+    height: 1.8rem;
     margin: 0.7rem 0 0.3rem 0.3rem;
     position: relative;
     overflow: hidden;
@@ -87,8 +84,7 @@
     @include responsive(300px) {
       width: 15rem;
     }
-    &::before {
-      content: "";
+    .progress-bar {
       position: absolute;
       background: linear-gradient(
         to right bottom,
@@ -97,25 +93,24 @@
       );
       top: 0;
       left: 0;
-      width: 10%;
+      width: 0%;
       height: 100%;
+      transition: width .7s;
     }
   }
   &__score {
-    margin-bottom: 1.1rem;
-    transform: translateY(-0.7rem);
-    font-size: 2.3rem;
+    font-size: 2.7rem;
+    transform: translateY(-1.5rem);
     font-weight: bold;
 
     @include responsive(320px) {
-      font-size: 2rem;
+      font-size: 2.5rem;
     }
     @include responsive(300px) {
-      font-size: 1.7rem;
-      transform: translateY(-0.94rem);
+      font-size: 2rem;
     }
     @include responsive(260px) {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
     }
     .score {
       display: inline-block;
@@ -207,7 +202,6 @@
     &:active {
       transform: translateY(1.5px) scale(0.991) !important;
     }
-    
   }
   &__letter {
     display: inline-block;
@@ -242,23 +236,15 @@
   &__text {
     font-family: "Arial Narrow Bold", sans-serif;
     font-weight: lighter;
-    height: 100%;
-    width: 100%;
     letter-spacing: 0.13rem;
     margin-left: 1rem;
     line-height: 2.2rem;
-    display: inline-flex;
-    align-items: center;
     pointer-events: none;
     @include responsive(480px) {
       font-family: Verdana, Geneva, Tahoma, sans-serif;
       letter-spacing: 0.05rem;
       margin-left: 0.7rem;
       font-weight: normal;
-    }
-    .option-text {
-      display: inline-block;
-      overflow-y: auto;
     }
   }
 }

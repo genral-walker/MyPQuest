@@ -14,7 +14,6 @@ const renderOptions = data => {
     dom.optionB.innerHTML = data.option.b;
     dom.optionC.innerHTML = data.option.c;
     dom.optionD.innerHTML = data.option.d;
-
 };
 
 export const renderQuestionsAndAnswers = data => {
@@ -27,26 +26,30 @@ export const addHover = () => {
     dom.Gamebottom.style.pointerEvents = 'auto';
 };
 
-const removeHover = () => {
+export const removeHover = () => {
     dom.optionBox.forEach(box => box.classList.remove(domClasslists.hover));
     dom.Gamebottom.style.pointerEvents = 'none';
 };
 
-export const isCorrect = (correctOption, box, ev) => {
-    let reightOption = correctOption;
-    if (reightOption) {
-        if (box.lastElementChild.classList.contains(`bottom__text--${reightOption}`)) {
-            removeHover();
-            box.classList.add(domClasslists.corerct);
 
-        } else {
-            removeHover();
-            ev.target.classList.add(domClasslists.wrong);
-            document.querySelector(`.bottom__answer--${reightOption}`).classList.add(domClasslists.corerct);
+export const updatePercentage = (numbersLength, answerd) => {
+  if (numbersLength && answerd) {
+    let width = (answerd/numbersLength) * 100;
+    dom.progressBar.style.width = `${width}%`;
+    dom.gamePercent.innerHTML = Math.round(width);
+    return width;
+  } else {
+    dom.progressBar.style.width = '0%';  
+    dom.gamePercent.innerHTML = 0; 
+  }
+};
 
-        }
+export const GameEnd =(width)=>{
+    if (width === 100) {
+        setTimeout(() => {
+            alert('game End')
+        }, 2000);
     }
-
 };
 
 export const clearColors = () => {
