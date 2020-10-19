@@ -78,3 +78,14 @@
   opacity: 0;
   transition: .5s;
 }
+
+
+// ANIMATION FOR MODAL
+
+.modal-show {
+  visibility: visible;
+  .modal__container {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

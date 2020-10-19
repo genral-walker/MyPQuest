@@ -1,32 +1,29 @@
-
 ////////////
 // COLORS
 ///////////
 $color-white: white;
 
-$color-dark-primary: #04050D;
-$color-dark-secondary: #020E1F;
+$color-dark-primary: #04050d;
+$color-dark-secondary: #020e1f;
 
-$color-bg-1: #00C6FB;
-$color-bg-2: #0964F5;
-$color-bg-3: #D5D7DD;
+$color-bg-1: #00c6fb;
+$color-bg-2: #0964f5;
+$color-bg-3: #d5d7dd;
 $bg-shadow: black;
 
-$color-blue: #0C0D2C;  
-
-
+$color-blue: #0c0d2c;
 
 ///////////////////////
 //// UTILITIES
 ///////////////////////
-$border-primary: 1px solid rgba($color-white, .5);
-$border-secondary: 1.7px solid rgba($color-white, .5);
+$border-primary: 1px solid rgba($color-white, 0.5);
+$border-secondary: 1.7px solid rgba($color-white, 0.5);
 
-$box-shadow-primary: -1px -1px 5px rgba($color-bg-3, .2),
-7px 7px 6px 2px rgba($color-dark-primary, .3);
+$box-shadow-primary: -1px -1px 5px rgba($color-bg-3, 0.2),
+  7px 7px 6px 2px rgba($color-dark-primary, 0.3);
 
-$box-shadow-secondary: -4px -4px 6px 2px rgba($color-bg-3, .3),
-7px 7px 6px 2px rgba($color-dark-primary, .3);
+$box-shadow-secondary: -4px -4px 6px 2px rgba($color-bg-3, 0.3),
+  7px 7px 6px 2px rgba($color-dark-primary, 0.3);
 
-$box-shadow-game: -1.5px -1.5px 20px 2px rgba($color-dark-primary, .3),
-5px 5px 6px 2px rgba($color-dark-primary, .3);
+$box-shadow-game: -1.5px -1.5px 20px 2px rgba($color-dark-primary, 0.3),
+  5px 5px 6px 2px rgba($color-dark-primary, 0.3);

@@ -42,17 +42,16 @@
 
       @include responsive(480px) {
         justify-content: space-evenly;
-        font-size: 2.2rem;
       }
       @include responsive(400px) {
-        font-size: 1.7rem;
+        font-size: 2.6rem;
       }
       @include responsive(300px) {
-        font-size: 1.5rem;
+        font-size: 2.4rem;
         font-weight: bolder;
       }
       @include responsive(250px) {
-        font-size: 1.25rem;
+        font-size: 2.2rem;
       }
 
       button {

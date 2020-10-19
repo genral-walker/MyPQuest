@@ -2,12 +2,12 @@
 import Form from './models/Form';
 import Questions from './models/Questions';
 import Score from './models/Score';
-import { domElements as dom, domClasslists, addClass, handleLoader } from './views/base';
+import { domElements as dom, domClasslists, addClass, handleLoader, handleModal } from './views/base';
 import { detailsToggle, tableToggle, closeDetails } from './views/detailsVeiw';
-import { animatePageOnLoad, animateStart, reverseStartAnimation } from './views/gsap';
+import { animatePageOnLoad, animateStart, reverseStartAnimation, reverseForEnd } from './views/gsap';
 import { getInputs, clearInputs, updateName } from './views/formVeiw';
-import { renderQuestionsAndAnswers as renderQuestion, clearColors, updatePercentage, addHover, removeHover, GameEnd} from './views/questionsView';
-import {updateScore} from './views/scoreView';
+import { renderQuestionsAndAnswers as renderQuestion, clearColors, updatePercentage, addHover, removeHover } from './views/questionsView';
+import { updateScore } from './views/scoreView';
 
 /** Global state of the app
  * -
@@ -21,22 +21,10 @@ const hello = (e) => {
 };
 
 
-
-/**   //MYPQUEST LOGIC
- * - Do some animations when page loads //DONE
- * - Make the profile button bring out the overview //DONE
- * - receive details inputed from the form //Done
- * - validate the inputs from the form before game starts // Partilly Done
- * - Use details from form to start gameplay
- * - ADD checks for when number is below 0
- * */
-
-
 //////////GSAP ANIMATION ON PAGELOAD
 window.addEventListener('load', animatePageOnLoad);
 
-
-///// ADDS AN EVENT CLASS TO ALL ELEMENTS IN DOMCLASSLIST USED TO NULIFY DETAILS SLIDE EVENT. 
+///// ADDS AN EVENT CLASS TO ALL ELEMENTS IN DOMCLASSLIST USED TO NULIFY DETAILS SLIDE ANIMATION. 
 addClass(dom.hasEvent);
 
 
@@ -57,8 +45,8 @@ const processDataToStart = async () => {
 
     let query = getInputs();
     state.form = new Form(query);
+
     try {
-        
         handleLoader();
 
         let res = await state.form.submitQuery();
@@ -120,14 +108,18 @@ const isCorrect = (correctOption, box, ev) => {
 
 const validateAnswer = () => {
     let endReached;
-    dom.optionBox.forEach(box => { 
+    dom.optionBox.forEach(box => {
         box.addEventListener('click', (ev) => {
             isCorrect(state.questions.correctAnswer, box, ev);
             state.questions.answered = true;
             endReached = updatePercentage(state.questions.questionLength, state.questions.accumulator);
-           
+
             // THIS CHECKS TO SEE IF THR RETURN VALUE ABOVE IS 100
-            GameEnd(endReached);
+            if (endReached === 100) {
+                setTimeout(() => {
+                    handleModal();
+                }, 950);
+            }
         });
     });
 
@@ -148,15 +140,35 @@ const nextQuestion = () => {
 dom.gameBtn.addEventListener('click', nextQuestion);
 
 
-
 //////// EXITING THE GAME
-const exitGame = () => {
-    let score = state.score.score = 0;
-    updateScore(score);
-    updatePercentage();
-    reverseStartAnimation();
-    clearColors();
-    addHover();
+const exitGame = (value) => {
+    let text, approved;
+
+    if (state.questions) {
+
+        if (value !== true) {
+            text = 'Restarting Will Erase Your Progress, Do You Really Want To Restart?';
+            approved = confirm(text);
+        }
+
+        if (approved || value === true) {
+            let score = state.score.score = 0;
+            updatePercentage();
+            updateScore(score);
+            reverseStartAnimation();
+            clearColors();
+            addHover();
+            state.questions = undefined;
+        }
+    }
+
 };
 dom.hasEvent.btnExit.addEventListener('click', exitGame);
+// FOR MODAL END BTN 
 
+dom.modalBtn.addEventListener('click', () => {
+    handleModal();
+    setTimeout(() => {
+        exitGame(true);
+    }, 700);
+});

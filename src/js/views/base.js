@@ -34,6 +34,8 @@ export const domElements = {
     gamePercent: document.querySelector('.percentage'),
     progressBar: document.querySelector('.progress-bar'),
     gameScore: document.querySelector('.score'),
+    modal: document.querySelector('.modal'),
+    modalBtn: document.querySelector('.modal__btn'),
     hasEvent: {
         //  ELEMENTS THAT HAVE EVENTS LISTENERS AND ARE OUTSIDE THE MAIN ELEMENT/CONTAINER
         detailsOverview: document.querySelector('.details__overview'),
@@ -66,6 +68,7 @@ export const domClasslists = {
     corerct: 'right',
     wrong: 'wrong',
     hover: 'hover',
+    modalShow: 'modal-show',
     hasEvent: 'has-event',
 };
 
@@ -80,4 +83,9 @@ export const addClass = obj => {
 export const handleLoader = ()=>{
     domElements.container.classList.toggle(domClasslists.dimContainer);
     domElements.loader.classList.toggle(domClasslists.loading);  
+};
+
+export const handleModal =()=>{
+    domElements.container.classList.toggle(domClasslists.dimContainer);
+    domElements.modal.classList.toggle(domClasslists.modalShow)
 };

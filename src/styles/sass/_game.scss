@@ -79,10 +79,13 @@
     position: relative;
     overflow: hidden;
     @include responsive(425px) {
-      width: 16rem;
+      width: 23rem;
     }
-    @include responsive(300px) {
-      width: 15rem;
+    @include responsive(350px) {
+      width: 20rem;
+    }
+    @include responsive(260px) {
+      width: 17rem;
     }
     .progress-bar {
       position: absolute;
@@ -95,16 +98,19 @@
       left: 0;
       width: 0%;
       height: 100%;
-      transition: width .7s;
+      transition: width 1s;
+      
     }
   }
   &__score {
     font-size: 2.7rem;
     transform: translateY(-1.5rem);
     font-weight: bold;
-
-    @include responsive(320px) {
+    @include responsive(600px) {
       font-size: 2.5rem;
+    }
+    @include responsive(375px) {
+      font-size: 2.36rem;
     }
     @include responsive(300px) {
       font-size: 2rem;
@@ -119,10 +125,19 @@
   }
 
   &__question {
-    padding: 1rem 1rem 0;
+    padding: .9rem 1rem .1rem;
     text-align: center;
     height: 59%;
     overflow-y: auto;
+    @include responsive(1280px) {
+      padding-top: .7rem;
+    }
+    @include responsive(1000px) {
+      padding-top: .75rem;
+    }
+    @include responsive(900px) {
+      padding-top: .8rem;
+    }
     @include responsive(550px) {
       height: 61%;
     }
@@ -134,13 +149,14 @@
     }
     @include responsive(375px) {
       height: 66.5%;
+      padding-bottom: .5rem;
     }
     @include responsive(350px) {
       font-size: 1.3rem;
-      padding-top: 1.1rem;
     }
     @include responsive(300px) {
       height: 68.5%;
+      padding-bottom: .7rem;
     }
   }
 

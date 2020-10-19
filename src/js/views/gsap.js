@@ -4,7 +4,7 @@ import { domElements as dom } from './base';
 
 
 // Animation on page laod.
-let loadTl = gsap.timeline({
+const loadTl = gsap.timeline({
     delay: .2
 });
 
@@ -80,10 +80,12 @@ export const animateStart = () => {
 
 export const reverseStartAnimation = () => {
     if (gameStarted) {
-        let comfirmed = confirm('Restarting Will Erase Your Progress, Do You Really Want To Restart?');
-        if (comfirmed) {
             startGame.reverse();
             gameStarted = false;
-        }
     }
 }
+
+export const reverseForEnd = () => {
+    startGame.reverse();
+    gameStarted = false;
+};

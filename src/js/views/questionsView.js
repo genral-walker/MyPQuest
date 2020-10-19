@@ -1,5 +1,5 @@
 
-import { domElements as dom, domClasslists } from './base';
+import { domElements as dom, domClasslists, handleModal } from './base';
 
 const renderQuestion = data => {
     if (data.section) {
@@ -44,13 +44,6 @@ export const updatePercentage = (numbersLength, answerd) => {
   }
 };
 
-export const GameEnd =(width)=>{
-    if (width === 100) {
-        setTimeout(() => {
-            alert('game End')
-        }, 2000);
-    }
-};
 
 export const clearColors = () => {
     dom.optionBox.forEach(box => box.classList.remove(domClasslists.corerct, domClasslists.wrong))
