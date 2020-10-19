@@ -122,9 +122,6 @@ body {
       width: 96%;
       border-radius: 15px;
     }
-    @include responsive(350px) {
-      transform: translateY(-2.6rem);
-    }
   }
 
   .main {
@@ -166,9 +163,9 @@ body {
     box-shadow: $box-shadow-primary;
     transform: translateY(-70%);
     opacity: 0;
-    transition: 1s cubic-bezier(0, 0.35, 0, 1.15);
+    transition: 1.4s cubic-bezier(0, 0.35, 0, 1.15);
     @include responsive(425px) {
-      width: 30rem;
+      width: 34rem;
     }
   }
   &__intro {
@@ -181,8 +178,12 @@ body {
     @include btn-submit-set;
     margin-top: 1.5rem;
     color: $color-bg-3;
+    font-size: 2.6rem;
     font-size: inherit;
     font-weight: bolder;
-    padding: 0.6rem 2rem;
+    padding: 0.6rem 2.5rem;
+    @include responsive(425px) {
+      margin-top: 2.5rem;
+    }
   }
 }

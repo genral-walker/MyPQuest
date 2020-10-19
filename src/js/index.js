@@ -118,7 +118,7 @@ const validateAnswer = () => {
             if (endReached === 100) {
                 setTimeout(() => {
                     handleModal();
-                }, 950);
+                }, 1300);
             }
         });
     });
@@ -129,7 +129,7 @@ validateAnswer();
 ///// LOAD NEXT QUESTION AFTER EVERY ANSWERED QUESTION
 const nextQuestion = () => {
     if (state.questions.answered) {
-        clearColors();
+        clearColors();   
         addHover();
         let newQuestion = state.questions.loadQuestion();
         renderQuestion(newQuestion);

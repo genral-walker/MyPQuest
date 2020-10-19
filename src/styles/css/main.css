@@ -208,11 +208,6 @@ body {
       width: 96%;
       -webkit-border-radius: 15px;
               border-radius: 15px; } }
-  @media only screen and (max-width: 75em) and (max-width: 21.875em) {
-    #content {
-      -webkit-transform: translateY(-2.6rem);
-          -ms-transform: translateY(-2.6rem);
-              transform: translateY(-2.6rem); } }
   #content .main {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 90%;
@@ -279,12 +274,12 @@ body {
         -ms-transform: translateY(-70%);
             transform: translateY(-70%);
     opacity: 0;
-    -webkit-transition: 1s cubic-bezier(0, 0.35, 0, 1.15);
-    -o-transition: 1s cubic-bezier(0, 0.35, 0, 1.15);
-    transition: 1s cubic-bezier(0, 0.35, 0, 1.15); }
+    -webkit-transition: 1.4s cubic-bezier(0, 0.35, 0, 1.15);
+    -o-transition: 1.4s cubic-bezier(0, 0.35, 0, 1.15);
+    transition: 1.4s cubic-bezier(0, 0.35, 0, 1.15); }
     @media only screen and (max-width: 26.5625em) {
       .modal__container {
-        width: 30rem; } }
+        width: 34rem; } }
   .modal__intro {
     margin-bottom: 1rem; }
   .modal__guide {
@@ -302,9 +297,10 @@ body {
     transition: 0.2s ease;
     margin-top: 1.5rem;
     color: #d5d7dd;
+    font-size: 2.6rem;
     font-size: inherit;
     font-weight: bolder;
-    padding: 0.6rem 2rem; }
+    padding: 0.6rem 2.5rem; }
     @media only screen and (hover: hover) {
       .modal__btn:hover {
         -webkit-transform: translateY(-1.13px) scale(1.013) !important;
@@ -319,6 +315,9 @@ body {
         -webkit-transform: translateY(1.3px) scale(0.991) !important;
             -ms-transform: translateY(1.3px) scale(0.991) !important;
                 transform: translateY(1.3px) scale(0.991) !important; } }
+    @media only screen and (max-width: 26.5625em) {
+      .modal__btn {
+        margin-top: 2.5rem; } }
 
 .side {
   background: #d5d7dd;
