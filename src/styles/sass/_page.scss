@@ -164,9 +164,6 @@ body {
     transform: translateY(-70%);
     opacity: 0;
     transition: 1.4s cubic-bezier(0, 0.35, 0, 1.15);
-    @include responsive(425px) {
-      width: 34rem;
-    }
   }
   &__intro {
     margin-bottom: 1rem;

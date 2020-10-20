@@ -277,9 +277,6 @@ body {
     -webkit-transition: 1.4s cubic-bezier(0, 0.35, 0, 1.15);
     -o-transition: 1.4s cubic-bezier(0, 0.35, 0, 1.15);
     transition: 1.4s cubic-bezier(0, 0.35, 0, 1.15); }
-    @media only screen and (max-width: 26.5625em) {
-      .modal__container {
-        width: 34rem; } }
   .modal__intro {
     margin-bottom: 1rem; }
   .modal__guide {

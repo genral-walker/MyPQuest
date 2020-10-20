@@ -25,9 +25,7 @@ const hello = (e) => {
 window.addEventListener('load', animatePageOnLoad);
 
 ///// ADDS AN EVENT CLASS TO ALL ELEMENTS IN DOMCLASSLIST USED TO NULIFY DETAILS SLIDE ANIMATION. 
-addClass(dom.hasEvent);
-
-
+addClass(dom.hasEvent, dom.hasEventChild);
 
 /*
 ******  DETAILS-VIEW CONTROLLER *******
@@ -35,7 +33,7 @@ addClass(dom.hasEvent);
 //////// TOGGLE DETAILS SECTION
 dom.hasEvent.profileBtn.addEventListener('click', detailsToggle)
 //////// TOGGLE DETAILS TABLE SECTION
-dom.hasEvent.detailScore.addEventListener('click', tableToggle)
+dom.detailScore.addEventListener('click', tableToggle)
 ///////// CLOSE DETAILS SECTION
 document.addEventListener('click', closeDetails);
 
@@ -153,9 +151,9 @@ const exitGame = (value) => {
 
         if (approved || value === true) {
             let score = state.score.score = 0;
+            reverseStartAnimation();
             updatePercentage();
             updateScore(score);
-            reverseStartAnimation();
             clearColors();
             addHover();
             state.questions = undefined;
@@ -170,5 +168,5 @@ dom.modalBtn.addEventListener('click', () => {
     handleModal();
     setTimeout(() => {
         exitGame(true);
-    }, 700);
+    }, 1100);
 });

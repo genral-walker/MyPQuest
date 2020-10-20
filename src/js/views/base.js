@@ -36,11 +36,13 @@ export const domElements = {
     gameScore: document.querySelector('.score'),
     modal: document.querySelector('.modal'),
     modalBtn: document.querySelector('.modal__btn'),
-    hasEvent: {
-        //  ELEMENTS THAT HAVE EVENTS LISTENERS AND ARE OUTSIDE THE MAIN ELEMENT/CONTAINER
+    detailScore: document.querySelector('.details__highscores'),
+    hasEventChild: {
         detailsOverview: document.querySelector('.details__overview'),
         detailsTable: document.querySelector('.details__table'),
-        detailScore: document.querySelector('.details__highscores'),
+    },
+    hasEvent: {
+        //  ELEMENTS THAT HAVE EVENTS LISTENERS AND ARE OUTSIDE THE MAIN ELEMENT/CONTAINER
         get profileBtn() {
             let btn;
             window.matchMedia('(max-width: 30em)').matches ? btn = 'btn-img' : btn = 'btn__user';
@@ -62,9 +64,9 @@ export const domClasslists = {
     tableShow: 'show',
     noShadow: 'no-shadow',
     slideValidator: 'slide-up',
-    dimContainer :'dim',
+    dimContainer: 'dim',
     loading: 'loading',
-    answerHover : 'hover',
+    answerHover: 'hover',
     corerct: 'right',
     wrong: 'wrong',
     hover: 'hover',
@@ -72,20 +74,41 @@ export const domClasslists = {
     hasEvent: 'has-event',
 };
 
+const addClassToChildren = () => {
+    let arr = [];
+    Array.prototype.concat[arr];
+};
+
 ///// CLASS ADDED TO  ALL ELEMENT THAT HAS EVENT
-export const addClass = obj => {
-    for (const key in obj) {
-        obj[key].classList.add(domClasslists.hasEvent);
+export const addClass = (noChildObj, hasChildObj) => {
+
+    const elementsWithChildren = [];
+
+    // ELEMNTS WITHOUT CHILDREN
+    for (const key in noChildObj) {
+        noChildObj[key].classList.add(domClasslists.hasEvent);
     }
+
+
+    // ELEMNTS WITH CHILDREN
+    for (const key in hasChildObj) {
+        hasChildObj[key].classList.add(domClasslists.hasEvent);
+        elementsWithChildren.push(hasChildObj[key].children)
+    }
+
+    elementsWithChildren.forEach(el => {
+        Array.from(el).forEach(e => e.classList.add(domClasslists.hasEvent)
+        )
+    })
 };
 
 
-export const handleLoader = ()=>{
+export const handleLoader = () => {
     domElements.container.classList.toggle(domClasslists.dimContainer);
-    domElements.loader.classList.toggle(domClasslists.loading);  
+    domElements.loader.classList.toggle(domClasslists.loading);
 };
 
-export const handleModal =()=>{
+export const handleModal = () => {
     domElements.container.classList.toggle(domClasslists.dimContainer);
     domElements.modal.classList.toggle(domClasslists.modalShow)
 };

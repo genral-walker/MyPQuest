@@ -11,19 +11,18 @@ export const detailsToggle = () => {
         if (!dom.details.classList.contains(classes.detailShow )) {
             dom.hasEvent.detailsTable.classList.remove(classes.tableShow);
             dom.hasEvent.detailsOverview.classList.remove(classes.noShadow);
-      
     }
 };
 
 export const tableToggle = () => {
-    dom.hasEvent.detailsTable.classList.toggle(classes.tableShow);
-    dom.hasEvent.detailsOverview.classList.toggle(classes.noShadow);
+    dom.hasEventChild.detailsTable.classList.toggle(classes.tableShow);
+    dom.hasEventChild.detailsOverview.classList.toggle(classes.noShadow);
 };
 
 export const closeDetails = e => {
     if (!e.target.classList.contains(classes.hasEvent) || e.target === dom.details) {
         dom.details.classList.remove(classes.detailShow);
-        dom.hasEvent.detailsTable.classList.remove(classes.tableShow);
-        dom.hasEvent.detailsOverview.classList.remove(classes.noShadow);
+        dom.hasEventChild.detailsTable.classList.remove(classes.tableShow);
+        dom.hasEventChild.detailsOverview.classList.remove(classes.noShadow);
     }
 };
