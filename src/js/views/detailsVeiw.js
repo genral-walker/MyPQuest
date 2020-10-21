@@ -8,7 +8,7 @@ import { domElements as dom, domClasslists as classes } from './base';
 
 export const detailsToggle = () => {
         dom.details.classList.toggle(classes.detailShow);
-        if (!dom.details.classList.contains(classes.detailShow )) {
+        if (!dom.details.classList.contains(classes.detailShow)) {
             dom.hasEvent.detailsTable.classList.remove(classes.tableShow);
             dom.hasEvent.detailsOverview.classList.remove(classes.noShadow);
     }

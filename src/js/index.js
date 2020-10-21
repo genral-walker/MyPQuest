@@ -24,7 +24,7 @@ const hello = (e) => {
 //////////GSAP ANIMATION ON PAGELOAD
 window.addEventListener('load', animatePageOnLoad);
 
-///// ADDS AN EVENT CLASS TO ALL ELEMENTS IN DOMCLASSLIST USED TO NULIFY DETAILS SLIDE ANIMATION. 
+///// ADDS AN EVENT CLASS TO ALL ELEMENTS IN DOMCLASSLIST. USED TO NULIFY DETAILS SLIDE ANIMATION. 
 addClass(dom.hasEvent, dom.hasEventChild);
 
 /*

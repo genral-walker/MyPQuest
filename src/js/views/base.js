@@ -37,6 +37,7 @@ export const domElements = {
     modal: document.querySelector('.modal'),
     modalBtn: document.querySelector('.modal__btn'),
     detailScore: document.querySelector('.details__highscores'),
+    detailSession: document.querySelector('.details__sessions'),
     hasEventChild: {
         detailsOverview: document.querySelector('.details__overview'),
         detailsTable: document.querySelector('.details__table'),
@@ -74,15 +75,9 @@ export const domClasslists = {
     hasEvent: 'has-event',
 };
 
-const addClassToChildren = () => {
-    let arr = [];
-    Array.prototype.concat[arr];
-};
 
 ///// CLASS ADDED TO  ALL ELEMENT THAT HAS EVENT
 export const addClass = (noChildObj, hasChildObj) => {
-
-    const elementsWithChildren = [];
 
     // ELEMNTS WITHOUT CHILDREN
     for (const key in noChildObj) {
@@ -93,13 +88,55 @@ export const addClass = (noChildObj, hasChildObj) => {
     // ELEMNTS WITH CHILDREN
     for (const key in hasChildObj) {
         hasChildObj[key].classList.add(domClasslists.hasEvent);
-        elementsWithChildren.push(hasChildObj[key].children)
+
+        // THE FUNCTION BELOW ADDS THE HAS-EVENT CLASS TO ALL THE DESCENDANT OF THE SPECIFIED ELEMENT
+        if (hasChildObj[key].children) {
+
+            Array.from(hasChildObj[key].children).forEach(parent1 => {
+                parent1.classList.add(domClasslists.hasEvent);
+
+                if (parent1.children) {
+                    Array.from(parent1.children).forEach(parent2 => {
+                        parent2.classList.add(domClasslists.hasEvent);
+
+                        if (parent2.children) {
+                            Array.from(parent2.children).forEach(parent3 => {
+                                parent3.classList.add(domClasslists.hasEvent);
+
+                                if (parent3.children) {
+                                    Array.from(parent3.children).forEach(parent4 => {
+                                        parent4.classList.add(domClasslists.hasEvent);
+
+                                        if (parent4.children) {
+                                            Array.from(parent4.children).forEach(parent5 => {
+                                                parent5.classList.add(domClasslists.hasEvent);
+
+                                                if (parent5.children) {
+                                                    Array.from(parent5.children).forEach(parent6 => {
+                                                        parent6.classList.add(domClasslists.hasEvent);
+
+                                                        if (parent6.children) {
+                                                            Array.from(parent6.children).forEach(parent7 => {
+                                                                parent7.classList.add(domClasslists.hasEvent);
+
+
+                                                            })
+                                                        }
+                                                    })
+                                                }
+                                            })
+                                        }
+                                    })
+                                }
+                            })
+                        }
+                    })
+                }
+            });
+        }
+
     }
 
-    elementsWithChildren.forEach(el => {
-        Array.from(el).forEach(e => e.classList.add(domClasslists.hasEvent)
-        )
-    })
 };
 
 
