@@ -523,32 +523,19 @@ body {
         -webkit-justify-content: space-evenly;
             -ms-flex-pack: space-evenly;
                 justify-content: space-evenly; } }
-    @media only screen and (max-width: 25em) {
-      .details__overview {
-        font-size: 2.6rem; } }
-    @media only screen and (max-width: 18.75em) {
-      .details__overview {
-        font-size: 2.4rem;
-        font-weight: bolder; } }
-    @media only screen and (max-width: 15.625em) {
-      .details__overview {
-        font-size: 2.2rem; } }
     .details__overview button {
       font-size: 2.7rem;
       color: inherit; }
-      @media only screen and (max-width: 30em) {
-        .details__overview button {
-          font-size: 2.2rem; } }
       @media only screen and (max-width: 25em) {
         .details__overview button {
-          font-size: 1.7rem; } }
+          font-size: 2.6rem; } }
       @media only screen and (max-width: 18.75em) {
         .details__overview button {
-          font-size: 1.5rem;
+          font-size: 2.4rem;
           font-weight: bolder; } }
       @media only screen and (max-width: 15.625em) {
         .details__overview button {
-          font-size: 1.25rem; } }
+          font-size: 2.2rem; } }
   .details__hello {
     font-size: 1.8rem; }
     @media only screen and (max-width: 50em) {
@@ -557,6 +544,100 @@ body {
     @media only screen and (max-width: 34.375em) {
       .details__hello {
         display: none; } }
+  .details__sessions {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    font-size: 1.8rem;
+    height: 100%;
+    width: 100%;
+    background: #0c0d2c;
+    color: #d5d7dd;
+    padding: 6rem 0 2rem;
+    overflow-y: auto; }
+    .details__sessions .session {
+      position: relative;
+      background: rgba(213, 215, 221, 0.13);
+      width: 80%;
+      -webkit-border-radius: 12px;
+              border-radius: 12px;
+      margin: 0 0 8rem 16rem;
+      padding: 2.5rem 0 1.5rem;
+      -webkit-box-shadow: 2px 2px 4px 2px rgba(4, 5, 13, 0.3);
+              box-shadow: 2px 2px 4px 2px rgba(4, 5, 13, 0.3); }
+      @media only screen and (max-width: 64em) {
+        .details__sessions .session {
+          width: 77%; } }
+      @media only screen and (max-width: 56.25em) {
+        .details__sessions .session {
+          width: 76%;
+          margin-left: 15rem; } }
+      @media only screen and (max-width: 48em) {
+        .details__sessions .session {
+          margin-left: 14rem; } }
+      @media only screen and (max-width: 45em) {
+        .details__sessions .session {
+          margin: 0 auto 8rem;
+          width: 90%; } }
+      .details__sessions .session__header {
+        position: absolute;
+        top: -2rem;
+        left: .2rem;
+        font-size: 1.5rem;
+        font-weight: bold;
+        background: -webkit-gradient(linear, left top, right bottom, color-stop(-18%, #00c6fb), color-stop(50%, rgba(9, 100, 245, 0.9)));
+        background: -webkit-linear-gradient(left top, #00c6fb -18%, rgba(9, 100, 245, 0.9) 50%);
+        background: -o-linear-gradient(left top, #00c6fb -18%, rgba(9, 100, 245, 0.9) 50%);
+        background: linear-gradient(to right bottom, #00c6fb -18%, rgba(9, 100, 245, 0.9) 50%);
+        width: -webkit-max-content;
+        width: -moz-max-content;
+        width: max-content;
+        padding: 0 1.5rem;
+        height: 4.3rem;
+        -webkit-border-radius: 6px;
+                border-radius: 6px;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: space-evenly;
+        -webkit-justify-content: space-evenly;
+            -ms-flex-pack: space-evenly;
+                justify-content: space-evenly; }
+        @media only screen and (max-width: 25em) {
+          .details__sessions .session__header {
+            font-size: 1.4rem; } }
+        @media only screen and (max-width: 21.875em) {
+          .details__sessions .session__header {
+            font-size: 1.3rem; } }
+        @media only screen and (max-width: 20.625em) {
+          .details__sessions .session__header {
+            font-size: 1.2rem; } }
+        @media only screen and (max-width: 18.75em) {
+          .details__sessions .session__header {
+            font-size: 1rem; } }
+      .details__sessions .session__category, .details__sessions .session__date {
+        margin-left: 1.5rem; }
+      .details__sessions .session__details {
+        padding: 0 1.7rem 2rem;
+        margin-bottom: 4rem;
+        border-bottom: 1.7px solid rgba(255, 255, 255, 0.5); }
+        .details__sessions .session__details p {
+          line-height: 1.4;
+          margin-top: 2rem; }
+      .details__sessions .session__text-header {
+        display: block;
+        font-size: 1.2rem;
+        font-size: bolder; }
   .details__table {
     position: absolute;
     top: 6.26rem;

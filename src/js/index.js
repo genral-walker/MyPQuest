@@ -33,7 +33,7 @@ addClass(dom.hasEvent, dom.hasEventChild);
 //////// TOGGLE DETAILS SECTION
 dom.hasEvent.profileBtn.addEventListener('click', detailsToggle)
 //////// TOGGLE DETAILS TABLE SECTION
-dom.detailScore.addEventListener('click', tableToggle)
+dom.btnDetailsScore.addEventListener('click', tableToggle)
 ///////// CLOSE DETAILS SECTION
 document.addEventListener('click', closeDetails);
 

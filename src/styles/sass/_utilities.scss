@@ -200,6 +200,12 @@
       @content;
     }
   }
+  @if $condition == 330px {
+    //////// 330px ///////
+    @media only screen and (max-width: 20.625em) {
+      @content;
+    }
+  }
   @if $condition == 320px {
     //////// 320px * 568px///////
     @media only screen and (max-width: 20em) {

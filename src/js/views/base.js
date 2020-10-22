@@ -36,8 +36,8 @@ export const domElements = {
     gameScore: document.querySelector('.score'),
     modal: document.querySelector('.modal'),
     modalBtn: document.querySelector('.modal__btn'),
-    detailScore: document.querySelector('.details__highscores'),
-    detailSession: document.querySelector('.details__sessions'),
+    btnDetailsScore: document.querySelector('.details__btn-highscores'),
+    btnDetailsSession: document.querySelector('.details__btn-sessions'),
     hasEventChild: {
         detailsOverview: document.querySelector('.details__overview'),
         detailsTable: document.querySelector('.details__table'),
