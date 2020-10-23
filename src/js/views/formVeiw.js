@@ -3,15 +3,24 @@ import { domElements as dom, domClasslists as classes } from './base';
 
 const inputs = [dom.formName, dom.formMobile, dom.formYear, dom.formCategory, dom.formSubject, dom.formNumbers]
 
-
-
-export const updateName = () => {
-    dom.userAll.forEach(user => user.textContent = dom.formName.value)
+export const updateName = (value) => {   
+    dom.userAll.forEach(user => user.textContent = value);
+    
 };
+
+export const retrieveName =()=>{
+    localStorage.setItem('username', JSON.stringify(dom.formName.value));
+    return dom.formName.value;
+}; 
+
+export const readNameStorage =()=> {
+    const username = JSON.parse(localStorage.getItem('username'));
+    if (username) return username;
+}
 
 
 // collects info from form to use in makin api call
-const makeOptional = () => {
+export const makeOptional = () => {
     // || input === inputs[1] WE'LL HANDLE THIS WHEN MOBILE NUMBER IS AVAILABLE
     inputs[0].setAttribute('disabled', '');
     inputs[0].setAttribute('placeholder', 'username already set.');

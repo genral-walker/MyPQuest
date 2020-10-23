@@ -81,11 +81,18 @@
 
 
 // ANIMATION FOR MODAL
-
 .modal-show {
   visibility: visible;
   .modal__container {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+// ANIMATION FOR SESSION SLIDE
+.session.slide {
+  height: max-content !important;
+  .session__details {
+    display: block !important;
   }
 }

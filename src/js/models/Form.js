@@ -15,7 +15,4 @@ export default class Form {
             console.log(error);
         }
     }
-};
-/*
-
-*/
+}

@@ -38,6 +38,9 @@ export const domElements = {
     modalBtn: document.querySelector('.modal__btn'),
     btnDetailsScore: document.querySelector('.details__btn-highscores'),
     btnDetailsSession: document.querySelector('.details__btn-sessions'),
+    btnSessionHeader: document.querySelectorAll('.session__header'),
+    session: document.querySelectorAll('.session'),
+    welcomeBack: document.querySelector('#welcome-back'),
     hasEventChild: {
         detailsOverview: document.querySelector('.details__overview'),
         detailsTable: document.querySelector('.details__table'),
@@ -72,6 +75,7 @@ export const domClasslists = {
     wrong: 'wrong',
     hover: 'hover',
     modalShow: 'modal-show',
+    slideSession: 'slide',
     hasEvent: 'has-event',
 };
 

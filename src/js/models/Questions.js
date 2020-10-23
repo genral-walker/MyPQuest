@@ -38,4 +38,8 @@ export default class Questions {
         return this._accumulator;
     }
 
+    get session() {
+        console.log(this.questions);
+    }    
+
 }

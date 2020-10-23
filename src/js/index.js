@@ -4,11 +4,11 @@ import Questions from './models/Questions';
 import Score from './models/Score';
 import { domElements as dom, domClasslists, addClass, handleLoader, handleModal } from './views/base';
 import { detailsToggle, tableToggle, closeDetails } from './views/detailsVeiw';
-import { animatePageOnLoad, animateStart, reverseStartAnimation, reverseForEnd } from './views/gsap';
-import { getInputs, clearInputs, updateName } from './views/formVeiw';
+import { animatePageOnLoad, animateStart, reverseStartAnimation } from './views/gsap';
+import { getInputs, clearInputs, updateName, retrieveName, readNameStorage, makeOptional} from './views/formVeiw';
 import { renderQuestionsAndAnswers as renderQuestion, clearColors, updatePercentage, addHover, removeHover } from './views/questionsView';
 import { updateScore } from './views/scoreView';
-
+import { } from './views/sessionsView';
 /** Global state of the app
  * -
  */
@@ -38,6 +38,16 @@ dom.btnDetailsScore.addEventListener('click', tableToggle)
 document.addEventListener('click', closeDetails);
 
 
+/*
+****** SESSIONS-VIEW CONTROLLER *******
+*/
+dom.btnSessionHeader.forEach(elm => {
+    elm.addEventListener('click', (e) => {
+        e.target.parentElement.classList.toggle(domClasslists.slideSession);
+    })
+});
+
+
 //// GET INPUTS FROM FORM 
 const processDataToStart = async () => {
 
@@ -50,6 +60,8 @@ const processDataToStart = async () => {
         let res = await state.form.submitQuery();
 
         state.questions = new Questions(res);
+
+        // GETS THE NUMBER OFTHE QUESTIONS 
         state.questions.questionLength = parseFloat(dom.formNumbers.value);
 
         clearInputs();
@@ -77,7 +89,19 @@ const processDataToStart = async () => {
 };
 
 //////// UPDATE PROFILE NAME
-dom.formName.addEventListener('input', updateName);
+dom.formName.addEventListener('input', ()=>{updateName(dom.formName.value)});
+
+const getName =()=>{
+    if (readNameStorage()) {
+        updateName(readNameStorage());
+        makeOptional();
+        dom.welcomeBack.style.display ='inline-block';
+    } else {
+    dom.formName.addEventListener('focusout', retrieveName);
+    }
+};
+
+getName();
 
 //////// GAME START AFTER INPUTS RECEIVED SUCCESFULLY
 dom.form.addEventListener('submit', (e) => {
@@ -127,7 +151,7 @@ validateAnswer();
 ///// LOAD NEXT QUESTION AFTER EVERY ANSWERED QUESTION
 const nextQuestion = () => {
     if (state.questions.answered) {
-        clearColors();   
+        clearColors();
         addHover();
         let newQuestion = state.questions.loadQuestion();
         renderQuestion(newQuestion);
