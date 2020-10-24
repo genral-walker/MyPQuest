@@ -1,6 +1,11 @@
 
 import { domElements as dom, domClasslists } from './base';
 
+const evaluateHour = (hour) => {
+    hour %= 12;
+    hour = hour != 0 ? hour : 12;
+    return hour;
+};
 
 export const header = (questionData, dateData) => {
 
@@ -8,9 +13,9 @@ export const header = (questionData, dateData) => {
     <div class="session session--${dateData.minute}">
                   <div class="session__header">
                     <h3 class="session__subject">${questionData.subject}</h3>
-                    <h4 class="session__category">${questionData.category}</h4>
+                    <h3 class="session__category">${questionData.category}</h3>
                     <p class="session__date">${dateData.day}/${dateData.month}/${dateData.year}</p>
-                    <p class="session__time">${dateData.hour}:${dateData.minute} ${dateData.hour >= 12 ? 'PM' : 'AM'}</p>
+                    <p class="session__time">${evaluateHour(dateData.hour)}:${dateData.minute < 10 ? '0' + dateData.minute : dateData.minute} ${dateData.hour >= 12 ? 'PM' : 'AM'}</p>
                   </div>              
     </div>
     `;

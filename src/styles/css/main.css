@@ -567,7 +567,7 @@ body {
       width: 80%;
       -webkit-border-radius: 12px;
               border-radius: 12px;
-      margin: 0 0 4.7rem 16rem;
+      margin: 0 0 7rem 16rem;
       padding: 2.5rem 0 .01rem;
       min-height: 5rem;
       -webkit-box-shadow: 2px 2px 4px 2px rgba(4, 5, 13, 0.3);
@@ -587,7 +587,7 @@ body {
           margin-left: 14rem; } }
       @media only screen and (max-width: 45em) {
         .details__sessions .session {
-          margin: 0 auto 4.7rem;
+          margin: 0 auto 7rem;
           width: 90%; } }
       @media only screen and (max-width: 34.375em) {
         .details__sessions .session {
