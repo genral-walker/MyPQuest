@@ -38,12 +38,12 @@ export const domElements = {
     modalBtn: document.querySelector('.modal__btn'),
     btnDetailsScore: document.querySelector('.details__btn-highscores'),
     btnDetailsSession: document.querySelector('.details__btn-sessions'),
-    btnSessionHeader: document.querySelectorAll('.session__header'),
-    session: document.querySelectorAll('.session'),
+    btnSessionsExit: document.querySelector('.session__exit'),
     welcomeBack: document.querySelector('#welcome-back'),
     hasEventChild: {
         detailsOverview: document.querySelector('.details__overview'),
         detailsTable: document.querySelector('.details__table'),
+        sessions: document.querySelector('.details__sessions'),
     },
     hasEvent: {
         //  ELEMENTS THAT HAVE EVENTS LISTENERS AND ARE OUTSIDE THE MAIN ELEMENT/CONTAINER

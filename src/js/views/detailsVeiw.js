@@ -3,7 +3,7 @@ import { domElements as dom, domClasslists as classes } from './base';
 
 
 /*
-*- toggle slide overview and table
+*- toggle slide overview, session and table.
 */
 
 export const detailsToggle = () => {
@@ -12,6 +12,10 @@ export const detailsToggle = () => {
             dom.hasEventChild.detailsTable.classList.remove(classes.tableShow);
             dom.hasEventChild.detailsOverview.classList.remove(classes.noShadow);
     }
+};
+
+export const toggleSession=()=>{
+    dom.hasEventChild.sessions.classList.toggle(classes.tableShow)
 };
 
 export const tableToggle = () => {
@@ -26,3 +30,4 @@ export const closeDetails = e => {
         dom.hasEventChild.detailsOverview.classList.remove(classes.noShadow);
     }
 };
+

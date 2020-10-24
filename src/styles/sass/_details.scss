@@ -75,7 +75,6 @@
       position: absolute;
       top: 0;
       left: 0;
-      z-index: 1; // experiment. To be used in css toggle
       font-size: 1.8rem;
       height: 100%;
       width: 100%;
@@ -83,8 +82,9 @@
       color: $color-bg-3;
       padding: 6rem 0 2rem;
       overflow-y: auto;
-      visibility: hidden;  //Experiment to be used with thr toggler
-      
+      visibility: hidden; 
+      opacity: 0;
+      transition: opacity .5s;
       .session {
         position: relative;
         background: rgba($color-bg-3, .13);
@@ -178,6 +178,7 @@
            &:not(:last-of-type) {
             border-bottom: $border-secondary;
            }
+          transition: 0.9s !important;
            
           p {
             line-height: 1.4;
@@ -187,6 +188,17 @@
             display: block;
             font-size: 1.2rem;
             font-size: bolder;
+          }
+          &__exit {
+            position: absolute;
+            display: inline-block;
+            right: 5rem;
+            bottom: 3rem;
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: inherit;
+            @include btn-submit-set;
+           margin: 0 auto;
           }
       }
     }

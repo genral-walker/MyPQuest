@@ -31,11 +31,22 @@ export default class Questions {
     }
 
     set questionLength(value) {
-        this._questionLength = value;
+        this._questionLength = parseFloat(value);
     }
 
     get accumulator() {
         return this._accumulator;
+    }
+
+    get startTimeAndDate() {
+        let date = new Date();
+        return {
+            day: date.getDate(),
+            month: date.getMonth(),
+            year: parseFloat((date.getFullYear().toString()).slice(2)),
+            hour: date.getHours(),
+            minute: date.getMinutes()
+        };
     }
 
     get session() {

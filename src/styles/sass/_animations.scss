@@ -90,6 +90,12 @@
 }
 
 // ANIMATION FOR SESSION SLIDE
+.details__sessions.show {
+  z-index: 1;
+  opacity: 1;
+  visibility: visible;
+}
+
 .session.slide {
   height: max-content !important;
   .session__details {

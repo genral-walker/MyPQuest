@@ -20,14 +20,14 @@ export const readNameStorage =()=> {
 
 
 // collects info from form to use in makin api call
-export const makeOptional = () => {
+export const disableInputName = () => {
     // || input === inputs[1] WE'LL HANDLE THIS WHEN MOBILE NUMBER IS AVAILABLE
     inputs[0].setAttribute('disabled', '');
     inputs[0].setAttribute('placeholder', 'username already set.');
 };
 
 export const clearInputs = () => {
-    makeOptional();
+    disableInputName();
     inputs.forEach(element => element.value = '');
 };
 

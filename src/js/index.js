@@ -3,12 +3,13 @@ import Form from './models/Form';
 import Questions from './models/Questions';
 import Score from './models/Score';
 import { domElements as dom, domClasslists, addClass, handleLoader, handleModal } from './views/base';
-import { detailsToggle, tableToggle, closeDetails } from './views/detailsVeiw';
+import { detailsToggle, tableToggle, closeDetails, toggleSession } from './views/detailsVeiw';
 import { animatePageOnLoad, animateStart, reverseStartAnimation } from './views/gsap';
-import { getInputs, clearInputs, updateName, retrieveName, readNameStorage, makeOptional} from './views/formVeiw';
+import { getInputs, clearInputs, updateName, retrieveName, readNameStorage, disableInputName} from './views/formVeiw';
 import { renderQuestionsAndAnswers as renderQuestion, clearColors, updatePercentage, addHover, removeHover } from './views/questionsView';
 import { updateScore } from './views/scoreView';
-import { } from './views/sessionsView';
+import {updateSession, header } from './views/sessionsView';
+
 /** Global state of the app
  * -
  */
@@ -31,22 +32,41 @@ addClass(dom.hasEvent, dom.hasEventChild);
 ******  DETAILS-VIEW CONTROLLER *******
 */
 //////// TOGGLE DETAILS SECTION
-dom.hasEvent.profileBtn.addEventListener('click', detailsToggle)
+
+dom.hasEvent.profileBtn.addEventListener('click', detailsToggle);
 //////// TOGGLE DETAILS TABLE SECTION
-dom.btnDetailsScore.addEventListener('click', tableToggle)
+dom.btnDetailsScore.addEventListener('click', tableToggle);
 ///////// CLOSE DETAILS SECTION
 document.addEventListener('click', closeDetails);
-
+//////// TOGGLE DETAILS__SESSION SECTION
+dom.btnDetailsSession.addEventListener('click', toggleSession);
+///////// CLOSE DETAILS__SESSION SECTION
+dom.btnSessionsExit.addEventListener('click', toggleSession);
 
 /*
 ****** SESSIONS-VIEW CONTROLLER *******
 */
-dom.btnSessionHeader.forEach(elm => {
-    elm.addEventListener('click', (e) => {
-        e.target.parentElement.classList.toggle(domClasslists.slideSession);
-    })
+
+dom.hasEventChild.sessions.addEventListener('click', (e)=>{
+    if (e.target.className == 'session__header') {
+        e.target.parentElement.classList.toggle(domClasslists.slideSession)   
+    }
 });
 
+//////// UPDATE PROFILE NAME
+dom.formName.addEventListener('input', ()=>{updateName(dom.formName.value)});
+
+// GET NAME FROM LOCAL STORAGE OR FROM USER
+const getName =()=>{
+    if (readNameStorage()) {
+        updateName(readNameStorage());
+        disableInputName();
+        dom.welcomeBack.style.display ='inline-block';
+    } else {
+    dom.formName.addEventListener('focusout', retrieveName);
+    }
+};
+getName();
 
 //// GET INPUTS FROM FORM 
 const processDataToStart = async () => {
@@ -61,8 +81,8 @@ const processDataToStart = async () => {
 
         state.questions = new Questions(res);
 
-        // GETS THE NUMBER OFTHE QUESTIONS 
-        state.questions.questionLength = parseFloat(dom.formNumbers.value);
+        // GETS THE NUMBER OF THE QUESTIONS 
+        state.questions.questionLength = dom.formNumbers.value;
 
         clearInputs();
 
@@ -76,6 +96,7 @@ const processDataToStart = async () => {
 
                 // THIS INITIALIZES THESE FUNCTIONS OUTSIDE OF THIS SCOPE
                 state.questions.correctAnswer;
+                dom.hasEventChild.sessions.insertAdjacentHTML('beforeend', header(state.form.dataForSession, state.questions.startTimeAndDate));
                 state.score = new Score();
 
                 animateStart();
@@ -88,20 +109,6 @@ const processDataToStart = async () => {
     }
 };
 
-//////// UPDATE PROFILE NAME
-dom.formName.addEventListener('input', ()=>{updateName(dom.formName.value)});
-
-const getName =()=>{
-    if (readNameStorage()) {
-        updateName(readNameStorage());
-        makeOptional();
-        dom.welcomeBack.style.display ='inline-block';
-    } else {
-    dom.formName.addEventListener('focusout', retrieveName);
-    }
-};
-
-getName();
 
 //////// GAME START AFTER INPUTS RECEIVED SUCCESFULLY
 dom.form.addEventListener('submit', (e) => {
@@ -138,6 +145,14 @@ const validateAnswer = () => {
 
             // THIS CHECKS TO SEE IF THR RETURN VALUE ABOVE IS 100
             if (endReached === 100) {
+                /*
+                    update that particular play here.
+                    - get s date, time, from form obj
+    
+                    - get number of questions, question, answer, solution from the question obj
+
+                */ 
+
                 setTimeout(() => {
                     handleModal();
                 }, 1300);
@@ -186,8 +201,8 @@ const exitGame = (value) => {
 
 };
 dom.hasEvent.btnExit.addEventListener('click', exitGame);
-// FOR MODAL END BTN 
 
+// FOR MODAL END BTN 
 dom.modalBtn.addEventListener('click', () => {
     handleModal();
     setTimeout(() => {
