@@ -80,9 +80,11 @@ const getAlreadyAnswered = () => {
         console.log(anyAnswered);
         anyAnswered.forEach(session => {
 
+            let sessionQuestions = session.questions;
+            console.log(sessionQuestions)
             // ADD ANSWERED QUESTIONS TO SESSIONS SECTION
-             addSessionHeader(session.formInfo, session.dateInfo, session.ID);
-             addDetails(state.sessions.questions.questions);
+            addSessionHeader(session.formInfo, session.dateInfo, session.ID);
+            addDetails(sessionQuestions);
 
         })
 
