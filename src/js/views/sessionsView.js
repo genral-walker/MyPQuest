@@ -1,52 +1,97 @@
 
 import { domElements as dom, domClasslists } from './base';
 
-const evaluateHour = (hour) => {
-    hour %= 12;
-    hour = hour != 0 ? hour : 12;
-    return hour;
-};
+let ID;
 
-export const header = (questionData, dateData) => {
+const date = {};
 
-    return `
-    <div class="session session--${dateData.minute}">
-                  <div class="session__header">
-                    <h3 class="session__subject">${questionData.subject}</h3>
-                    <h3 class="session__category">${questionData.category}</h3>
-                    <p class="session__date">${dateData.day}/${dateData.month}/${dateData.year}</p>
-                    <p class="session__time">${evaluateHour(dateData.hour)}:${dateData.minute < 10 ? '0' + dateData.minute : dateData.minute} ${dateData.hour >= 12 ? 'PM' : 'AM'}</p>
-                  </div>              
+
+export const addSessionHeader = (questionData, dateData, id) => {
+
+    try {
+        date.day = dateData.day();
+        date.month = dateData.month();
+        date.hour = dateData.hour();
+        date.minute = dateData.minute();
+        date.amPm = dateData.amPm();
+    } catch (error) {
+        date.day = dateData.day;
+        date.month = dateData.month;
+        date.hour = dateData.hour;
+        date.minute = dateData.minute;
+        date.amPm = dateData.amPm;
+    }
+    date.year = dateData.year;
+
+    ID = id;
+    let markUp = `
+    <div class="session session--${ID}">
+        <div class="session__header">
+            <h3 class="session__subject">${questionData.subject}</h3>
+            <h3 class="session__category">${questionData.category}</h3>
+            <p class="session__date">${date.day}/${date.month}/${date.year}</p>
+            <p class="session__time">
+            ${date.hour}:${date.minute} ${date.amPm}
+            </p>
+        </div>
     </div>
-    `;
-};
-
-const addAnswered = (question, answer, solution) => {
-    return `
-    <div class="session__details">
-    <p class="session__question">
-      <span class="session__text-header">QUESTION:</span>
-      <span class="session__text">
-      ${question}
-      </span>
-      </p>
-    <p class="session__answer">
-      <span class="session__text-header">ANSWER:</span>
-      <span class="session__text">
-      ${answer}
-        </span>
-    </p>
-    <p class="session__solution">
-      <span class="session__text-header">SOLUTION:</span>
-      <span class="session__text">
-      ${solution}
-      </span>    
-    </p>
-  </div>
-    `;
+        `;
+    dom.hasEventChild.sessions.insertAdjacentHTML('beforeend', markUp);
+    return date;
 };
 
 
-export const updateSession = (questionLength, sessionData) => {
+const ifSolution = (solution) => {
+    if (solution) {
+        return `
+        <p class="session__solution">
+            <span class="session__text-header">SOLUTION:</span>
+            <span class="session__text-solution">
+                ${solution}
+            </span>
+        </p>
+        `
+    } else {
+        return '';
+    }
+};
 
+const checkForSection = (section, question) => {
+    if (section) {
+        return section + ' &nbsp; ' + question;
+    } else {
+        return question;
+    }
+};
+
+export const sessionDetails = (questionObj) => {
+    let questions = questionObj.questions;
+    let sessionContainer = document.querySelector(`.session--${ID}`);
+    questions.forEach(question => {
+
+        let markUp = `
+        
+        <div class="session__details session__details--${ID}">
+            <p class="session__question">
+                <span class="session__text-header">QUESTION:</span>
+                <span class="session__text-question">
+                ${checkForSection(question.section, question.question)} 
+                </span>
+            </p>
+            <p class="session__answer">
+                <span class="session__text-header">ANSWER:</span>
+                <span class="session__text-answer">
+                    ${question.option[question.answer]}
+                </span>
+            </p>
+                ${ifSolution(question.solution)}
+        </div>
+        `;
+        sessionContainer.insertAdjacentHTML('beforeend', markUp);
+    });
+
+};
+
+export const closeALLSessions = () => {
+    document.querySelectorAll('.session').forEach(session => session.classList.remove(domClasslists.slideSession))
 };

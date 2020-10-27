@@ -18,6 +18,7 @@ export default class Questions {
         }
     }
 
+    // JUST TOGGLERS FOR ANSWERING QUESTIONS
     get answered() {
         return this._answered
     }
@@ -25,32 +26,15 @@ export default class Questions {
     set answered(value) {
         this._answered = value
     }
+    // ENDS HERE
 
     get questionLength() {
-        return this._questionLength
-    }
-
-    set questionLength(value) {
-        this._questionLength = parseFloat(value);
+        let length = this.questions.length;
+        return length
     }
 
     get accumulator() {
         return this._accumulator;
     }
-
-    get startTimeAndDate() {
-        let date = new Date();
-        return {
-            day: date.getDate(),
-            month: date.getMonth(),
-            year: parseFloat((date.getFullYear().toString()).slice(2)),
-            hour: date.getHours(),
-            minute: date.getMinutes()
-        };
-    }
-
-    get session() {
-        console.log(this.questions);
-    }    
 
 }

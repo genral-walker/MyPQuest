@@ -97,6 +97,7 @@
 }
 
 .session.slide {
+  cursor: unset !important;
   height: max-content !important;
   .session__details {
     display: block !important;

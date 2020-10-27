@@ -33,6 +33,7 @@ export const removeHover = () => {
 
 
 export const updatePercentage = (numbersLength, answerd) => {
+    
   if (numbersLength && answerd) {
     let width = (answerd/numbersLength) * 100;
     dom.progressBar.style.width = `${width}%`;

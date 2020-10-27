@@ -1,52 +1,51 @@
-
 .details {
-    color: $color-bg-3;
+  color: $color-bg-3;
+  position: absolute;
+  top: 0;
+  left: 2%;
+  width: 100%;
+  z-index: 1;
+  @include responsive(720px) {
+    top: unset;
+    left: 0;
+    bottom: 0;
+  }
+
+  &__overview {
     position: absolute;
     top: 0;
-    left: 2%;
-    width: 100%;
+    left: 0;
     z-index: 1;
-    @include responsive(720px) {
-      top: unset;
-      left: 0;
-      bottom: 0;
+    width: 100%;
+    font-size: 2.7rem;
+    background-color: rgba($color-blue, 0.94);
+    box-shadow: $box-shadow-primary;
+    padding: 1.5rem 0 1.5rem 6rem;
+    @include flex-center;
+    justify-content: space-around;
+    visibility: hidden;
+    transform: translateY(-100%);
+    transition: 0.6s;
+    @include responsive(1024px) {
+      padding: 1.5rem 0 1.5rem 8.5rem;
     }
 
-    &__overview {
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 1;
-      width: 100%;
+    @include responsive(720px) {
+      top: unset;
+      bottom: 0;
+      padding: 1.5rem 0 1.5rem 0;
+      transform: unset;
+      transform: translateY(100%);
+    }
+
+    @include responsive(480px) {
+      justify-content: space-evenly;
+    }
+
+    button {
       font-size: 2.7rem;
-      background-color: rgba($color-blue, 0.94);
-      box-shadow: $box-shadow-primary;
-      padding: 1.5rem 0 1.5rem 6rem;
-      @include flex-center;
-      justify-content: space-around;
-      visibility: hidden;
-      transform: translateY(-100%);
-      transition: .6s;
-      @include responsive(1024px) {
-        padding: 1.5rem 0 1.5rem 8.5rem;
-      }
+      color: inherit;
 
-      @include responsive(720px) {
-        top: unset;
-        bottom: 0;
-        padding: 1.5rem 0 1.5rem 0;
-        transform: unset;
-        transform: translateY(100%);
-      }
-
-      @include responsive(480px) {
-        justify-content: space-evenly;
-      }
-
-      button {
-        font-size: 2.7rem;
-        color: inherit;
-       
       @include responsive(400px) {
         font-size: 2.6rem;
       }
@@ -57,83 +56,86 @@
       @include responsive(250px) {
         font-size: 2.2rem;
       }
-      }
     }
-    &__hello {
-      font-size: 1.8rem;
-      @include responsive(800px) {
-        font-size: 1.5rem;
+  }
+  &__hello {
+    font-size: 1.8rem;
+    @include responsive(800px) {
+      font-size: 1.5rem;
+    }
+    @include responsive(550px) {
+      display: none;
+    }
+  }
+
+  // THE OVERALL GAME PAST SESSIONS CONTAINER
+  &__sessions {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 1.8rem;
+    height: 100%;
+    width: 100%;
+    background: $color-blue;
+    color: $color-bg-3;
+    padding: 2rem 0 2rem;
+    overflow-y: auto;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s;
+    @include responsive(480px) {
+      padding-top: 1rem;
+    }
+    .session {
+      position: relative;
+      background: rgba($color-bg-3, 0.13);
+      width: 80%;
+      border-radius: 12px;
+      margin: 0 0 7rem 16rem;
+      padding: 2.5rem 0 0.01rem;
+      min-height: 5rem;
+      cursor: pointer;
+      box-shadow: 2px 2px 4px 2px rgba($color-dark-primary, 0.3);
+      @include responsive(1024px) {
+        width: 77%;
+      }
+      @include responsive(900px) {
+        width: 76%;
+        margin-left: 15rem;
+      }
+      @include responsive(768px) {
+        margin-left: 14rem;
+      }
+      @include responsive(720px) {
+        margin: 0 auto 7rem;
+        width: 90%;
       }
       @include responsive(550px) {
-        display: none;
+        padding-top: 7.5rem;
+        min-height: 7rem;
       }
-    }
 
+      transition: 0.9s !important;
+      // margin-bottom: 8rem; What will be used when the page is clicked
+      &__header {
+        position: absolute;
+        @include btn-submit-set;
+        top: -2rem;
+        left: 0.2rem;
+        font-size: 1.5rem;
+        font-weight: bold;
+        background: linear-gradient(
+          to right bottom,
+          $color-bg-1 -18%,
+          rgba($color-bg-2, 0.9) 50%
+        );
+        width: max-content;
+        padding: 0 1.5rem;
+        height: 4.3rem;
+        border-radius: 6px;
+        @include flex-center;
+        justify-content: space-evenly;
 
-    // THE OVERALL GAME PAST SESSIONS CONTAINER
-    &__sessions {
-      position: absolute;
-      top: 0;
-      left: 0;
-      font-size: 1.8rem;
-      height: 100%;
-      width: 100%;
-      background: $color-blue;
-      color: $color-bg-3;
-      padding: 6rem 0 2rem;
-      overflow-y: auto;
-      visibility: hidden; 
-      opacity: 0;
-      transition: opacity .5s;
-      .session {
-        position: relative;
-        background: rgba($color-bg-3, .13);
-        width: 80%;   
-        border-radius: 12px;    
-        margin: 0 0 7rem 16rem;
-        padding: 2.5rem 0 .01rem;
-        min-height: 5rem;
-        box-shadow: 2px 2px 4px 2px rgba($color-dark-primary, 0.3);
-        @include responsive(1024px) {
-          width: 77%;
-        }
-        @include responsive(900px) {
-          width: 76%;
-          margin-left: 15rem;
-        }
-        @include responsive(768px) {
-          margin-left: 14rem;
-        }
-        @include responsive(720px) {
-          margin: 0 auto 7rem;
-          width: 90%;
-        }
-        @include responsive(550px) {
-          padding-top: 7.5rem;
-          min-height: 7rem;
-        }
-        
-        transition: 0.9s !important;
-        // margin-bottom: 8rem; What will be used when the page is clicked
-        &__header {
-          position: absolute;
-          @include btn-submit-set;
-          top: -2rem;
-          left: .2rem;
-          font-size: 1.5rem;
-          font-weight: bold;
-          background: linear-gradient(
-            to right bottom,
-            $color-bg-1 -18%,
-            rgba($color-bg-2, .9) 50%
-          );
-          width: max-content;
-          padding: 0 1.5rem;
-          height: 4.3rem;
-          border-radius: 6px;
-          @include flex-center;
-          justify-content: space-evenly;
-          
         @include responsive(400px) {
           font-size: 1.4rem;
         }
@@ -146,117 +148,120 @@
         @include responsive(300px) {
           font-size: 1rem;
         }
-        }
-        &__category,
-          &__date,
-          &__time {
-            margin-left: 1.5rem;
-            pointer-events: none;
-          }
-        &__subject {
-          pointer-events: none;
-        }
+      }
+      &__category,
+      &__date,
+      &__time {
+        margin-left: 1.5rem;
+        pointer-events: none;
+      }
+      &__subject {
+        pointer-events: none;
+      }
 
-          &__time {
-            @include responsive(550px) {
-            position: absolute;
-            top: 5rem;
-            left: -1.5rem;
-            background: linear-gradient(
+      &__time {
+        @include responsive(550px) {
+          position: absolute;
+          top: 5rem;
+          left: -1.5rem;
+          background: linear-gradient(
             to right bottom,
             $color-bg-1 -18%,
-            rgba($color-bg-2, .9) 50%
+            rgba($color-bg-2, 0.9) 50%
           );
-            padding: 1rem .5rem;
-            border-radius: 5px;
-          }
-          }
-          &__details {
-            padding: 0 1.7rem 2rem;
-            margin-bottom: 4rem;
-            display: none;
-           &:not(:last-of-type) {
-            border-bottom: $border-secondary;
-           }
-          transition: 0.9s !important;
-           
-          p {
-            line-height: 1.4;
-            margin-top: 2rem;
-          }}
-          &__text-header {
-            display: block;
-            font-size: 1.2rem;
-            font-size: bolder;
-          }
-          &__exit {
-            position: absolute;
-            display: inline-block;
-            right: 5rem;
-            bottom: 3rem;
-            font-size: 1.6rem;
-            font-weight: bold;
-            color: inherit;
-            @include btn-submit-set;
-           margin: 0 auto;
-          }
-      }
-    }
-
-    &__table {
-      position: absolute;
-      top: 6.26rem;
-      left: 0;
-      font-size: 2.5rem;
-      width: 100%;
-      text-align: center;
-      background-color: rgba($color-blue, 0.94);
-      color: inherit;
-      box-shadow: $box-shadow-primary;
-      padding: 1rem 8rem;
-      visibility: hidden;
-      transform: translateY(-130%);
-      transition: .8s;
-      @include responsive(1400px) {
-        top: 6.15rem;
-      }
-      @include responsive(950px) {
-        top: 6.21rem;
-      }
-      @include responsive(720px) {
-        top: unset;
-        bottom: 6.1rem;
-        padding: 1rem 4rem;
-        transform: unset;
-        transform: translateY(130%);
-      }
-      @include responsive(480px) {
-        padding: 1rem 0;
-        bottom: 5.5rem;
-      }
-      @include responsive(400px) {
-        bottom: 4.8rem;
-      }
-      @include responsive(300px) {
-        font-size: 2rem;
-        bottom: 4.7rem;
-      }
-      @include responsive(250px) {
-        bottom: 4.2rem;
-      }
-
-      th {
-        font-size: 3rem;
-        padding: 0.5rem;
-        @include responsive(300px) {
-          font-size: 2.5rem;
+          padding: 1rem 0.5rem;
+          border-radius: 5px;
         }
       }
-      td {
-        padding: 0.3rem;
-        @include responsive(720px) {
-          padding: 0.5rem;
+      &__details {
+        padding: 0 1.7rem 2rem;
+        margin-bottom: 4rem;
+        display: none;
+        &:last-of-type {
+          padding-bottom: 0;
         }
+        &:not(:last-of-type) {
+          border-bottom: 4px solid $color-blue;
+        }
+        transition: 0.9s !important;
+
+        p {
+          line-height: 1.4;
+          margin-top: 2rem;
+        }
+      }
+      &__text-header {
+        display: block;
+        font-size: 1.2rem;
+        font-size: bolder;
+      }
+      &__exit {
+        position: sticky;
+        left: 96%;
+        top: 2rem;
+        z-index: 2;
+        font-size: 2.7rem;
+        padding: 0.7rem 2.4rem 1rem;
+        color: inherit;
+        background-color: transparent;
       }
     }
   }
+
+  &__table {
+    position: absolute;
+    top: 6.26rem;
+    left: 0;
+    font-size: 2.5rem;
+    width: 100%;
+    text-align: center;
+    background-color: rgba($color-blue, 0.94);
+    color: inherit;
+    box-shadow: $box-shadow-primary;
+    padding: 1rem 8rem;
+    visibility: hidden;
+    transform: translateY(-130%);
+    transition: 0.8s;
+    @include responsive(1400px) {
+      top: 6.15rem;
+    }
+    @include responsive(950px) {
+      top: 6.21rem;
+    }
+    @include responsive(720px) {
+      top: unset;
+      bottom: 6.1rem;
+      padding: 1rem 4rem;
+      transform: unset;
+      transform: translateY(130%);
+    }
+    @include responsive(480px) {
+      padding: 1rem 0;
+      bottom: 5.5rem;
+    }
+    @include responsive(400px) {
+      bottom: 4.8rem;
+    }
+    @include responsive(300px) {
+      font-size: 2rem;
+      bottom: 4.7rem;
+    }
+    @include responsive(250px) {
+      bottom: 4.2rem;
+    }
+
+    th {
+      font-size: 3rem;
+      padding: 0.5rem;
+      @include responsive(300px) {
+        font-size: 2.5rem;
+      }
+    }
+    td {
+      padding: 0.3rem;
+      @include responsive(720px) {
+        padding: 0.5rem;
+      }
+    }
+  }
+}

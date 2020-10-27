@@ -2,13 +2,15 @@
 import Form from './models/Form';
 import Questions from './models/Questions';
 import Score from './models/Score';
+import Sessions from './models/Sessions';
+
 import { domElements as dom, domClasslists, addClass, handleLoader, handleModal } from './views/base';
-import { detailsToggle, tableToggle, closeDetails, toggleSession } from './views/detailsVeiw';
+import { detailsToggle, tableToggle, closeDetails, toggleSession } from './views/details';
 import { animatePageOnLoad, animateStart, reverseStartAnimation } from './views/gsap';
-import { getInputs, clearInputs, updateName, retrieveName, readNameStorage, disableInputName} from './views/formVeiw';
+import { getInputs, clearInputs, updateName, retrieveName, readNameStorage, disableInputName } from './views/formView';
 import { renderQuestionsAndAnswers as renderQuestion, clearColors, updatePercentage, addHover, removeHover } from './views/questionsView';
 import { updateScore } from './views/scoreView';
-import {updateSession, header } from './views/sessionsView';
+import { addSessionHeader, sessionDetails as addDetails, closeALLSessions } from './views/sessionsView';
 
 /** Global state of the app
  * -
@@ -41,32 +43,52 @@ document.addEventListener('click', closeDetails);
 //////// TOGGLE DETAILS__SESSION SECTION
 dom.btnDetailsSession.addEventListener('click', toggleSession);
 ///////// CLOSE DETAILS__SESSION SECTION
-dom.btnSessionsExit.addEventListener('click', toggleSession);
+dom.btnSessionsExit.addEventListener('click', () => { closeALLSessions(), toggleSession() });
 
 /*
 ****** SESSIONS-VIEW CONTROLLER *******
 */
 
-dom.hasEventChild.sessions.addEventListener('click', (e)=>{
-    if (e.target.className == 'session__header') {
-        e.target.parentElement.classList.toggle(domClasslists.slideSession)   
+dom.hasEventChild.sessions.addEventListener('click', (e) => {
+    if (e.target.matches('div.session__header')) {
+        e.target.parentNode.classList.toggle(domClasslists.slideSession);
     }
 });
 
 //////// UPDATE PROFILE NAME
-dom.formName.addEventListener('input', ()=>{updateName(dom.formName.value)});
+dom.formName.addEventListener('input', () => { updateName(dom.formName.value) });
 
 // GET NAME FROM LOCAL STORAGE OR FROM USER
-const getName =()=>{
+const getName = () => {
     if (readNameStorage()) {
         updateName(readNameStorage());
         disableInputName();
-        dom.welcomeBack.style.display ='inline-block';
+        dom.welcomeBack.style.display = 'inline-block';
     } else {
-    dom.formName.addEventListener('focusout', retrieveName);
+        dom.formName.addEventListener('focusout', retrieveName);
     }
 };
 getName();
+
+//RETRIEVE PAST ANSWERED QUESTIONS
+const getAlreadyAnswered = () => {
+
+    state.sessions = new Sessions();
+    let anyAnswered = state.sessions.retrieveSessionsStorage();
+
+    if (anyAnswered) {
+        console.log(anyAnswered);
+        anyAnswered.forEach(session => {
+
+            // ADD ANSWERED QUESTIONS TO SESSIONS SECTION
+             addSessionHeader(session.formInfo, session.dateInfo, session.ID);
+             addDetails(state.sessions.questions.questions);
+
+        })
+
+    }
+};
+getAlreadyAnswered();
 
 //// GET INPUTS FROM FORM 
 const processDataToStart = async () => {
@@ -81,9 +103,6 @@ const processDataToStart = async () => {
 
         state.questions = new Questions(res);
 
-        // GETS THE NUMBER OF THE QUESTIONS 
-        state.questions.questionLength = dom.formNumbers.value;
-
         clearInputs();
 
         let questions = state.questions;
@@ -94,9 +113,8 @@ const processDataToStart = async () => {
             setTimeout(() => {
                 renderQuestion(oneQuestion);
 
-                // THIS INITIALIZES THESE FUNCTIONS OUTSIDE OF THIS SCOPE
+                // THESE INITIALIZES OUTSIDE OF THIS SCOPE
                 state.questions.correctAnswer;
-                dom.hasEventChild.sessions.insertAdjacentHTML('beforeend', header(state.form.dataForSession, state.questions.startTimeAndDate));
                 state.score = new Score();
 
                 animateStart();
@@ -105,7 +123,7 @@ const processDataToStart = async () => {
 
     } catch (error) {
         handleLoader();
-        alert('Uh Uh Something Went Wrong, It May Be Poor Connection or Delay In Response.       please try again. 😢');
+        alert('Uh Uh Something Went Wrong, It May Be Poor Connection or Delay In Response.     please try again. 😢');
     }
 };
 
@@ -136,22 +154,28 @@ const isCorrect = (correctOption, box, ev) => {
 };
 
 const validateAnswer = () => {
-    let endReached;
+
     dom.optionBox.forEach(box => {
         box.addEventListener('click', (ev) => {
             isCorrect(state.questions.correctAnswer, box, ev);
             state.questions.answered = true;
-            endReached = updatePercentage(state.questions.questionLength, state.questions.accumulator);
+
+            let endReached = updatePercentage(state.questions.questionLength, state.questions.accumulator);
 
             // THIS CHECKS TO SEE IF THR RETURN VALUE ABOVE IS 100
             if (endReached === 100) {
-                /*
-                    update that particular play here.
-                    - get s date, time, from form obj
-    
-                    - get number of questions, question, answer, solution from the question obj
 
-                */ 
+                let formSessionData = state.form.sessionCategorySubject;
+                let questions = state.questions;
+                let sessionDate = state.sessions.sessionDate;
+                let ID = state.sessions.sessionId;
+
+                // ADD NEW ANSWERED QUESTIONS TO SESSIONS SECTION
+                let dateData = addSessionHeader(formSessionData, sessionDate, ID);
+                addDetails(questions);
+
+                // RETRIEVE EVERY SESSION PLAYED
+                state.sessions.retrieveOneSession(formSessionData, dateData, questions, ID);
 
                 setTimeout(() => {
                     handleModal();

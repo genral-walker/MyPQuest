@@ -16,7 +16,7 @@ export default class Form {
         }
     }
 
-    get dataForSession() {
+    get sessionCategorySubject() {
         return {
             subject: this.changeValueText(this.values[4]),
             category: this.changeValueText(this.values[3])
@@ -26,12 +26,15 @@ export default class Form {
     changeValueText(value) {
         switch (value) {
             case 'utme':
-                value = 'Jamb';
+                value = 'JAMB';
                 return value;
                 break;
-
             case 'wassce':
-                value = 'Waec';
+                value = 'WAEC';
+                return value;
+                break;
+            case 'post-utme':
+                value = 'POST-UTME';
                 return value;
                 break;
             case 'englishlit':
@@ -55,7 +58,7 @@ export default class Form {
                 return value;
                 break;
             default:
-               return this.modifyValueToUpperCase(value)
+                return this.modifyValueToUpperCase(value)
                 break;
         }
     }
@@ -71,7 +74,6 @@ export default class Form {
             newWord.splice((newWord.indexOf(' ') + 1), 1, secondLetter);
         };
         lastWord = newWord.join('');
-        console.log(lastWord);
         return lastWord;
     }
 
