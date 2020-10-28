@@ -37,6 +37,10 @@ export default class Sessions {
         return this._sessionId++;
     }
 
+    set sessionId(idValue) {
+        this._sessionId = idValue + 1;
+    }
+
     retrieveOneSession(formSession, dateObj, questions, id) {
 
         let sessionData = {

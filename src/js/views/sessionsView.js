@@ -2,7 +2,6 @@
 import { domElements as dom, domClasslists } from './base';
 
 let ID;
-
 const date = {};
 
 
@@ -22,8 +21,8 @@ export const addSessionHeader = (questionData, dateData, id) => {
         date.amPm = dateData.amPm;
     }
     date.year = dateData.year;
-
     ID = id;
+    console.log(ID);
     let markUp = `
     <div class="session session--${ID}">
         <div class="session__header">
@@ -64,8 +63,8 @@ const checkForSection = (section, question) => {
     }
 };
 
-export const sessionDetails = (questionObj) => {
-    let questions = questionObj.questions;
+export const sessionDetails = (questions) => {
+ console.log(ID);
     let sessionContainer = document.querySelector(`.session--${ID}`);
     questions.forEach(question => {
 

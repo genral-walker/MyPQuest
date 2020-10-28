@@ -74,20 +74,20 @@ getName();
 const getAlreadyAnswered = () => {
 
     state.sessions = new Sessions();
-    let anyAnswered = state.sessions.retrieveSessionsStorage();
+    let sessions = state.sessions.retrieveSessionsStorage();
 
-    if (anyAnswered) {
-        console.log(anyAnswered);
-        anyAnswered.forEach(session => {
-
-            let sessionQuestions = session.questions;
-            console.log(sessionQuestions)
+    if (sessions) {
+        sessions.forEach(session => {
+            
             // ADD ANSWERED QUESTIONS TO SESSIONS SECTION
             addSessionHeader(session.formInfo, session.dateInfo, session.ID);
-            addDetails(sessionQuestions);
+            addDetails(session.questions);
 
-        })
+        });
+    
+        let lastID = sessions[sessions.length -1].ID;
 
+        state.sessions.sessionId = lastID;
     }
 };
 getAlreadyAnswered();
@@ -155,6 +155,7 @@ const isCorrect = (correctOption, box, ev) => {
 
 };
 
+
 const validateAnswer = () => {
 
     dom.optionBox.forEach(box => {
@@ -168,14 +169,16 @@ const validateAnswer = () => {
             if (endReached === 100) {
 
                 let formSessionData = state.form.sessionCategorySubject;
-                let questions = state.questions;
+                let questions = state.questions.questions;
                 let sessionDate = state.sessions.sessionDate;
                 let ID = state.sessions.sessionId;
 
+                console.log(ID);
                 // ADD NEW ANSWERED QUESTIONS TO SESSIONS SECTION
                 let dateData = addSessionHeader(formSessionData, sessionDate, ID);
                 addDetails(questions);
 
+                console.log(ID);
                 // RETRIEVE EVERY SESSION PLAYED
                 state.sessions.retrieveOneSession(formSessionData, dateData, questions, ID);
 
