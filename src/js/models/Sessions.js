@@ -3,9 +3,18 @@ export default class Sessions {
     constructor() {
         this._sessionId = 1;
         this._allSessions = [];
+        this._oneSessionDate;
     }
 
-    get sessionDate() {
+    get oneSessionDate() {
+        return this._oneSessionDate;
+    }
+
+    set oneSessionDate(obj) {
+        this._oneSessionDate = obj;
+    }
+
+    get date() {
         let date = new Date();
         return {
             day() {
@@ -43,7 +52,7 @@ export default class Sessions {
 
     retrieveOneSession(formSession, dateObj, questions, id) {
 
-        let sessionData = {
+        const sessionData = {
             formInfo: formSession,
             dateInfo: dateObj,
             questions: questions,
@@ -57,7 +66,6 @@ export default class Sessions {
         const allSessions = JSON.parse(localStorage.getItem('allSessions'));
         // RESTORE PAST SESSIONS FROM LOCAL STORAGE
         if (allSessions) {
-            // localStorage.removeItem('allSessions');
             this._allSessions = allSessions;
             return this._allSessions
         };

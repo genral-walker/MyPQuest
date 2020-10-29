@@ -191,7 +191,6 @@
           transform: scale(0.986);
         }
       }
-      ///// #mobile will be removed when message api works.
       input::placeholder,
       select::placeholder {
         font-size: 1.2rem;
@@ -201,14 +200,6 @@
         @include responsive(250px) {
           font-size: 0.8rem;
         }
-      }
-    }
-    &__category-and-years {
-      @include flex-center;
-      justify-content: space-between;
-      #year {
-        width: 87%;
-        margin-right: auto;
       }
     }
 

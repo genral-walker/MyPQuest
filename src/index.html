@@ -165,37 +165,17 @@
               <thead>
                 <tr>
                   <th>Category</th>
-                  <th>Scores</th>
+                  <th>Score</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>football</td>
-                  <td>20</td>
-                </tr>
-                <tr>
-                  <td>football</td>
-                  <td>20</td>
-                </tr>
-                <tr>
-                  <td>football</td>
-                  <td>20</td>
-                </tr>
-                <tr>
-                  <td>football</td>
-                  <td>20</td>
-                </tr>
-                <tr>
-                  <td>football</td>
-                  <td>20</td>
-                </tr>
-              </tbody>
+              <tbody class="details__table--body"></tbody>
             </table>
           </div>
 
           <div class="details__sessions">
-           
-          <button class="session__exit">🗙</button>
+            <button class="session__exit">
+              <span class="session__exit--icon"></span>
+            </button>
           </div>
 
           <form class="form">
@@ -215,6 +195,7 @@
                 </span>
               </p>
             </div>
+
             <div class="form__inputs">
               <div class="form__name">
                 <label for="name">Username</label>
@@ -227,49 +208,32 @@
                 <input required type="text" name="name" id="name" />
               </div>
 
-              <div class="form__tel">
-                <label for="mobile">Mobile Number</label>
-                <span class="validator"
-                  >&nbsp;&nbsp;&nbsp;
-                  <span class="validator__text validator__text--mobile"></span>
-                </span>
-                <input
-                  required
-                  type="tel"
-                  name="mobile"
-                  id="mobile"
-                  disabled
-                  placeholder="unavailable right now, proceed to next field."
-                />
+              <div class="form__year">
+                <label for="year"> Exam Year</label>
+                <select required name="year" id="year">
+                  <option value="2001">2001</option>
+                  <option value="2002">2002</option>
+                  <option value="2003">2003</option>
+                  <option value="2004">2004</option>
+                  <option value="2005">2005</option>
+                  <option selected value="2006">2006</option>
+                  <option value="2007">2007</option>
+                  <option value="2008">2008</option>
+                  <option value="2009">2009</option>
+                  <option value="2010">2010</option>
+                  <option value="2011">2011</option>
+                  <option value="2012">2012</option>
+                  <option value="2013">2013</option>
+                </select>
               </div>
 
-              <div class="form__category-and-years">
-                <div class="form__year">
-                  <label for="year"> Exam Year</label>
-                  <select required name="year" id="year">
-                    <option value="2001">2001</option>
-                    <option value="2002">2002</option>
-                    <option value="2003">2003</option>
-                    <option value="2004">2004</option>
-                    <option value="2005">2005</option>
-                    <option selected value="2006">2006</option>
-                    <option value="2007">2007</option>
-                    <option value="2008">2008</option>
-                    <option value="2009">2009</option>
-                    <option value="2010">2010</option>
-                    <option value="2011">2011</option>
-                    <option value="2012">2012</option>
-                    <option value="2013">2013</option>
-                  </select>
-                </div>
-                <div class="form__category">
-                  <label for="category">Category</label>
-                  <select required name="category" id="category">
-                    <option value="utme">UTME (Jamb)</option>
-                    <option value="wassce">WAEC</option>
-                    <option value="post-utme">POST-UTME</option>
-                  </select>
-                </div>
+              <div class="form__category">
+                <label for="category">Category</label>
+                <select required name="category" id="category">
+                  <option value="utme">UTME (Jamb)</option>
+                  <option value="wassce">WAEC</option>
+                  <option value="post-utme">POST-UTME</option>
+                </select>
               </div>
 
               <div class="form__subject">
@@ -300,7 +264,7 @@
                 <input
                   required
                   placeholder="input a number between 10 to 40"
-                  min="0" 
+                  min="10"
                   max="40"
                   type="number"
                   name="numbers"

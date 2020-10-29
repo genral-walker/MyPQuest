@@ -710,13 +710,31 @@ body {
         z-index: 2;
         font-size: 2.7rem;
         padding: 0.7rem 2.4rem 1rem;
-        color: inherit;
         background-color: transparent; }
+      .details__sessions .session__exit--icon {
+        position: relative;
+        display: inline-block;
+        width: 2rem;
+        height: 2px;
+        background-color: #d5d7dd;
+        -webkit-transform: rotate(50deg);
+            -ms-transform: rotate(50deg);
+                transform: rotate(50deg); }
+        .details__sessions .session__exit--icon::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          background-color: inherit;
+          width: inherit;
+          height: inherit;
+          -webkit-transform: rotate(80deg);
+              -ms-transform: rotate(80deg);
+                  transform: rotate(80deg); }
   .details__table {
     position: absolute;
     top: 6.26rem;
     left: 0;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     width: 100%;
     text-align: center;
     background-color: rgba(12, 13, 44, 0.94);
@@ -745,9 +763,12 @@ body {
         -webkit-transform: unset;
             -ms-transform: unset;
                 transform: unset;
-        -webkit-transform: translateY(130%);
-            -ms-transform: translateY(130%);
-                transform: translateY(130%); } }
+        -webkit-transform: translateY(180%);
+            -ms-transform: translateY(180%);
+                transform: translateY(180%); } }
+    @media only screen and (max-width: 34.375em) {
+      .details__table {
+        font-size: 2rem; } }
     @media only screen and (max-width: 30em) {
       .details__table {
         padding: 1rem 0;
@@ -755,6 +776,9 @@ body {
     @media only screen and (max-width: 25em) {
       .details__table {
         bottom: 4.8rem; } }
+    @media only screen and (max-width: 21.875em) {
+      .details__table {
+        font-size: 1.7rem; } }
     @media only screen and (max-width: 18.75em) {
       .details__table {
         font-size: 2rem;
@@ -765,14 +789,17 @@ body {
     .details__table th {
       font-size: 3rem;
       padding: 0.5rem; }
+      @media only screen and (max-width: 34.375em) {
+        .details__table th {
+          padding-bottom: 1.5rem; } }
       @media only screen and (max-width: 18.75em) {
         .details__table th {
           font-size: 2.5rem; } }
     .details__table td {
-      padding: 0.3rem; }
-      @media only screen and (max-width: 45em) {
+      padding: 0.5rem; }
+      @media only screen and (max-width: 23.4375em) {
         .details__table td {
-          padding: 0.5rem; } }
+          padding: 0.8rem; } }
 
 .game {
   width: 93%;
@@ -1400,26 +1427,6 @@ body {
         .form__inputs input::placeholder,
         .form__inputs select::placeholder {
           font-size: 0.8rem; } }
-  .form__category-and-years {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-        -ms-flex-pack: justify;
-            justify-content: space-between; }
-    .form__category-and-years #year {
-      width: 87%;
-      margin-right: auto; }
   .form__btn {
     background-image: -webkit-gradient(linear, left top, right bottom, color-stop(18%, #00c6fb), color-stop(60%, rgba(9, 100, 245, 0.8)));
     background-image: -webkit-linear-gradient(left top, #00c6fb 18%, rgba(9, 100, 245, 0.8) 60%);

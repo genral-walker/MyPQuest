@@ -9,7 +9,7 @@ export default class Form {
 
     async submitQuery() {
         try {
-            this.results = await axios(`${cors}https://questions.aloc.ng/api/q/${this.values[5]}?subject=${this.values[4]}&year=${this.values[2]}&type=${this.values[3]}`);
+            this.results = await axios(`${cors}https://questions.aloc.ng/api/q/${this.values[4]}?subject=${this.values[3]}&year=${this.values[1]}&type=${this.values[2]}`);
             return this.results.data.data;
         } catch (error) {
             console.log(error);
@@ -18,8 +18,8 @@ export default class Form {
 
     get sessionCategorySubject() {
         return {
-            subject: this.changeValueText(this.values[4]),
-            category: this.changeValueText(this.values[3])
+            subject: this.changeValueText(this.values[3]),
+            category: this.changeValueText(this.values[2])
         }
     }
 

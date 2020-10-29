@@ -1,42 +1,25 @@
 
 import { domElements as dom, domClasslists } from './base';
 
-let ID;
-const date = {};
-
+const state = {};
 
 export const addSessionHeader = (questionData, dateData, id) => {
 
-    try {
-        date.day = dateData.day();
-        date.month = dateData.month();
-        date.hour = dateData.hour();
-        date.minute = dateData.minute();
-        date.amPm = dateData.amPm();
-    } catch (error) {
-        date.day = dateData.day;
-        date.month = dateData.month;
-        date.hour = dateData.hour;
-        date.minute = dateData.minute;
-        date.amPm = dateData.amPm;
-    }
-    date.year = dateData.year;
-    ID = id;
-    console.log(ID);
-    let markUp = `
-    <div class="session session--${ID}">
+    state.id = id;
+
+    const markUp = `
+    <div class="session session--${state.id}">
         <div class="session__header">
             <h3 class="session__subject">${questionData.subject}</h3>
             <h3 class="session__category">${questionData.category}</h3>
-            <p class="session__date">${date.day}/${date.month}/${date.year}</p>
+            <p class="session__date">${dateData.day}/${dateData.month}/${dateData.year}</p>
             <p class="session__time">
-            ${date.hour}:${date.minute} ${date.amPm}
+            ${dateData.hour}:${dateData.minute} ${dateData.amPm}
             </p>
         </div>
     </div>
         `;
     dom.hasEventChild.sessions.insertAdjacentHTML('beforeend', markUp);
-    return date;
 };
 
 
@@ -64,13 +47,11 @@ const checkForSection = (section, question) => {
 };
 
 export const sessionDetails = (questions) => {
- console.log(ID);
-    let sessionContainer = document.querySelector(`.session--${ID}`);
+    const sessionContainer = document.querySelector(`.session--${state.id}`);
     questions.forEach(question => {
-
-        let markUp = `
+        const markUp = `
         
-        <div class="session__details session__details--${ID}">
+        <div class="session__details session__details--${state.id}">
             <p class="session__question">
                 <span class="session__text-header">QUESTION:</span>
                 <span class="session__text-question">

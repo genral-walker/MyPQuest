@@ -1,5 +1,7 @@
 
-import { domElements as dom, domClasslists, handleModal } from './base';
+import { domElements as dom, domClasslists } from './base';
+
+const state = {};
 
 const renderQuestion = data => {
     if (data.section) {
@@ -31,20 +33,20 @@ export const removeHover = () => {
     dom.Gamebottom.style.pointerEvents = 'none';
 };
 
-
 export const updatePercentage = (numbersLength, answerd) => {
-    
-  if (numbersLength && answerd) {
-    let width = (answerd/numbersLength) * 100;
-    dom.progressBar.style.width = `${width}%`;
-    dom.gamePercent.innerHTML = Math.round(width);
-    return width;
-  } else {
-    dom.progressBar.style.width = '0%';  
-    dom.gamePercent.innerHTML = 0; 
-  }
+
+    if (numbersLength && answerd) {
+        let width = (answerd / numbersLength) * 100;
+        dom.progressBar.style.width = `${width}%`;
+        dom.gamePercent.innerHTML = Math.round(width);
+        state.width = width;
+    } else {
+        dom.progressBar.style.width = '0%';
+        dom.gamePercent.innerHTML = 0;
+    }
 };
 
+export const getGameEndStatus =()=> state.width;
 
 export const clearColors = () => {
     dom.optionBox.forEach(box => box.classList.remove(domClasslists.corerct, domClasslists.wrong))

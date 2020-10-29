@@ -2,6 +2,7 @@
 import gsap from 'gsap';
 import { domElements as dom } from './base';
 
+const state = {};
 
 // Animation on page laod.
 const loadTl = gsap.timeline({
@@ -57,35 +58,29 @@ export const animatePageOnLoad = () => {
 /////////////////
 /// ANIMATION AFTER FORM FILLED
 ////////////////
-let gameStarted;
 const startGame = gsap.timeline();
 const slideAnswers = () => {
     dom.optionBox.forEach(box => welcomeShow(box, startGame, 0));
 };
 
 export const animateStart = () => {
-    if (gameStarted === false) {
+    if (state.gameStarted === false) {
         startGame.play();
-        gameStarted = true;
+        state.gameStarted = true;
     } else {
         startGame.to(dom.form, { duration: 1.4, x: '200%', display: 'none' })
             .to(dom.gameSection, { delay: -.5, duration: 0, display: 'block' })
         welcomeShow(dom.gameTop, startGame, 0)
         slideAnswers()
         startGame.fromTo(dom.gameBtn, { opacity: 0, y: '35%' }, { delay: .3, duration: 1, y: 0, opacity: 1 })
-        gameStarted = true;
+        state.gameStarted = true;
     }
 
 };
 
 export const reverseStartAnimation = () => {
-    if (gameStarted) {
-            startGame.reverse();
-            gameStarted = false;
+    if (state.gameStarted) {
+        startGame.reverse();
+        state.gameStarted = false;
     }
 }
-
-export const reverseForEnd = () => {
-    startGame.reverse();
-    gameStarted = false;
-};

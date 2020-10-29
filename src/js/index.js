@@ -8,14 +8,16 @@ import { domElements as dom, domClasslists, addClass, handleLoader, handleModal 
 import { detailsToggle, tableToggle, closeDetails, toggleSession } from './views/details';
 import { animatePageOnLoad, animateStart, reverseStartAnimation } from './views/gsap';
 import { getInputs, clearInputs, updateName, retrieveName, readNameStorage, disableInputName } from './views/formView';
-import { renderQuestionsAndAnswers as renderQuestion, clearColors, updatePercentage, addHover, removeHover } from './views/questionsView';
-import { updateScore } from './views/scoreView';
+import { renderQuestionsAndAnswers as renderQuestion, clearColors, updatePercentage, addHover, removeHover, getGameEndStatus } from './views/questionsView';
+import { updateScore, updateHighscores } from './views/scoreView';
 import { addSessionHeader, sessionDetails as addDetails, closeALLSessions } from './views/sessionsView';
 
 /** Global state of the app
- * -
+ * - Form obj (The Form inputs data)
+ * - Questions obj (Questions data)
+ * - Score obj (Score data)
+ * - Sessions obj (Sessions data)
  */
-
 let state = {};
 
 //TESTERS
@@ -34,26 +36,31 @@ addClass(dom.hasEvent, dom.hasEventChild);
 ******  DETAILS-VIEW CONTROLLER *******
 */
 //////// TOGGLE DETAILS SECTION
-
 dom.hasEvent.profileBtn.addEventListener('click', detailsToggle);
+
 //////// TOGGLE DETAILS TABLE SECTION
 dom.btnDetailsScore.addEventListener('click', tableToggle);
+
 ///////// CLOSE DETAILS SECTION
 document.addEventListener('click', closeDetails);
+
 //////// TOGGLE DETAILS__SESSION SECTION
 dom.btnDetailsSession.addEventListener('click', toggleSession);
+
 ///////// CLOSE DETAILS__SESSION SECTION
 dom.btnSessionsExit.addEventListener('click', () => { closeALLSessions(), toggleSession() });
+
+
 
 /*
 ****** SESSIONS-VIEW CONTROLLER *******
 */
-
 dom.hasEventChild.sessions.addEventListener('click', (e) => {
     if (e.target.matches('div.session__header')) {
         e.target.parentNode.classList.toggle(domClasslists.slideSession);
     }
 });
+
 
 //////// UPDATE PROFILE NAME
 dom.formName.addEventListener('input', () => { updateName(dom.formName.value) });
@@ -70,27 +77,35 @@ const getName = () => {
 };
 getName();
 
+
+const getStorageHighscores = () => {
+    state.score = new Score();
+    const highscores = state.score.retrieveHighscoresStorage();
+    if (highscores) {
+        updateHighscores(highscores);
+    }
+};
+getStorageHighscores();
+
+
 //RETRIEVE PAST ANSWERED QUESTIONS
 const getAlreadyAnswered = () => {
-
     state.sessions = new Sessions();
     let sessions = state.sessions.retrieveSessionsStorage();
 
     if (sessions) {
         sessions.forEach(session => {
-            
             // ADD ANSWERED QUESTIONS TO SESSIONS SECTION
             addSessionHeader(session.formInfo, session.dateInfo, session.ID);
             addDetails(session.questions);
-
         });
-    
-        let lastID = sessions[sessions.length -1].ID;
 
+        let lastID = sessions[sessions.length - 1].ID;
         state.sessions.sessionId = lastID;
     }
 };
 getAlreadyAnswered();
+
 
 //// GET INPUTS FROM FORM 
 const processDataToStart = async () => {
@@ -99,13 +114,12 @@ const processDataToStart = async () => {
     state.form = new Form(query);
 
     try {
+        clearInputs();
         handleLoader();
 
         let res = await state.form.submitQuery();
 
         state.questions = new Questions(res);
-
-        clearInputs();
 
         let questions = state.questions;
         if (questions) {
@@ -115,9 +129,20 @@ const processDataToStart = async () => {
             setTimeout(() => {
                 renderQuestion(oneQuestion);
 
-                // THESE INITIALIZES OUTSIDE OF THIS SCOPE
+                //////// THESE INITIALIZES OUTSIDE OF THIS SCOPE //////
+                // GETS THE START DATE
+                state.sessions.oneSessionDate = {
+                    day: state.sessions.date.day(),
+                    month: state.sessions.date.month(),
+                    year: state.sessions.date.year,
+                    hour: state.sessions.date.hour(),
+                    minute: state.sessions.date.minute(),
+                    amPm: state.sessions.date.amPm(),
+                }
+
+                // GETS CORRECT ANSWER PER QUESTIONS 
                 state.questions.correctAnswer;
-                state.score = new Score();
+                // 
 
                 animateStart();
             }, 270);
@@ -137,57 +162,55 @@ dom.form.addEventListener('submit', (e) => {
 });
 
 
-/////  VALIDATE CURRENT ANSWER
-const isCorrect = (correctOption, box, ev) => {
-    let reightOption = correctOption;
-    if (reightOption) {
-        if (box.lastElementChild.classList.contains(`bottom__text--${reightOption}`)) {
-            removeHover();
-            box.classList.add(domClasslists.corerct);
-            updateScore(state.score.score);
-        } else {
-            removeHover();
-            ev.target.classList.add(domClasslists.wrong);
-            document.querySelector(`.bottom__answer--${reightOption}`).classList.add(domClasslists.corerct);
+// RUNS WHEN ALL QUESTIONS HAVE BEEN ANSWERED
+const gameEnded = () => {
+    let formSessionData = state.form.sessionCategorySubject;
+    let questions = state.questions.questions;
+    let sessionDate = state.sessions.oneSessionDate;
+    let ID = state.sessions.sessionId;
 
-        }
-    }
+    // ADD NEW ANSWERED QUESTIONS TO SESSIONS SECTION
+    addSessionHeader(formSessionData, sessionDate, ID);
+    addDetails(questions);
 
+    // RETRIEVE EVERY SESSION PLAYED TO STORAGE
+    state.sessions.retrieveOneSession(formSessionData, sessionDate, questions, ID);
+    state.score.retrieveScore(formSessionData, state.score.score);
+
+    setTimeout(() => {
+        handleModal();
+        updateHighscores(state.score.retrieveHighscoresStorage());
+    }, 1300);
 };
 
-
+/////  VALIDATE CURRENT CLICKED ANSWER
 const validateAnswer = () => {
 
     dom.optionBox.forEach(box => {
+
         box.addEventListener('click', (ev) => {
-            isCorrect(state.questions.correctAnswer, box, ev);
+
+            if (box.lastElementChild.classList.contains(`bottom__text--${state.questions.correctAnswer}`)) {
+                removeHover();
+                box.classList.add(domClasslists.corerct);
+                updateScore(++state.score.score);
+            } else {
+                removeHover();
+                ev.target.classList.add(domClasslists.wrong);
+                document.querySelector(`.bottom__answer--${state.questions.correctAnswer}`).classList.add(domClasslists.corerct);
+            };
+
+            updatePercentage(state.questions.questionLength, state.questions.accumulator);
+
             state.questions.answered = true;
+            let endReached = getGameEndStatus();
 
-            let endReached = updatePercentage(state.questions.questionLength, state.questions.accumulator);
-
-            // THIS CHECKS TO SEE IF THR RETURN VALUE ABOVE IS 100
             if (endReached === 100) {
-
-                let formSessionData = state.form.sessionCategorySubject;
-                let questions = state.questions.questions;
-                let sessionDate = state.sessions.sessionDate;
-                let ID = state.sessions.sessionId;
-
-                console.log(ID);
-                // ADD NEW ANSWERED QUESTIONS TO SESSIONS SECTION
-                let dateData = addSessionHeader(formSessionData, sessionDate, ID);
-                addDetails(questions);
-
-                console.log(ID);
-                // RETRIEVE EVERY SESSION PLAYED
-                state.sessions.retrieveOneSession(formSessionData, dateData, questions, ID);
-
-                setTimeout(() => {
-                    handleModal();
-                }, 1300);
+                gameEnded();
             }
         });
     });
+
 
 };
 validateAnswer();
@@ -206,7 +229,7 @@ const nextQuestion = () => {
 dom.gameBtn.addEventListener('click', nextQuestion);
 
 
-//////// EXITING THE GAME
+//////// EXITING THE GAME BEFORE GAME END
 const exitGame = (value) => {
     let text, approved;
 
@@ -218,7 +241,8 @@ const exitGame = (value) => {
         }
 
         if (approved || value === true) {
-            let score = state.score.score = 0;
+            const score = 0;
+            state.score.score = score;
             reverseStartAnimation();
             updatePercentage();
             updateScore(score);

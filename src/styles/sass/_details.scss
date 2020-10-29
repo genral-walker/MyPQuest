@@ -202,8 +202,24 @@
         z-index: 2;
         font-size: 2.7rem;
         padding: 0.7rem 2.4rem 1rem;
-        color: inherit;
         background-color: transparent;
+      }
+      &__exit--icon {
+        position: relative;
+        display: inline-block;
+        width: 2rem;
+        height: 2px;
+        background-color: $color-bg-3;
+        transform: rotate(50deg);
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          background-color: inherit;
+          width: inherit;
+          height: inherit;
+    transform: rotate(80deg);
+        }
       }
     }
   }
@@ -212,7 +228,7 @@
     position: absolute;
     top: 6.26rem;
     left: 0;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     width: 100%;
     text-align: center;
     background-color: rgba($color-blue, 0.94);
@@ -233,7 +249,10 @@
       bottom: 6.1rem;
       padding: 1rem 4rem;
       transform: unset;
-      transform: translateY(130%);
+      transform: translateY(180%);
+    }
+    @include responsive(550) {
+      font-size: 2rem;
     }
     @include responsive(480px) {
       padding: 1rem 0;
@@ -241,6 +260,9 @@
     }
     @include responsive(400px) {
       bottom: 4.8rem;
+    }
+    @include responsive(350) {
+      font-size: 1.7rem;
     }
     @include responsive(300px) {
       font-size: 2rem;
@@ -253,14 +275,18 @@
     th {
       font-size: 3rem;
       padding: 0.5rem;
+      
+    @include responsive(550) {
+      padding-bottom: 1.5rem;
+    }
       @include responsive(300px) {
         font-size: 2.5rem;
       }
     }
     td {
-      padding: 0.3rem;
-      @include responsive(720px) {
-        padding: 0.5rem;
+      padding: 0.5rem;
+      @include responsive(375px) {
+        padding: 0.8rem;
       }
     }
   }

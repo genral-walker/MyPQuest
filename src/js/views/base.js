@@ -11,7 +11,6 @@ export const domElements = {
     formInputs: document.querySelector('.form__inputs'),
     icon: document.querySelector('.side__icon-image'),
     formName: document.querySelector('#name'),
-    formMobile: document.querySelector('#mobile'),
     formYear: document.querySelector('#year'),
     formCategory: document.querySelector('#category'),
     formSubject: document.querySelector('#subject'),
@@ -40,6 +39,7 @@ export const domElements = {
     btnDetailsSession: document.querySelector('.details__btn-sessions'),
     btnSessionsExit: document.querySelector('.session__exit'),
     welcomeBack: document.querySelector('#welcome-back'),
+    detailsTableBody: document.querySelector('.details__table--body'),
     hasEventChild: {
         detailsOverview: document.querySelector('.details__overview'),
         detailsTable: document.querySelector('.details__table'),
