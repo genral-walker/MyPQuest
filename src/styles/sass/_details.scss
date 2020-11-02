@@ -236,7 +236,7 @@
     box-shadow: $box-shadow-primary;
     padding: 1rem 8rem;
     visibility: hidden;
-    transform: translateY(-130%);
+    transform: translateY(-180%);
     transition: 0.8s;
     @include responsive(1400px) {
       top: 6.15rem;
@@ -250,7 +250,7 @@
       padding: 1rem 4rem;
       transform: unset;
       transform: translateY(180%);
-    }
+    }   
     @include responsive(550) {
       font-size: 2rem;
     }
@@ -259,7 +259,7 @@
       bottom: 5.5rem;
     }
     @include responsive(400px) {
-      bottom: 4.8rem;
+      bottom: 4.8rem;   
     }
     @include responsive(350) {
       font-size: 1.7rem;

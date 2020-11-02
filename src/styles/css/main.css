@@ -743,9 +743,9 @@ body {
             box-shadow: -1px -1px 5px rgba(213, 215, 221, 0.2), 7px 7px 6px 2px rgba(4, 5, 13, 0.3);
     padding: 1rem 8rem;
     visibility: hidden;
-    -webkit-transform: translateY(-130%);
-        -ms-transform: translateY(-130%);
-            transform: translateY(-130%);
+    -webkit-transform: translateY(-180%);
+        -ms-transform: translateY(-180%);
+            transform: translateY(-180%);
     -webkit-transition: 0.8s;
     -o-transition: 0.8s;
     transition: 0.8s; }
