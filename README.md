@@ -1,5 +1,5 @@
-# lukman-s.github.io
-> Javacript quiz project during Start.ng internship.
+# MyPQuest
+> A web app for Nigerian secondary school students transitioning into the Tertiary institutions.
 
-Live Preview:
+[Live Preview]:
 https://genral-walker.github.io/quiz.github.io/
