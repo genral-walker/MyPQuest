@@ -40,6 +40,7 @@ export const domElements = {
     btnSessionsExit: document.querySelector('.session__exit'),
     welcomeBack: document.querySelector('#welcome-back'),
     detailsTableBody: document.querySelector('.details__table--body'),
+    year: document.querySelector('#year'),
     hasEventChild: {
         detailsOverview: document.querySelector('.details__overview'),
         detailsTable: document.querySelector('.details__table'),
@@ -152,4 +153,9 @@ export const handleLoader = () => {
 export const handleModal = () => {
     domElements.container.classList.toggle(domClasslists.dimContainer);
     domElements.modal.classList.toggle(domClasslists.modalShow)
+};
+
+export const updateYear = () => {
+    const year = new Date().getFullYear();
+    domElements.year.innerHTML = year;
 };

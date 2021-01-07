@@ -4,7 +4,7 @@ import Questions from './models/Questions';
 import Score from './models/Score';
 import Sessions from './models/Sessions';
 
-import { domElements as dom, domClasslists, addClass, handleLoader, handleModal } from './views/base';
+import { domElements as dom, domClasslists, addClass, handleLoader, handleModal, updateYear } from './views/base';
 import { detailsToggle, tableToggle, closeDetails, toggleSession } from './views/details';
 import { animatePageOnLoad, animateStart, reverseStartAnimation } from './views/gsap';
 import { getInputs, clearInputs, updateName, retrieveName, readNameStorage, disableInputName } from './views/formView';
@@ -28,6 +28,9 @@ const hello = (e) => {
 
 //////////GSAP ANIMATION ON PAGELOAD
 window.addEventListener('load', animatePageOnLoad);
+
+//////////UPDATE FOOTER YEAR
+updateYear();
 
 ///// ADDS AN EVENT CLASS TO ALL ELEMENTS IN DOMCLASSLIST. USED TO NULIFY DETAILS SLIDE ANIMATION. 
 addClass(dom.hasEvent, dom.hasEventChild);
