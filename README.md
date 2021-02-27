@@ -1,5 +1,6 @@
 # MyPQuest
- A web app for practising CBT pass questions.
+ A web app for practising CBT pass questions. 
+ Built using the MVC pattern. 
  
  ## Target Audience:
  Nigerian secondary school students transitioning to tertiary institutions.
