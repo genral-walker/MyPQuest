@@ -1,5 +1,4 @@
 import axios from 'axios';
-const cors = 'https://cors-anywhere.herokuapp.com/';
 
 export default class Form {
   constructor(values) {
